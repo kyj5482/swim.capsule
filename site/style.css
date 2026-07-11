@@ -1,0 +1,147 @@
+/* SWIM CAPSULE — cinematic aqua theme */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg0:#030d18;--bg1:#062036;--card:#0a2338cc;--line:#134a66;
+  --ink:#eaf6fb;--ink2:#9fc3d4;--dim:#6f93a6;
+  --aqua:#38e1ff;--aqua2:#7ff0ff;--deep:#0891b2;
+  --gold:#fcd34d;--silver:#d7e1ea;--bronze:#e8945a;
+  --r:18px;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Segoe UI",Roboto,sans-serif;
+  background:linear-gradient(180deg,var(--bg0),var(--bg1) 60%,#04182a);
+  color:var(--ink);min-height:100vh;line-height:1.65;overflow-x:hidden;
+}
+a{color:var(--aqua);text-decoration:none}
+a:hover{text-decoration:underline}
+b{font-variant-numeric:tabular-nums}
+.dim{color:var(--dim);font-size:.86em}
+
+/* ---- animated water backdrop ---- */
+.water{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.water span{position:absolute;left:-25%;width:150%;height:60vh;border-radius:45%;opacity:.10;background:radial-gradient(ellipse at center,var(--aqua) 0%,transparent 65%)}
+.w1{top:-18vh;animation:drift 16s ease-in-out infinite}
+.w2{top:28vh;opacity:.06;animation:drift 23s ease-in-out -6s infinite reverse}
+.w3{top:70vh;opacity:.08;animation:drift 19s ease-in-out -11s infinite}
+@keyframes drift{0%,100%{transform:translateX(-4%) rotate(-1.2deg)}50%{transform:translateX(4%) rotate(1.2deg)}}
+
+/* ---- nav ---- */
+.nav{display:flex;align-items:center;gap:1rem;padding:.9rem clamp(1rem,4vw,2.5rem);position:sticky;top:0;z-index:10;
+  background:#03101cd9;backdrop-filter:blur(10px);border-bottom:1px solid #0e3247}
+.brand{font-weight:800;letter-spacing:.06em;color:var(--ink);font-size:1.05rem}
+.brand span{color:var(--aqua)}
+.brand:hover{text-decoration:none}
+.nav-years{margin-left:auto;display:flex;gap:.15rem;overflow-x:auto;scrollbar-width:none}
+.nav-years a{padding:.35rem .7rem;border-radius:999px;color:var(--ink2);font-size:.92rem;white-space:nowrap}
+.nav-years a.on,.nav-years a:hover{background:#0d3852;color:var(--aqua2);text-decoration:none}
+.lang{border:1px solid var(--line);border-radius:999px;padding:.3rem .8rem;font-size:.85rem;color:var(--ink2)}
+.lang:hover{border-color:var(--aqua);color:var(--aqua);text-decoration:none}
+
+/* ---- hero ---- */
+.hero{max-width:960px;margin:0 auto;padding:clamp(3rem,9vh,6rem) 1.25rem 2rem;text-align:center}
+.yhero{padding-bottom:.5rem}
+.kicker{color:var(--aqua);letter-spacing:.35em;text-transform:uppercase;font-size:.8rem;font-weight:700}
+.hero h1{font-size:clamp(2.1rem,6.5vw,4.2rem);line-height:1.15;font-weight:900;margin:.7rem 0 1rem}
+.yhero h1{font-size:clamp(3.5rem,12vw,7rem)}
+.grad{background:linear-gradient(92deg,var(--aqua2),var(--aqua) 45%,#4f9cf7);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--ink2);max-width:620px;margin:0 auto;font-size:clamp(1rem,2.2vw,1.15rem)}
+
+/* stat tiles — hero numbers, ink text on cards */
+.stats{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;margin:2rem 0 .8rem}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:.9rem 1.3rem;min-width:96px}
+.stat b{display:block;font-size:clamp(1.7rem,4vw,2.4rem);font-weight:900;color:var(--ink)}
+.stat span{color:var(--ink2);font-size:.82rem;letter-spacing:.05em}
+
+/* ---- ticker ---- */
+.ticker{overflow:hidden;border-block:1px solid #0e3247;background:#04141fb0;padding:.55rem 0;margin:1.5rem 0}
+.tick-track{display:inline-flex;gap:2.2rem;white-space:nowrap;animation:tick 38s linear infinite;color:var(--ink2);font-size:.95rem;padding-left:100vw}
+.tick-dot{color:var(--aqua)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---- sections ---- */
+main{max-width:1060px;margin:0 auto;padding:0 1.25rem 4rem}
+.sec{margin:3.2rem 0}
+.sec h2{font-size:clamp(1.4rem,3.4vw,2rem);font-weight:800;margin-bottom:1rem}
+.sec h2::before{content:"— ";color:var(--aqua)}
+
+/* athletes */
+.ath-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem}
+.ath{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.3rem}
+.ath-top{display:flex;gap:.9rem;align-items:center;margin-bottom:.7rem}
+.avatar{width:56px;height:56px;flex:none;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:1.4rem;color:#032;
+  background:conic-gradient(from 210deg,var(--aqua),#4f9cf7,var(--aqua2),var(--aqua));box-shadow:0 0 18px #38e1ff44}
+.ath h3{font-size:1.15rem}
+.ath p{color:var(--ink2);font-size:.95rem}
+.mini-stats{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:.8rem;font-size:.95rem;align-items:center}
+
+/* ---- capsule grid ---- */
+.cap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.1rem;margin-top:1.2rem}
+.cap{display:flex;gap:1rem;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:1.15rem;color:var(--ink);transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .35s,box-shadow .35s;transition-delay:0s}
+.cap:hover{transform:translateY(-6px) scale(1.015);border-color:var(--aqua);box-shadow:0 14px 40px -18px #38e1ff88;text-decoration:none}
+.cap-ring{flex:none;width:74px;height:74px;border-radius:50%;display:grid;place-items:center;position:relative;
+  background:radial-gradient(circle at 35% 30%,#0f4a68,#052033 70%);border:2px solid var(--line)}
+.cap-ring::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:1.5px dashed #1d5f80;animation:spin 26s linear infinite}
+.cap:hover .cap-ring::after{border-color:var(--aqua)}
+@keyframes spin{to{transform:rotate(1turn)}}
+.cap-year{font-weight:900;font-size:1.25rem;color:var(--aqua2)}
+.cap-count{font-size:.85rem;color:var(--ink2)}
+.cap-top{font-size:.95rem;font-weight:600;margin:.15rem 0 .35rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cap-open{color:var(--aqua);font-size:.88rem;font-weight:700}
+.cap.sealed{opacity:.8;border-style:dashed}
+
+/* ---- timeline (year page) ---- */
+.tl{position:relative;padding-top:1.5rem}
+.tl::before{content:"";position:absolute;left:18px;top:0;bottom:0;width:2px;background:linear-gradient(var(--aqua),transparent 96%);opacity:.35}
+.ev{position:relative;margin:0 0 1.4rem 48px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.25rem 1.4rem}
+.ev::before{content:"";position:absolute;left:-37px;top:1.55rem;width:12px;height:12px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
+.ev.hl{border-color:#2b7ea1;box-shadow:0 0 0 1px #38e1ff33,0 12px 46px -22px #38e1ff66}
+.ev.hl::before{background:var(--gold);box-shadow:0 0 14px var(--gold)}
+.ev-head{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:.5rem;font-size:.85rem}
+.ev-date{font-weight:800;color:var(--aqua2);letter-spacing:.03em}
+.ev-ath{color:var(--ink2)}
+.ev h3{font-size:clamp(1.05rem,2.6vw,1.3rem);line-height:1.4;margin:.15rem 0}
+.ev-loc{color:var(--ink2);font-size:.9rem;margin-bottom:.4rem}
+.ev-story{color:var(--ink2);font-size:.97rem}
+
+.pill{display:inline-flex;align-items:center;gap:.25em;border-radius:999px;padding:.1rem .6rem;font-size:.78rem;font-weight:700;border:1px solid var(--line);color:var(--ink2);background:#07293e}
+.pill.gold{color:#1a1503;background:var(--gold);border-color:var(--gold)}
+.pill.silver{color:#10202c;background:var(--silver);border-color:var(--silver)}
+.pill.bronze{color:#241203;background:var(--bronze);border-color:var(--bronze)}
+.pill.rec{color:#031c22;background:var(--aqua);border-color:var(--aqua)}
+.pill.ok{color:#9ff0c6;border-color:#1d6b47}
+.pill.tbc{color:#f0d29f;border-color:#6b551d}
+.pill.finalist,.pill.medal{color:var(--aqua2);border-color:#1d5f80}
+
+/* result table */
+.res{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.93rem}
+.res th{text-align:left;color:var(--dim);font-weight:600;font-size:.8rem;letter-spacing:.06em;padding:.3rem .5rem;border-bottom:1px solid var(--line)}
+.res td{padding:.45rem .5rem;border-bottom:1px solid #0d3247}
+.res tr:last-child td{border-bottom:0}
+
+.src{margin:.5rem 0 0;padding-left:1.1rem;font-size:.9rem}
+.src li{margin:.2rem 0}
+.media-slot{margin-top:.8rem;border:1.5px dashed #1d5f80;border-radius:12px;padding:.6rem .9rem;font-size:.88rem;display:flex;flex-wrap:wrap;gap:.6rem}
+.media-item{background:#07293e;border-radius:8px;padding:.25rem .6rem}
+
+.yr-nav{display:flex;justify-content:space-between;gap:1rem;margin:2.5rem 0 0 48px;font-weight:700}
+
+/* ---- footer ---- */
+.foot{text-align:center;padding:2.5rem 1rem 3rem;color:var(--ink2);border-top:1px solid #0e3247;margin-top:2rem}
+
+/* ---- reveal animation (JS가 있을 때만 숨김 — noscript/크롤러는 항상 전체 노출) ---- */
+html.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+html.js .reveal.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+@media (max-width:560px){
+  .tl::before{left:10px}
+  .ev{margin-left:32px}
+  .ev::before{left:-27px}
+  .yr-nav{margin-left:32px}
+}

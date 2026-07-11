@@ -1,0 +1,30 @@
+{
+  "$note": "capsule-scrape 스킬의 이어하기(resume) 상태 파일. 세션/토큰이 끊겨도 이 파일을 읽고 pending 항목부터 재개한다.",
+  "last_run": "2026-07-11",
+  "covered_periods": [],
+  "captured_urls": [],
+  "pending_captures": [
+    {
+      "event_id": "2023-jaei-presidents-cup-42",
+      "url": "http://www.hyundaiilbo.com/news/articleView.html?idxno=547739",
+      "kind": "news",
+      "dest": "capsules/2023/2023-jaei-presidents-cup-42/source.html",
+      "note": "이 원격 환경에서는 네트워크 정책상 캡처 불가 — 로컬(크롬 확장 가능 환경)에서 실행"
+    },
+    {
+      "event_id": "2024-jia-jrsports-53-selection",
+      "url": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2114897",
+      "kind": "news",
+      "dest": "capsules/2024/2024-jia-jrsports-53-selection/source.html",
+      "note": "동일 — 로컬에서 캡처"
+    }
+  ],
+  "search_backlog": [
+    { "athlete": "jaei", "period": "2022-01-01~2022-12-31", "goal": "3학년 시즌 전국대회 평영 결승 기록 + 접영 3위 대회 특정 (korswim.co.kr 기록)" },
+    { "athlete": "jaei", "period": "2023-09-01~2023-12-31", "goal": "대통령배 이후 전국대회 1·2위 기록 목록화" },
+    { "athlete": "jia", "period": "2022-01-01~2023-12-31", "goal": "마스터즈/생활체육 대회 기록, 접영 50m 한국신기록 대회·일자·기록 특정" },
+    { "athlete": "jia", "period": "2024-04-01~2024-06-30", "goal": "제53회 소년체전 접영 세부종목·기록·결승 영상(유튜브 t=초 링크)" },
+    { "athlete": "both", "period": "2025-01-01~2026-07-11", "goal": "USA Swimming Data Hub (Jaei 1045380 / Jia 1045382) 대회별 기록 수집" },
+    { "athlete": "both", "period": "2022-01-01~2024-12-31", "goal": "대회 중계/기록 유튜브 영상에서 해당 경기 시작 초 t= 링크 수집" }
+  ]
+}

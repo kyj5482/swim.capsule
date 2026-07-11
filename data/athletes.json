@@ -1,0 +1,43 @@
+{
+  "athletes": [
+    {
+      "id": "jaei",
+      "birthdate": "2013-02-27",
+      "korea": {
+        "name": "김재이",
+        "teams": ["청계초등학교", "과천시 청소년수련관 (과천도시공사 마스터반)"],
+        "region": "경기도 과천시"
+      },
+      "usa": {
+        "name": "Jaei Kim",
+        "team": "NOVA (Novaquatics)",
+        "region": "Irvine, CA",
+        "usa_swimming_id": "1045380"
+      },
+      "main_strokes_ko": ["평영", "접영"],
+      "main_strokes_en": ["Breaststroke", "Butterfly"],
+      "bio_ko": "초등학교 3학년(2022년)에 선수 생활을 시작해 전국대회 평영 결승 무대에 꾸준히 올랐다. 4학년(2023년) 전국소년체전에서 동메달 2개를 획득했고, 제42회 대통령배 전국수영대회 평영 50m 금메달·100m 은메달을 시작으로 그해 전국대회에서 꾸준히 1~2위를 지켰다. 현재는 미국 캘리포니아 어바인의 NOVA(Novaquatics)에서 훈련 중이다.",
+      "bio_en": "Started competitive swimming in 3rd grade (2022), consistently reaching national finals in breaststroke. In 4th grade (2023) she won two bronze medals at the Korean National Youth Sports Festival, then gold (50m breast) and silver (100m breast) at the 42nd President's Cup National Swimming Championships, maintaining top-2 finishes at national meets throughout the year. Now training with NOVA (Novaquatics) in Irvine, CA."
+    },
+    {
+      "id": "jia",
+      "birthdate": "2014-11-11",
+      "birthdate_note": "요청서에는 2024-11-11로 기재되어 있으나 경력(2022년 초등 2학년)과 모순되어 2014-11-11로 추정 기재함. 확인 필요.",
+      "korea": {
+        "name": "김지아",
+        "teams": ["청계초등학교", "과천시 청소년수련관 (과천도시공사 마스터반)"],
+        "region": "경기도 과천시"
+      },
+      "usa": {
+        "name": "Jia Kim",
+        "team": "NOVA (Novaquatics)",
+        "region": "Irvine, CA",
+        "usa_swimming_id": "1045382"
+      },
+      "main_strokes_ko": ["접영", "평영"],
+      "main_strokes_en": ["Butterfly", "Breaststroke"],
+      "bio_ko": "초등학교 2학년(2022년)부터 마스터즈·생활체육 대회에서 두각을 나타내 전국생활체육대축전에서 메달을 획득했고, 2023년 생활체육 부문 접영 50m 한국신기록을 세웠다. 4학년(2024년)에는 제53회 전국소년체전 경기도 대표로 선발되어 접영으로 결승까지 진출했다. 현재는 미국 캘리포니아 어바인의 NOVA(Novaquatics)에서 훈련 중이다.",
+      "bio_en": "Rose through masters/community meets from 2nd grade (2022), medaling at the National Community Sports Festival, and set a Korean national record (community division) in the 50m butterfly in 2023. In 4th grade (2024) she was selected for the Gyeonggi Province team at the 53rd National Youth Sports Festival, reaching the butterfly final. Now training with NOVA (Novaquatics) in Irvine, CA."
+    }
+  ]
+}
