@@ -230,15 +230,15 @@
     {
       "id": "2024-jia-jrsports-53-selection",
       "year": 2024,
-      "date": "2024-04-06",
+      "date": "2024-04-05",
       "date_precision": "day",
       "athletes": ["jia"],
       "type": "news",
       "highlight": true,
       "title_ko": "제53회 전국소년체전 경기도 수영 대표 선발 — 과천 수련관 마스터반 3명",
       "title_en": "Selected for Team Gyeonggi, 53rd National Youth Sports Festival — one of three from the Gwacheon master class",
-      "location_ko": "안산 대부복지체육센터 수영장 (선발전 4.4–6)",
-      "location_en": "Ansan Daebu Sports Center pool (trials Apr 4–6)",
+      "location_ko": "안산 대부동 복지체육센터 수영장 (경영 선발전 4.4–5)",
+      "location_en": "Ansan Daebu Sports Center pool (swimming trials Apr 4–5)",
       "results": [],
       "story_ko": "과천도시공사 청소년수련관 마스터반(이상현 강사) 소속 3명이 제53회 전국소년체육대회 경기도 수영 대표로 선발됐고, 김지아(청계초 4)가 그 주인공 중 하나였다. 선발전에서 접영 50m 2위에 올랐고 접영 100m에서도 선발돼 두 종목 출전권을 얻었다. 오빠 김재이(청계초 5)도 평영 100m 2위로 2년 연속 대표 선발.",
       "story_en": "Three swimmers from the Gwacheon Youth Training Center master class (coach Lee Sang-hyun) made the Gyeonggi provincial team for the 53rd National Youth Sports Festival — 4th-grader Jia among them. She placed 2nd in the 50m butterfly at the trials and also qualified in the 100m butterfly, earning entries in two events. Her brother Jaei (5th grade) also made the team — 2nd in the 100m breaststroke, his second consecutive selection.",
@@ -248,6 +248,15 @@
           "publisher": "이뉴스투데이",
           "url": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2114897",
           "title": "과천도시공사 청소년수련관마스터반 3명 제53회 전국소년체육대회 경기도 수영 대표 선발",
+          "archived": "capsules/2024/2024-jia-jrsports-53-selection/",
+          "status": "captured"
+        },
+        {
+          "kind": "official",
+          "publisher": "경기도수영연맹",
+          "url": "http://www.gswimming.com/41/23",
+          "title": "제53회 전국소년체육대회 경기도대표 최종선발전 개최 통보",
+          "note": "경영 선발전 2024.4.4(목)–4.5(금) 안산 대부동 복지체육센터 수영장 확인 (4.6은 다이빙). 기사에 언급된 '4일부터 6일까지'는 다이빙 포함 전체 기간.",
           "archived": "capsules/2024/2024-jia-jrsports-53-selection/",
           "status": "captured"
         }
@@ -278,7 +287,7 @@
     {
       "id": "2024-siblings-gyeonggi",
       "year": 2024,
-      "date": "2024-04-06",
+      "date": "2024-04-05",
       "date_precision": "day",
       "athletes": ["jaei", "jia"],
       "type": "milestone",
@@ -288,8 +297,8 @@
       "location_ko": "경기도 → 전국소년체전",
       "location_en": "Gyeonggi → National Youth Sports Festival",
       "results": [],
-      "story_ko": "남매가 나란히 전국소년체전 경기도 대표로 발탁된, 지역에서도 화제가 된 특별한 스토리. 선발전(4.4–6, 안산)에서 김재이 평영 100m 2위, 김지아 접영 50m 2위·접영 100m 동반 선발. 관련 보도·기록을 계속 수집한다.",
-      "story_en": "A story that made local headlines: two siblings selected together for Team Gyeonggi at the National Youth Sports Festival. At the April 4–6 trials in Ansan, Jaei took 2nd in the 100m breaststroke and Jia 2nd in the 50m butterfly (also qualifying in the 100m fly). Related coverage is still being collected.",
+      "story_ko": "남매가 나란히 전국소년체전 경기도 대표로 발탁된, 지역에서도 화제가 된 특별한 스토리. 선발전(4.4–5, 안산)에서 김재이 평영 100m 2위, 김지아 접영 50m 2위·접영 100m 동반 선발. 관련 보도·기록을 계속 수집한다.",
+      "story_en": "A story that made local headlines: two siblings selected together for Team Gyeonggi at the National Youth Sports Festival. At the April 4–5 trials in Ansan, Jaei took 2nd in the 100m breaststroke and Jia 2nd in the 50m butterfly (also qualifying in the 100m fly). Related coverage is still being collected.",
       "sources": [
         {
           "kind": "news",
