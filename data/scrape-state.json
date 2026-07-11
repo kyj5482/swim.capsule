@@ -2,15 +2,10 @@
   "$note": "capsule-scrape 스킬의 이어하기(resume) 상태 파일. 세션/토큰이 끊겨도 이 파일을 읽고 pending 항목부터 재개한다.",
   "last_run": "2026-07-11",
   "covered_periods": [],
-  "captured_urls": [],
+  "captured_urls": [
+    "http://www.hyundaiilbo.com/news/articleView.html?idxno=547739"
+  ],
   "pending_captures": [
-    {
-      "event_id": "2023-jaei-presidents-cup-42",
-      "url": "http://www.hyundaiilbo.com/news/articleView.html?idxno=547739",
-      "kind": "news",
-      "dest": "capsules/2023/2023-jaei-presidents-cup-42/source.html",
-      "note": "이 원격 환경에서는 네트워크 정책상 캡처 불가 — 로컬(크롬 확장 가능 환경)에서 실행"
-    },
     {
       "event_id": "2024-jia-jrsports-53-selection",
       "url": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2114897",

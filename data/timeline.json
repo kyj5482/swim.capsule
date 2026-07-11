@@ -92,8 +92,8 @@
           "publisher": "현대일보",
           "url": "http://www.hyundaiilbo.com/news/articleView.html?idxno=547739",
           "note": "대통령배 기사 내 '지난 5월 전국소년체전 같은 종목 동메달 2개' 언급",
-          "archived": "",
-          "status": "snippet"
+          "archived": "capsules/2023/2023-jaei-presidents-cup-42/",
+          "status": "captured"
         }
       ],
       "media": [],
@@ -121,8 +121,8 @@
           "publisher": "현대일보",
           "url": "http://www.hyundaiilbo.com/news/articleView.html?idxno=547739",
           "note": "대통령배 기사 내 언급",
-          "archived": "",
-          "status": "snippet"
+          "archived": "capsules/2023/2023-jaei-presidents-cup-42/",
+          "status": "captured"
         }
       ],
       "media": [],
@@ -153,7 +153,7 @@
           "url": "http://www.hyundaiilbo.com/news/articleView.html?idxno=547739",
           "title": "과천시 청소년 수영선수 김재이, 대통령배 금메달",
           "archived": "capsules/2023/2023-jaei-presidents-cup-42/",
-          "status": "pending"
+          "status": "captured"
         }
       ],
       "media": [],
