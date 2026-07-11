@@ -84,7 +84,7 @@ function eventLd(e, lang) {
 }
 
 /* ---------- 공통 레이아웃 ---------- */
-function page({ lang, title, desc, rel, altRel, canonicalPath, jsonld, body, ogType = 'website' }) {
+function page({ lang, title, desc, rel, altRel, canonicalPath, jsonld, body, ogType = 'website', extraCss = '', extraJs = '' }) {
   const canonical = `${SITE_BASE}/${canonicalPath}`;
   const altLang = lang === 'ko' ? 'en' : 'ko';
   const altUrl = `${SITE_BASE}/${altRel}`;
@@ -108,6 +108,7 @@ function page({ lang, title, desc, rel, altRel, canonicalPath, jsonld, body, ogT
 <meta name="robots" content="index,follow">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
 <link rel="stylesheet" href="${rel}assets/style.css">
+${extraCss ? `<link rel="stylesheet" href="${rel}assets/${extraCss}">` : ''}
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': jsonld })}</script>
 </head>
 <body data-lang="${lang}">
@@ -118,15 +119,23 @@ ${body}
   <p class="dim">${t(lang, `마지막 봉인 갱신: ${BUILD_DATE} · 원본 기록은 저장소 capsules/ 폴더에 영구 보관됩니다.`, `Last sealed: ${BUILD_DATE} · Original sources are preserved forever in the repository's capsules/ folder.`)}</p>
 </footer>
 <script src="${rel}assets/app.js" defer></script>
+${extraJs ? `<script src="${rel}assets/${extraJs}" defer></script>` : ''}
 </body>
 </html>`;
 }
 
 function nav(lang, rel, altHref, current) {
+  const base = `${rel}${lang === 'en' ? 'en/' : ''}`;
   return `<nav class="nav">
-  <a class="brand" href="${rel}${lang === 'en' ? 'en/' : ''}">🌊 SWIM<span>CAPSULE</span></a>
-  <div class="nav-years">${years.map(y =>
-    `<a href="${rel}${lang === 'en' ? 'en/' : ''}${y}/" class="${current === String(y) ? 'on' : ''}">${y}</a>`).join('')}
+  <a class="brand" href="${base}">🌊 SWIM<span>CAPSULE</span></a>
+  <div class="nav-years">
+    ${athletes.map(a =>
+    `<a href="${base}${a.id}/" class="nav-ath ${current === a.id ? 'on' : ''}">${t(lang, a.korea.name.slice(1), a.usa.name.split(' ')[0])}</a>`).join('')}
+    <span class="nav-sep" aria-hidden="true"></span>
+    ${years.map(y =>
+    `<a href="${base}${y}/" class="${current === String(y) ? 'on' : ''}">${y}</a>`).join('')}
+    <span class="nav-sep" aria-hidden="true"></span>
+    <a href="${base}ride/" class="nav-ride ${current === 'ride' ? 'on' : ''}">🎢 ${t(lang, '라이드', 'Ride')}</a>
   </div>
   <a class="lang" href="${altHref}" lang="${lang === 'ko' ? 'en' : 'ko'}">${lang === 'ko' ? 'EN' : '한국어'}</a>
 </nav>`;
@@ -193,7 +202,8 @@ function indexPage(lang) {
     <div class="mini-stats">
       ${[['🥇', s.gold], ['🥈', s.silver], ['🥉', s.bronze]].filter(([, n]) => n > 0).map(([i, n]) => `<span>${i}×<b>${n}</b></span>`).join('')}
       <span class="dim">${t(lang, '주종목', 'Strokes')}: ${esc((lang === 'ko' ? a.main_strokes_ko : a.main_strokes_en).join(', '))}</span>
-    </div></article>`;
+    </div>
+    <p class="ath-cta"><a href="${a.id}/">${t(lang, `${a.korea.name}의 개인 캡슐 열기`, `Open ${a.usa.name}'s capsule`)} →</a></p></article>`;
   }).join('\n');
 
   const capsules = years.map((y, i) => {
@@ -238,6 +248,12 @@ ${nav(lang, rel, lang === 'ko' ? 'en/' : '../', 'home')}
 <section class="sec"><h2>${t(lang, '타임캡슐', 'The capsules')}</h2>
 <p class="dim">${t(lang, '연도별로 봉인된 캡슐을 열면 그해의 대회·뉴스·기록이 시간 순서로 펼쳐집니다.', 'Open a year to unfold its meets, headlines and times in order.')}</p>
 <div class="cap-grid">${capsules}</div></section>
+<section class="sec"><a class="ride-banner reveal" href="ride/">
+  <span class="rb-emoji" aria-hidden="true">🎢</span>
+  <span class="rb-txt"><b>${t(lang, '스페셜 — 캡슐 라이드', 'Special — The Capsule Ride')}</b>
+  ${t(lang, '롤러코스터 맨 앞자리 시점으로 2022년부터 지금까지의 기록 사이를 통과해 보세요.', 'Ride the front seat through every record from 2022 to now, first-person.')}</span>
+  <span class="rb-go">${t(lang, '탑승하기', 'Hop on')} →</span>
+</a></section>
 </main>`;
 
   return page({
@@ -295,11 +311,182 @@ ${evs.map(e => eventCard(e, lang, rel)).join('\n')}
   });
 }
 
+/* ---------- 선수별 개인 캡슐 페이지 ---------- */
+function athletePage(a, lang) {
+  const rel = '../' + (lang === 'en' ? '../' : '');
+  const mine = timeline.filter(e => e.athletes.includes(a.id));
+  const s = stats(mine);
+  const myYears = [...new Set(mine.map(e => e.year))].sort();
+  const nameKo = a.korea.name, nameEn = a.usa.name;
+  const dispName = t(lang, nameKo, nameEn);
+  const sib = athletes.find(x => x.id !== a.id);
+
+  const title = t(lang,
+    `${nameKo} (${nameEn}) — 개인 수영 타임캡슐 | SWIM CAPSULE`,
+    `${nameEn} (${nameKo}) — personal swimming time capsule | SWIM CAPSULE`);
+  const desc = t(lang,
+    `${nameKo}의 수영 기록 ${mine.length}건: ${a.bio_ko.slice(0, 80)}…`,
+    `${mine.length} archived swimming records of ${nameEn}: ${a.bio_en.slice(0, 90)}…`);
+
+  const yearSections = myYears.map(y => {
+    const evs = mine.filter(e => e.year === y);
+    return `<section class="sec ath-year" id="y${y}">
+  <h2>${y} <span class="dim">· ${t(lang, `${evs.length}건`, `${evs.length} ${evs.length === 1 ? 'entry' : 'entries'}`)}</span></h2>
+  <div class="tl">${evs.map(e => eventCard(e, lang, rel)).join('\n')}</div>
+</section>`;
+  }).join('\n');
+
+  const body = `
+${nav(lang, rel, `${rel}${lang === 'ko' ? 'en/' : ''}${a.id}/`, a.id)}
+<header class="hero yhero">
+  <p class="kicker reveal">${t(lang, '개인 타임캡슐', 'Personal time capsule')}</p>
+  <h1 class="reveal"><span class="grad">${esc(dispName)}</span></h1>
+  <p class="sub reveal">${esc(t(lang, nameEn, nameKo))} · ${esc(t(lang, a.korea.region + ' → ' + a.usa.region, a.usa.region + ' — from ' + a.korea.region))}</p>
+  <p class="sub reveal">${esc(t(lang, a.bio_ko, a.bio_en))}</p>
+  <div class="stats reveal">
+    ${[[t(lang, '금메달', 'Gold'), s.gold], [t(lang, '은메달', 'Silver'), s.silver], [t(lang, '동메달', 'Bronze'), s.bronze], [t(lang, '한국신기록', 'KOR Record'), s.records], [t(lang, '캡슐 기록', 'Entries'), mine.length]]
+      .filter(([, n]) => n > 0)
+      .map(([l, n]) => `<div class="stat"><b data-count="${n}">${n}</b><span>${l}</span></div>`).join('')}
+  </div>
+  <p class="dim reveal">${t(lang, '주종목', 'Main strokes')}: ${esc((lang === 'ko' ? a.main_strokes_ko : a.main_strokes_en).join(', '))} · ${t(lang, 'USA Swimming ID', 'USA Swimming ID')}: ${esc(a.usa.usa_swimming_id)}</p>
+</header>
+<main>
+${yearSections}
+<div class="yr-nav">
+  <a href="${rel}${lang === 'en' ? 'en/' : ''}${sib.id}/">${t(lang, `${sib.korea.name}의 캡슐`, `${sib.usa.name}'s capsule`)} →</a>
+  <a href="${rel}${lang === 'en' ? 'en/' : ''}">${t(lang, '전체 캡슐', 'All capsules')}</a>
+  <a href="${rel}${lang === 'en' ? 'en/' : ''}ride/">🎢 ${t(lang, '캡슐 라이드', 'Capsule Ride')}</a>
+</div>
+</main>`;
+
+  return page({
+    lang, title, desc, rel,
+    altRel: lang === 'ko' ? `en/${a.id}/` : `${a.id}/`,
+    canonicalPath: lang === 'ko' ? `${a.id}/` : `en/${a.id}/`,
+    ogType: 'profile',
+    jsonld: [
+      personLd(a, lang),
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'SWIM CAPSULE', item: `${SITE_BASE}/${lang === 'en' ? 'en/' : ''}` },
+        { '@type': 'ListItem', position: 2, name: dispName, item: `${SITE_BASE}/${lang === 'en' ? 'en/' : ''}${a.id}/` },
+      ]},
+      ...mine.map(e => eventLd(e, lang)).filter(Boolean),
+    ],
+    body,
+  });
+}
+
+/* ---------- 캡슐 라이드 (1인칭 POV 스크롤 체험) ---------- */
+function rideStation(e, lang, rel, idx) {
+  const ty = TYPE[e.type] || TYPE.milestone;
+  const names = e.athletes.map(id => t(lang, athleteById[id].korea.name, athleteById[id].usa.name)).join(' · ');
+  const medals = (e.results || []).map(r => MEDAL[r.medal]).filter(Boolean)
+    .map(m => `<span class="pill ${m.cls}">${m.icon} ${t(lang, m.ko, m.en)}</span>`).join(' ');
+  const links = [];
+  for (const s of (e.sources || [])) {
+    if (s.kind === 'youtube') links.push(`<a href="${esc(s.url)}" target="_blank" rel="noopener">🎬 ${t(lang, '경기 영상', 'Race video')}</a>`);
+  }
+  const src = (e.sources || [])[0];
+  if (src?.url) links.push(`<a href="${esc(src.url)}" target="_blank" rel="noopener">${src.kind === 'news' ? '📰' : '📄'} ${t(lang, '원문', 'Source')}</a>`);
+  if (src?.archived) links.push(`<a href="${rel}archive/${esc(src.archived.replace(/^capsules\//, ''))}">🗄 ${t(lang, '보관본', 'Archive')}</a>`);
+  links.push(`<a href="${rel}${lang === 'en' ? 'en/' : ''}${e.year}/#${esc(e.id)}">🔍 ${t(lang, '자세히', 'Details')}</a>`);
+
+  return `<article class="st ${e.highlight ? 'st-hl' : ''}" data-i="${idx}" data-year="${e.year}" id="ride-${esc(e.id)}">
+  <div class="st-inner">
+    <p class="st-date">${fmtDate(e, lang)} <span class="pill type">${ty.icon} ${t(lang, ty.ko, ty.en)}</span></p>
+    <h3>${esc(L(e, 'title', lang))}</h3>
+    <p class="st-ath">${esc(names)} · 📍 ${esc(L(e, 'location', lang))}</p>
+    ${medals ? `<p class="st-medals">${medals}</p>` : ''}
+    <p class="st-story">${esc(L(e, 'story', lang))}</p>
+    <p class="st-links">${links.join(' ')}</p>
+  </div>
+</article>`;
+}
+
+function ridePage(lang) {
+  const rel = '../' + (lang === 'en' ? '../' : '');
+  const title = t(lang,
+    '캡슐 라이드 — 1인칭으로 시간을 통과하는 수영 타임캡슐 | SWIM CAPSULE',
+    'The Capsule Ride — a first-person journey through the swimming time capsule | SWIM CAPSULE');
+  const desc = t(lang,
+    '롤러코스터 1인칭 시점처럼 2022년부터 지금까지, 김재이·김지아의 기록 사이를 통과하는 스페셜 라이드. 구간마다 뉴스·영상·기록이 큐레이터처럼 펼쳐집니다.',
+    'A first-person POV ride from 2022 to now — glide past every meet, headline and record of Jaei & Jia Kim, curated station by station.');
+
+  // 정거장: 연도 게이트 + 이벤트
+  const stations = [];
+  let lastYear = null, idx = 0;
+  stations.push(`<div class="st gate" data-i="${idx++}" data-year="${years[0]}">
+  <div class="st-inner gate-inner">
+    <p class="kicker">SWIM CAPSULE RIDE</p>
+    <h2>${t(lang, '안전바를 내려주세요', 'Lower the safety bar')}</h2>
+    <p>${t(lang, '지금부터 2022년의 물속으로 입수합니다. 스크롤하면 앞으로 나아갑니다.', 'We are about to dive into 2022. Scroll to move forward.')}</p>
+    <p class="gate-hint">▼ ${t(lang, '스크롤', 'Scroll')}</p>
+  </div>
+</div>`);
+  for (const e of timeline) {
+    if (e.year !== lastYear) {
+      lastYear = e.year;
+      stations.push(`<div class="st gate gate-year" data-i="${idx++}" data-year="${e.year}">
+  <div class="st-inner gate-inner"><span class="gate-num">${e.year}</span><p>${t(lang, `${e.year}년 구간 진입`, `Entering ${e.year}`)}</p></div>
+</div>`);
+    }
+    stations.push(rideStation(e, lang, rel, idx++));
+  }
+  stations.push(`<div class="st gate finale" data-i="${idx++}" data-year="${years[years.length - 1]}">
+  <div class="st-inner gate-inner">
+    <h2>🌊 ${t(lang, '라이드 종점', 'End of the line — for now')}</h2>
+    <p>${t(lang, '다음 캡슐은 아직 봉인 중입니다. 남매의 레이스는 계속됩니다.', 'The next capsule is still being sealed. The siblings are still racing.')}</p>
+    <p class="st-links"><a href="${rel}${lang === 'en' ? 'en/' : ''}">${t(lang, '전체 캡슐로', 'Back to all capsules')}</a> <a href="#top">${t(lang, '다시 타기', 'Ride again')}</a></p>
+  </div>
+</div>`);
+
+  const total = idx;
+  const yearsAttr = years.join(',');
+
+  const body = `
+${nav(lang, rel, `${rel}${lang === 'ko' ? 'en/' : ''}ride/`, 'ride')}
+<header class="hero yhero" id="top">
+  <p class="kicker reveal">${t(lang, '스페셜 — 1인칭 시점', 'Special — first-person POV')}</p>
+  <h1 class="reveal"><span class="grad">${t(lang, '캡슐 라이드', 'The Capsule Ride')}</span></h1>
+  <p class="sub reveal">${t(lang,
+    '롤러코스터의 맨 앞자리에서 시간을 통과하듯 — 스크롤할수록 기록 사이를 헤엄쳐 나아갑니다. 구간마다 뉴스, 영상, 기록이 큐레이션되어 기다립니다.',
+    'Like the front seat of a rollercoaster through time — the further you scroll, the deeper you swim between the records. Every stretch curates its news, videos and times.')}</p>
+  <p class="dim reveal">${t(lang, 'JS·모션 축소 환경에서는 정거장이 일반 목록으로 표시됩니다.', 'Without JS (or with reduced motion) the stations render as a plain list.')}</p>
+</header>
+<div class="ride" id="ride" data-total="${total}" data-years="${yearsAttr}">
+  <div class="ride-cam">
+    <div class="lane-lines" aria-hidden="true"></div>
+    <div class="ride-track">
+      ${stations.join('\n')}
+    </div>
+    <div class="ride-hud" aria-hidden="true">
+      <div class="hud-bar"><span class="hud-fill"></span></div>
+      <span class="hud-year"></span>
+      <button type="button" class="hud-auto">▶ ${t(lang, '자동 주행', 'Auto-ride')}</button>
+    </div>
+  </div>
+</div>`;
+
+  return page({
+    lang, title, desc, rel,
+    altRel: lang === 'ko' ? 'en/ride/' : 'ride/',
+    canonicalPath: lang === 'ko' ? 'ride/' : 'en/ride/',
+    jsonld: [
+      { '@type': 'WebPage', name: title, url: `${SITE_BASE}/${lang === 'en' ? 'en/' : ''}ride/`, description: desc },
+    ],
+    body,
+    extraCss: 'ride.css',
+    extraJs: 'ride.js',
+  });
+}
+
 /* ---------- 빌드 ---------- */
 fs.rmSync(DIST, { recursive: true, force: true });
 fs.mkdirSync(path.join(DIST, 'assets'), { recursive: true });
 fs.copyFileSync(path.join(ROOT, 'site/style.css'), path.join(DIST, 'assets/style.css'));
 fs.copyFileSync(path.join(ROOT, 'site/app.js'), path.join(DIST, 'assets/app.js'));
+fs.copyFileSync(path.join(ROOT, 'site/ride.css'), path.join(DIST, 'assets/ride.css'));
+fs.copyFileSync(path.join(ROOT, 'site/ride.js'), path.join(DIST, 'assets/ride.js'));
 fs.cpSync(path.join(ROOT, 'capsules'), path.join(DIST, 'archive'), { recursive: true });
 fs.writeFileSync(path.join(DIST, '.nojekyll'), '');
 
@@ -313,6 +500,9 @@ function emit(relPath, html) {
 emit('', indexPage('ko'));
 emit('en', indexPage('en'));
 for (const y of years) { emit(String(y), yearPage(y, 'ko')); emit(path.join('en', String(y)), yearPage(y, 'en')); }
+for (const a of athletes) { emit(a.id, athletePage(a, 'ko')); emit(path.join('en', a.id), athletePage(a, 'en')); }
+emit('ride', ridePage('ko'));
+emit(path.join('en', 'ride'), ridePage('en'));
 
 fs.writeFileSync(path.join(DIST, 'sitemap.xml'),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
