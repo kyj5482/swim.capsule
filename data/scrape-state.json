@@ -35,8 +35,8 @@
     },
     {
       "athlete": "both",
-      "period": "2025-01-01~2026-07-11",
-      "goal": "USA Swimming Data Hub (Jaei 1045380 / Jia 1045382) 대회별 기록 수집",
+      "period": "2024-07-01~2026-07-11",
+      "goal": "USA Swimming Data Hub (Jaei 1045380 / Jia 1045382) 대회별 기록 수집 — 사용자 확인: 2024년 7월부터 NOVA 소속으로 꾸준히 대회 출전·입상",
       "progress_2026_07_11": "data.usaswimming.org는 SPA라 curl 캡처 불가 — 실제 브라우저 세션 필요. SwimCloud는 Cloudflare 차단(403). 후보 프로필 swimcloud.com/swimmer/1591617 (Jia Kim — 동일인 여부 미확인, 브라우저로 소속팀 NOVA 여부 확인할 것)."
     },
     {

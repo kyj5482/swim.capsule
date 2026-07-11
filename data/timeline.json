@@ -314,9 +314,9 @@
     },
     {
       "id": "2025-us-nova-start",
-      "year": 2025,
-      "date": "2025-01-01",
-      "date_precision": "year",
+      "year": 2024,
+      "date": "2024-07-01",
+      "date_precision": "month",
       "athletes": ["jaei", "jia"],
       "type": "milestone",
       "highlight": true,
@@ -325,8 +325,8 @@
       "location_ko": "미국 캘리포니아 어바인",
       "location_en": "Irvine, California, USA",
       "results": [],
-      "story_ko": "한국에서의 기록을 뒤로하고 미국 캘리포니아 어바인의 명문 클럽 NOVA(Novaquatics)에 합류. 새로운 무대에서 남매의 두 번째 챕터가 시작됐다. USA Swimming 공식 기록은 Data Hub에서 수집한다 (Jaei #1045380, Jia #1045382).",
-      "story_en": "Leaving their Korean records behind, the siblings joined NOVA (Novaquatics) in Irvine, CA — one of America's storied age-group programs. Chapter two begins. Official results tracked via the USA Swimming Data Hub (Jaei #1045380, Jia #1045382).",
+      "story_ko": "2024년 7월, 한국에서의 기록을 뒤로하고 미국 캘리포니아 어바인의 명문 클럽 NOVA(Novaquatics)에 합류. 새로운 무대에서 남매의 두 번째 챕터가 시작됐고, 이후 꾸준히 대회에 출전하며 기록을 쌓고 있다. USA Swimming 공식 기록은 Data Hub에서 수집한다 (Jaei #1045380, Jia #1045382).",
+      "story_en": "In July 2024, leaving their Korean records behind, the siblings joined NOVA (Novaquatics) in Irvine, CA — one of America's storied age-group programs. Chapter two begins, with steady meet-by-meet progress ever since. Official results tracked via the USA Swimming Data Hub (Jaei #1045380, Jia #1045382).",
       "sources": [
         {
           "kind": "results",
