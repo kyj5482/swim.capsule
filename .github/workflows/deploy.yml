@@ -37,5 +37,10 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # 저장소에서 Pages가 아직 활성화되지 않았으면 활성화 시도
+      # (토큰 권한 부족으로 실패하면 Settings → Pages → Source: GitHub Actions 수동 설정 필요)
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - id: deployment
         uses: actions/deploy-pages@v4
