@@ -1,0 +1,95 @@
+/* SWIM CAPSULE — Capsule Ride (1인칭 POV 스크롤 체험)
+   기본(폴백): 정거장을 일반 목록으로 표시 — JS가 .ride-3d를 붙여야만 3D 모드 */
+
+/* ---- 정거장 카드 (공통/폴백) ---- */
+.ride-track{max-width:720px;margin:0 auto;padding:0 1.25rem 3rem}
+.st{margin:1.3rem 0}
+.st-inner{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.25rem 1.4rem;
+  backdrop-filter:blur(6px)}
+.st-hl .st-inner{border-color:#2b7ea1;box-shadow:0 0 0 1px #38e1ff33,0 12px 46px -22px #38e1ff66}
+.st-date{font-weight:800;color:var(--aqua2);font-size:.85rem;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.st h3{font-size:clamp(1.02rem,2.4vw,1.22rem);line-height:1.4;margin:.35rem 0 .2rem}
+.st-ath{color:var(--ink2);font-size:.88rem}
+.st-medals{margin:.4rem 0 0}
+.st-story{color:var(--ink2);font-size:.93rem;margin-top:.45rem;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.st-links{margin-top:.7rem;display:flex;flex-wrap:wrap;gap:.45rem .9rem;font-size:.88rem;font-weight:700}
+.st-links a{background:#07293e;border:1px solid var(--line);border-radius:999px;padding:.22rem .7rem}
+.st-links a:hover{border-color:var(--aqua);text-decoration:none}
+
+/* 게이트(출발/연도/종점) */
+.gate-inner{text-align:center;border-style:dashed}
+.gate-inner h2{font-size:clamp(1.3rem,3.5vw,1.9rem);margin:.3rem 0}
+.gate-num{font-size:clamp(3rem,10vw,5.5rem);font-weight:900;line-height:1;
+  background:linear-gradient(92deg,var(--aqua2),var(--aqua) 45%,#4f9cf7);-webkit-background-clip:text;background-clip:text;color:transparent}
+.gate-hint{color:var(--aqua);font-weight:800;letter-spacing:.2em;animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* HUD·레인 바닥은 3D 모드에서만 */
+.ride-hud,.lane-lines{display:none}
+
+/* ---- 메인 페이지 라이드 배너 ---- */
+.ride-banner{display:flex;align-items:center;gap:1.1rem;background:linear-gradient(100deg,#0a2338d9,#0d3852b0),var(--card);
+  border:1px solid var(--line);border-radius:var(--r);padding:1.2rem 1.4rem;color:var(--ink);
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .35s,box-shadow .35s}
+.ride-banner:hover{transform:translateY(-4px);border-color:var(--aqua);box-shadow:0 14px 40px -18px #38e1ff88;text-decoration:none}
+.rb-emoji{font-size:2.2rem;filter:drop-shadow(0 0 12px #38e1ff66)}
+.rb-txt{flex:1;color:var(--ink2);font-size:.95rem}
+.rb-txt b{display:block;color:var(--ink);font-size:1.08rem;margin-bottom:.15rem}
+.rb-go{color:var(--aqua);font-weight:800;white-space:nowrap}
+
+/* 내비 보조 */
+.nav-sep{width:1px;height:1.1em;background:var(--line);align-self:center;flex:none}
+.nav-ath,.nav-ride{font-weight:700}
+.ath-cta{margin-top:.8rem;font-weight:700}
+
+/* ================= 3D 모드 ================= */
+.ride-3d{position:relative}
+.ride-3d .ride-cam{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;
+  perspective:950px;perspective-origin:50% 42%}
+.ride-3d .ride-track{position:absolute;inset:0;max-width:none;padding:0;margin:0;
+  transform-style:preserve-3d;will-change:transform}
+.ride-3d .st{position:absolute;left:50%;top:50%;width:min(540px,82vw);margin:0;
+  opacity:0;transition:opacity .4s ease;pointer-events:none;backface-visibility:hidden}
+.ride-3d .st.near{opacity:.38}
+.ride-3d .st.on{opacity:1;pointer-events:auto}
+.ride-3d .st.passed{opacity:0}
+.ride-3d .st-inner{box-shadow:0 30px 80px -30px #000a}
+.ride-3d .gate{width:min(640px,92vw)}
+
+/* 레인 바닥 — 수영장 레인 로프가 흘러가는 원근 평면 */
+.ride-3d .lane-lines{display:block;position:absolute;left:-30%;right:-30%;bottom:-12%;height:70%;
+  transform:rotateX(74deg);transform-origin:50% 100%;pointer-events:none;opacity:.5;
+  background:
+    repeating-linear-gradient(90deg,transparent 0 110px,#38e1ff2e 110px 116px),
+    repeating-linear-gradient(0deg,transparent 0 70px,#7ff0ff14 70px 74px),
+    linear-gradient(180deg,transparent,#062036);
+  background-position:0 var(--roll,0px),0 var(--roll,0px),0 0;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 30%);mask-image:linear-gradient(180deg,transparent,#000 30%)}
+
+/* 속도감 비네트 */
+.ride-3d .ride-cam::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 45%,transparent 55%,#030d18b8 100%)}
+
+/* HUD */
+.ride-3d .ride-hud{display:flex;position:absolute;left:50%;bottom:1.1rem;transform:translateX(-50%);z-index:5;
+  align-items:center;gap:.8rem;background:#03101cd9;border:1px solid var(--line);border-radius:999px;
+  padding:.5rem .9rem;backdrop-filter:blur(8px);width:min(480px,90vw)}
+.hud-bar{flex:1;height:6px;border-radius:999px;background:#0d3247;overflow:hidden}
+.hud-fill{display:block;height:100%;width:0;border-radius:999px;
+  background:linear-gradient(90deg,var(--deep),var(--aqua))}
+.hud-year{font-weight:900;color:var(--aqua2);font-variant-numeric:tabular-nums;min-width:3.2em;text-align:center}
+.hud-auto{background:#07293e;border:1px solid var(--line);border-radius:999px;color:var(--ink);
+  font:inherit;font-size:.82rem;font-weight:700;padding:.25rem .8rem;cursor:pointer;white-space:nowrap}
+.hud-auto:hover{border-color:var(--aqua);color:var(--aqua2)}
+
+@media (max-width:560px){
+  .ride-3d .ride-cam{perspective:720px}
+  .rb-txt{font-size:.88rem}
+}
+@media (prefers-reduced-motion:reduce){
+  /* JS가 3D를 켜지 않지만, 켜졌더라도 무력화 */
+  .ride-3d .ride-cam{position:static;height:auto;overflow:visible;perspective:none}
+  .ride-3d .ride-track{position:static;transform:none!important;max-width:720px;margin:0 auto;padding:0 1.25rem 3rem}
+  .ride-3d .st{position:static;opacity:1;transform:none!important;pointer-events:auto;width:auto;margin:1.3rem 0}
+  .ride-3d .lane-lines,.ride-3d .ride-hud{display:none}
+}
