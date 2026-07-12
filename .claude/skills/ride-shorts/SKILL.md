@@ -81,7 +81,19 @@ ffmpeg -y -ss <t> -i media/shorts/<슬러그>.mp4 -frames:v 1 /tmp/check.jpg
 
 - 현재 단계와 다음 목표는 CONCEPT.md §7 표 기준. 새 버전은 `-v<N+1>` 슬러그로 만들고
   확인 후 매니페스트를 교체한다 (이전 버전 파일은 삭제).
-- v1: 다중 구간 + 게이트(터널) 전환 + 손글씨 쪽지 패널 — renderer.html에 scenes 배열 지원 추가.
-- v2: 실사 AI 영상 교체 — CONCEPT.md §7의 프롬프트 템플릿으로 이미지→영상 생성
-  (사용자에게 사용할 서비스/API 키 확인 필요. 이 머신에는 현재 영상 생성 API 없음).
-- v3: 전체 60~90초 + BGM/물소리 (ffmpeg concat + 오디오 트랙).
+- v3: 전체 60~90초 = 구간별 클립을 ffmpeg concat + BGM/물소리.
+
+## 8. AI 실사 생성 (v1부터 — Higgsfield MCP + Seedance 2.0)
+
+Higgsfield MCP 서버가 연결된 세션에서는 `seedance_2_0`으로 실사 클립을 생성한다:
+
+1. **크레딧 확인 필수**: `balance` 조회 → `generate_video`에 `get_cost:true`로 비용 선확인.
+   잔액의 절반 이상이 들면 반드시 사용자에게 해상도/시도 횟수를 물어본다.
+   (참고 단가: 5초 9:16 기준 1080p std=45, 4K std=110 크레딧 — 2026-07 시점)
+2. 장소 실사 사진을 `media_upload`(presigned PUT + `media_confirm`)로 올려
+   `image_references` 역할로 전달 → 실제 장소 재현 정확도 확보.
+3. 프롬프트는 CONCEPT.md §7 템플릿 + §8 피드백 규칙(속도감·전광판 통합)으로 조립.
+   전광판/현수막 텍스트는 짧은 영문+숫자 위주로 (긴 한글은 AI가 뭉갬).
+   `genre:"action"`, `generate_audio:true` (물소리·현장음 네이티브 생성).
+4. 완료 후 결과 URL을 curl로 받아 `media/shorts/<슬러그>.mp4` 저장,
+   ffmpeg로 포스터 추출(§5), 프레임 확인, 매니페스트 갱신(§6).
