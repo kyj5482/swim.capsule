@@ -107,6 +107,8 @@ function page({ lang, title, desc, rel, altRel, canonicalPath, jsonld, body, ogT
 <meta name="twitter:card" content="summary">
 <meta name="robots" content="index,follow">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Caveat:wght@600&display=swap">
 <link rel="stylesheet" href="${rel}assets/style.css">
 ${extraCss ? `<link rel="stylesheet" href="${rel}assets/${extraCss}">` : ''}
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': jsonld })}</script>
@@ -166,13 +168,57 @@ function sourceList(e, lang, rel) {
   }).join('')}</ul>`;
 }
 
+// 손글씨 백면용: 사진 + 손글씨 메모(없으면 기록 요약을 손글씨로) — 로그북 느낌
+function handNote(e, lang) {
+  const custom = L(e, 'note', lang);
+  if (custom) return esc(custom);
+  // 메모가 없으면 그날의 기록을 손글씨로 자동 구성 (스위머 로그북)
+  const lines = (e.results || []).filter(r => r.time || r.place).map(r => {
+    const ev = t(lang, r.event_ko, r.event_en);
+    const m = MEDAL[r.medal];
+    const badge = m ? ` ${m.icon}` : (r.place > 0 ? ` (${t(lang, r.place + '위', ordinal(r.place))})` : '');
+    const pb = r.pb ? ` — ${t(lang, '개인최고!', 'PB!')}` : '';
+    return `${ev} · ${r.time || 'TBC'}${badge}${pb}`;
+  });
+  if (lines.length) return lines.map(esc).join('<br>');
+  return esc(L(e, 'story', lang).slice(0, 90));
+}
+function photoFrames(e, rel, lang) {
+  const imgExt = /\.(jpe?g|png|webp|gif|avif)$/i, vidExt = /\.(mp4|webm|mov|m4v)$/i;
+  const items = (e.media || []).filter(m => imgExt.test(m) || vidExt.test(m)).map(m => {
+    const url = `${rel}archive/${esc(m)}`;
+    if (vidExt.test(m)) return `<span class="pf pf-vid"><video src="${url}" muted loop playsinline preload="metadata"></video></span>`;
+    return `<a class="pf" href="${url}" target="_blank" rel="noopener" style="background-image:url('${url}')" aria-label="${t(lang, '사진 크게 보기', 'View photo')}"></a>`;
+  });
+  // 뉴스에 실린 캡처가 있으면 사진처럼 함께 (그때 기억을 되살리는 신문 클리핑)
+  for (const s of (e.sources || [])) {
+    if (s.kind === 'news' && s.capture) {
+      items.push(`<a class="pf pf-clip" href="${esc(s.url)}" target="_blank" rel="noopener" style="background-image:url('${rel}archive/${esc(s.capture)}')" title="${esc(s.title || s.publisher || '')}"><span class="pf-tag">📰 ${esc(s.publisher || t(lang, '보도', 'Press'))}</span></a>`);
+    }
+  }
+  return items.join('');
+}
 function eventCard(e, lang, rel) {
   const ty = TYPE[e.type] || TYPE.milestone;
   const names = e.athletes.map(id => t(lang, athleteById[id].korea.name, athleteById[id].usa.name)).join(' · ');
-  const media = (e.media || []).map(m => `<a class="media-item" href="${rel}archive/${esc(m)}">📎 ${esc(m.split('/').pop())}</a>`).join('');
+  const photos = photoFrames(e, rel, lang);
+  const hasPhoto = photos.length > 0;
+  const dateStr = fmtDate(e, lang);
+  const back = `<div class="ev-face ev-back" aria-hidden="true">
+    <div class="pf-strip ${hasPhoto ? '' : 'empty'}">${hasPhoto ? photos : `<span class="pf pf-empty">📷 ${t(lang, '사진 자리', 'Photo slot')}</span>`}</div>
+    <div class="hand">
+      <span class="hand-date">${esc(dateStr)}</span>
+      <p class="hand-note">${handNote(e, lang)}</p>
+      <span class="hand-sign">— ${esc(names)}</span>
+    </div>
+    <button type="button" class="flip-back" aria-label="${t(lang, '기록으로 돌아가기', 'Back to record')}">↩ ${t(lang, '기록', 'Record')}</button>
+    ${hasPhoto ? '' : `<span class="pf-hint dim">${t(lang, `capsules/${e.year}/${e.id}/media/ 에 사진을 넣으면 여기 나타나요`, `Drop a photo in capsules/${e.year}/${e.id}/media/`)}</span>`}
+  </div>`;
   return `<article class="ev reveal ${e.highlight ? 'hl' : ''}" id="${esc(e.id)}">
+  <div class="ev-card">
+  <div class="ev-face ev-front">
   <div class="ev-head">
-    <span class="ev-date">${fmtDate(e, lang)}</span>
+    <span class="ev-date">${dateStr}</span>
     <span class="pill type">${ty.icon} ${t(lang, ty.ko, ty.en)}</span>
     <span class="ev-ath">${esc(names)}</span>
     ${e.verified ? `<span class="pill ok" title="${t(lang, '출처로 교차 확인됨', 'Cross-checked against sources')}">✔ ${t(lang, '확인됨', 'verified')}</span>` : `<span class="pill tbc">${t(lang, '보완 중', 'to be confirmed')}</span>`}
@@ -182,7 +228,10 @@ function eventCard(e, lang, rel) {
   <p class="ev-story">${esc(L(e, 'story', lang))}</p>
   ${resultRows(e, lang)}
   ${sourceList(e, lang, rel)}
-  <div class="media-slot">${media || `<span class="dim">📷 ${t(lang, '이 순간의 사진·영상을 capsules/' + e.year + '/' + e.id + '/media/ 에 추가하세요.', 'Add photos/videos of this moment to capsules/' + e.year + '/' + e.id + '/media/.')}</span>`}</div>
+  <button type="button" class="flip-to-back">${hasPhoto ? '📸' : '✍️'} ${t(lang, '사진·손글씨 기록', 'Photo & handwritten note')} ↪</button>
+  </div>
+  ${back}
+  </div>
 </article>`;
 }
 
@@ -190,7 +239,8 @@ function eventCard(e, lang, rel) {
 function indexPage(lang) {
   const rel = lang === 'en' ? '../' : '';
   const highlights = timeline.filter(e => e.highlight);
-  const ticker = highlights.map(e => `<span>${TYPE[e.type]?.icon || '🏊'} ${e.year} · ${esc(L(e, 'title', lang))}</span>`).join('<span class="tick-dot">•</span>');
+  const tickDur = Math.max(60, highlights.length * 7); // 항목 수에 비례 → 개수와 무관하게 일정 속도
+  const ticker = highlights.map(e => `<a href="${rel}${e.year}/#${esc(e.id)}">${TYPE[e.type]?.icon || '🏊'} ${e.year} · ${esc(L(e, 'title', lang))}</a>`).join('<span class="tick-dot">•</span>');
 
   const athleteCards = athletes.map(a => {
     const mine = timeline.filter(e => e.athletes.includes(a.id));
@@ -243,7 +293,7 @@ ${nav(lang, rel, lang === 'ko' ? 'en/' : '../', 'home')}
   </div>
   <p class="dim reveal">${t(lang, '※ 지금까지 수집·확인된 기록 기준 — 캡슐은 계속 채워집니다.', 'Based on records collected & verified so far — the capsule keeps growing.')}</p>
 </header>
-<div class="ticker" aria-hidden="true"><div class="tick-track">${ticker}<span class="tick-dot">•</span>${ticker}</div></div>
+<div class="ticker"><span class="tick-hint" aria-hidden="true">${t(lang, '⏸ 위에 올리면 멈춰요', '⏸ hover to pause')}</span><div class="tick-track" style="animation-duration:${tickDur}s">${ticker}<span class="tick-dot">•</span>${ticker}</div></div>
 <main>
 <section class="sec"><h2>${t(lang, '선수', 'The swimmers')}</h2><div class="ath-grid">${athleteCards}</div></section>
 <section class="sec"><h2>${t(lang, '타임캡슐', 'The capsules')}</h2>
@@ -411,6 +461,9 @@ function rideStation(e, lang, rel, idx) {
     </a>`;
   }).join('');
   const mediaStrip = (mediaItems || clips) ? `<div class="st-media">${mediaItems}${clips}</div>` : '';
+  // 손글씨 메모 — 그날의 기록/한 줄을 라이드에서도 손글씨 쪽지처럼 (스티커 느낌)
+  const note = handNote(e, lang);
+  const noteEl = note ? `<div class="st-note"><span class="st-note-date">${esc(fmtDate(e, lang))}</span><p>${note}</p><span class="st-note-sign">— ${esc(names)}</span></div>` : '';
 
   return `<article class="st ${e.highlight ? 'st-hl' : ''}" data-i="${idx}" data-year="${e.year}" id="ride-${esc(e.id)}">
   <div class="st-inner">
@@ -420,6 +473,7 @@ function rideStation(e, lang, rel, idx) {
     ${medals ? `<p class="st-medals">${medals}</p>` : ''}
     <p class="st-story">${esc(L(e, 'story', lang))}</p>
     ${mediaStrip}
+    ${noteEl}
     <p class="st-links">${links.join(' ')}</p>
   </div>
 </article>`;

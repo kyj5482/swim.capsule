@@ -18,6 +18,9 @@
   if (!track || total < 2) return;
 
   var mobile = window.matchMedia('(max-width: 560px)').matches;
+  // 라이드에서는 즉시 스크롤(스무스 OFF): 자동 주행 속도를 정확히 제어하고,
+  // 사용자 조작 흡수(resync)가 정확히 동작하도록.
+  document.documentElement.style.scrollBehavior = 'auto';
   var STEP = mobile ? 950 : 1250;   // 정거장 간 3D 거리(px)
   var SCROLL_PER = mobile ? 640 : 820; // 정거장당 스크롤 픽셀
   var X_OFF = mobile ? 26 : 150;    // 이벤트 카드 좌우 오프셋(레일 커브 느낌)
@@ -119,6 +122,10 @@
     function stepFn(ts) {
       if (last == null) last = ts;
       var dt = Math.min(ts - last, 60); last = ts;
+      // 사용자가 마우스 휠·터치·키보드로 스크롤했으면 그 위치를 흡수해 '이어서' 주행한다.
+      // (예전에는 조작 즉시 정지 → 마우스만 대면 멈추던 문제) 자동 주행은 계속 살아있다.
+      var actual = window.pageYOffset || window.scrollY || 0;
+      if (Math.abs(actual - autoPos) > 4) autoPos = actual;
       autoPos += speed * BASE * (dt / 1000);
       var m = maxScroll();
       if (autoPos >= m) { window.scrollTo(0, m); queue(); stopAuto(); return; }
@@ -136,23 +143,14 @@
   }
   if (speedEl) { applySpeed(); speedEl.addEventListener('input', applySpeed); }
 
-  // 사용자가 직접 스크롤하면 자동 주행 정지 (단, 속도 슬라이더 조작은 예외)
-  function userInterrupt(ev) {
-    if (!auto) return;
-    if (ev.type === 'keydown') {
-      var el = ev.target;
-      if (el && (el.classList && el.classList.contains('hud-speed'))) return; // 슬라이더 키조작
-      var scrollKeys = ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' ', 'Spacebar'];
-      if (scrollKeys.indexOf(ev.key) === -1) return;
-    }
-    stopAuto();
-  }
+  // 자동 주행 토글은 버튼(또는 Esc로 정지)으로만. 마우스/터치/키 스크롤은
+  // stepFn이 흡수하므로 주행이 끊기지 않는다.
   if (autoBtn) {
     autoBtn.addEventListener('click', function () { auto ? stopAuto() : startAuto(); });
-    ['wheel', 'touchstart', 'keydown'].forEach(function (ev) {
-      window.addEventListener(ev, userInterrupt, { passive: true });
-    });
   }
+  window.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape' && auto) stopAuto();
+  });
 
   queue();
 })();

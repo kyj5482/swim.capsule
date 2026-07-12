@@ -10,8 +10,8 @@
         "jaei"
       ],
       "type": "milestone",
-      "title_ko": "김재이, 선수 데뷔 — 제18회 꿈나무 전국수영대회",
-      "title_en": "Jaei's competitive debut — 18th Kkumnamu National Swimming Meet",
+      "title_ko": "첫 전국대회 출전 — 제18회 꿈나무 전국수영대회",
+      "title_en": "First national meet — 18th Dream-Tree National Swimming Championships",
       "location_ko": "제18회 꿈나무 전국수영대회 (김천)",
       "location_en": "18th Kkumnamu National Swimming Meet, Gimcheon",
       "results": [
@@ -46,7 +46,9 @@
         }
       ],
       "media": [],
-      "verified": true
+      "verified": true,
+      "note_ko": "처음 서 본 전국대회 출발대. 심장이 쿵쿵 뛰었지만 끝까지 헤엄쳤다. 여기서 다 시작됐다!",
+      "note_en": "My very first national blocks — heart pounding, but I swam it to the wall. This is where it all began!"
     },
     {
       "id": "2022-jia-lifesports-festival",
@@ -95,7 +97,7 @@
     {
       "id": "2022-jaei-51-trials",
       "year": 2022,
-      "date": "2022-06-10",
+      "date": "2022-04-01",
       "date_precision": "day",
       "athletes": [
         "jaei"
@@ -103,8 +105,8 @@
       "type": "competition",
       "title_ko": "제51회 소년체전 경기도 선발전 — 첫 선발전 도전",
       "title_en": "51st Festival Gyeonggi trials — first selection attempt",
-      "location_ko": "제51회 전국소년체육대회 경기도대표 최종선발전",
-      "location_en": "Gyeonggi trials, 51st National Youth Sports Festival",
+      "location_ko": "제51회 전국소년체육대회 경기도대표 최종선발전 (안산 대부동, 4.1~4)",
+      "location_en": "51st National Youth Sports Festival — Gyeonggi selection trials (Ansan, Apr 1–4)",
       "results": [
         {
           "event_ko": "배영 50m",
@@ -325,45 +327,6 @@
       "verified": true
     },
     {
-      "id": "2022-jia-debut-youth-champ",
-      "year": 2022,
-      "date": "2022-11-23",
-      "date_precision": "month",
-      "athletes": [
-        "jia"
-      ],
-      "type": "competition",
-      "title_ko": "김지아 데뷔전 — 2022 경기도 유소년 챔피언쉽 평영 25m 3위",
-      "title_en": "Jia's first meet — 3rd in the 25m breast, 2022 Gyeonggi Youth Championship",
-      "location_ko": "2022 경기도 유소년 챔피언쉽 수영대회",
-      "location_en": "2022 Gyeonggi Youth Championship, Korea",
-      "results": [
-        {
-          "event_ko": "평영 25m",
-          "event_en": "25m Breaststroke",
-          "place": 3,
-          "medal": "bronze",
-          "time": "38.42",
-          "round": "결승/final"
-        }
-      ],
-      "story_ko": "초등학교 2학년, 생활체육 유소년 무대에서의 첫 공식 대회. 여자초등부 2학년 평영 25m에서 38.42로 3위(동메달). 남매 기록의 가장 처음 한 줄이자 모든 성장의 출발점.",
-      "story_en": "As a 2nd grader, Jia's very first official meet on the community youth circuit — bronze in the girls' 2nd-grade 25m breaststroke (38.42). The first line in the siblings' record, and where everything began.",
-      "sources": [
-        {
-          "kind": "official",
-          "publisher": "경기도수영연맹",
-          "url": "http://www.gswimming.com/32/48",
-          "title": "2022 경기도 유소년 챔피언쉽 수영대회 경기결과",
-          "note": "원본 xlsx 보관",
-          "archived": "capsules/kr-gyeonggi-results/",
-          "status": "captured"
-        }
-      ],
-      "media": [],
-      "verified": true
-    },
-    {
       "id": "2023-jaei-donga",
       "year": 2023,
       "date": "2023-05-04",
@@ -472,21 +435,23 @@
         }
       ],
       "media": [],
-      "verified": true
+      "verified": true,
+      "note_ko": "소년체전 경기도 대표로 평영 50·100m 동메달 2개 🥉🥉 태극 마크 대신 경기도 마크, 그래도 최고였다.",
+      "note_en": "Two bronzes (50 & 100 breast) for Team Gyeonggi at the Youth Festival. Still the proudest lane."
     },
     {
       "id": "2023-jaei-52-trials",
       "year": 2023,
-      "date": "2023-05-31",
-      "date_precision": "month",
+      "date": "2023-04-08",
+      "date_precision": "day",
       "athletes": [
         "jaei"
       ],
       "type": "competition",
       "title_ko": "제52회 소년체전 경기도 선발전 — 평영 50m 1위·접영 50m 3위",
       "title_en": "52nd Festival Gyeonggi trials — 1st in 50m breast, 3rd in 50m fly",
-      "location_ko": "제52회 전국소년체육대회 경기도대표 최종선발전",
-      "location_en": "Gyeonggi trials, 52nd National Youth Sports Festival",
+      "location_ko": "제52회 전국소년체육대회 경기도대표 최종선발전 (성남탄천, 4.8~9)",
+      "location_en": "52nd National Youth Sports Festival — Gyeonggi selection trials (Seongnam, Apr 8–9)",
       "results": [
         {
           "event_ko": "평영 50m",
@@ -558,7 +523,9 @@
         }
       ],
       "media": [],
-      "verified": true
+      "verified": true,
+      "note_ko": "접영 50m 한국신기록! 내 이름 옆에 신기록 표시가 붙던 날. 물이 나를 밀어주는 것 같았다.",
+      "note_en": "Korean record in the 50m fly! The day the record tag went next to my name. The water felt like it was pushing me."
     },
     {
       "id": "2023-jaei-kyobo-cup",
@@ -655,7 +622,8 @@
           "url": "http://www.hyundaiilbo.com/news/articleView.html?idxno=547739",
           "title": "과천시 청소년 수영선수 김재이, 대통령배 금메달",
           "archived": "capsules/2023/2023-jaei-presidents-cup-42/",
-          "status": "captured"
+          "status": "captured",
+          "capture": "2023/2023-jaei-presidents-cup-42/media/news-hyundaiilbo-presidents-cup.jpg"
         },
         {
           "kind": "official",
@@ -668,7 +636,9 @@
         }
       ],
       "media": [],
-      "verified": true
+      "verified": true,
+      "note_ko": "대통령배 평영 50m 금메달 🥇 손이 벽에 닿는 순간 1등 전광판! 엄마아빠가 제일 크게 소리쳤다.",
+      "note_en": "President's Cup 50m breast — GOLD! The board flashed 1st the moment my hand hit the wall. Mom & Dad screamed the loudest."
     },
     {
       "id": "2023-jia-gyeonggi-lifesports",
@@ -898,7 +868,9 @@
         }
       ],
       "media": [],
-      "verified": true
+      "verified": true,
+      "note_ko": "오빠랑 나, 둘 다 경기도 대표! 같은 버스 타고 같은 수영장으로. 이런 날이 또 올까?",
+      "note_en": "My brother and me — both on Team Gyeonggi! Same bus, same pool. Will a day like this come again?"
     },
     {
       "id": "2024-jaei-jrsports-53-finals",
@@ -936,7 +908,9 @@
         }
       ],
       "media": [],
-      "verified": true
+      "verified": true,
+      "note_ko": "소년체전 본선. 순위보다 내 최고기록을 갈아치운 게 더 기뻤다. 매년 조금씩 빨라지는 중 💪",
+      "note_en": "Youth Festival finals — beating my own best mattered more than the place. A little faster every year 💪"
     },
     {
       "id": "2024-jia-jrsports-53",
@@ -1091,7 +1065,9 @@
         }
       ],
       "media": [],
-      "verified": true
+      "verified": true,
+      "note_ko": "애리조나 원정 3관왕! 평영 50·100 + 접영 50 전부 1등 🥇🥇🥇 원정 버스에서 메달 세 개 세어봤다.",
+      "note_en": "Arizona sweep — 3 golds! 50 & 100 breast + 50 fly, all 1st. Counted all three on the bus ride home 🥇🥇🥇"
     },
     {
       "id": "2024-09-21-jaei-back2school",
@@ -1145,7 +1121,9 @@
       "media": [],
       "verified": true,
       "minor": true,
-      "highlight": true
+      "highlight": true,
+      "note_ko": "미국에서의 첫 대회! 야드가 낯설고 다 영어였지만, 물속은 똑같았다. 새 챕터 시작 🇺🇸",
+      "note_en": "First meet in America! Yards felt strange and everything was in English — but underwater felt the same. New chapter 🇺🇸"
     },
     {
       "id": "2024-10-12-jaei-oct-intra",
@@ -1719,7 +1697,9 @@
       ],
       "media": [],
       "verified": true,
-      "highlight": true
+      "highlight": true,
+      "note_ko": "파웨스턴 첫 전국구 톱10! 평영 50·100 둘 다 개인최고. 큰물에서도 통한다는 걸 알았다.",
+      "note_en": "First national top-10 at Far Westerns — PBs in both breast events. Proof I can hang in the big pool."
     },
     {
       "id": "2025-05-17-jaei-irvine-intra2",
@@ -2524,7 +2504,9 @@
       "media": [],
       "verified": true,
       "minor": true,
-      "highlight": true
+      "highlight": true,
+      "note_ko": "미국 첫 시합. 긴장했지만 접영 출발 신호가 울리자 몸이 알아서 나아갔다. 여기서도 해낼 수 있어!",
+      "note_en": "My first American meet. Nervous — but when the fly buzzer went off, my body just knew. I can do this here too!"
     },
     {
       "id": "2024-10-12-jia-oct-intra",
@@ -3707,7 +3689,9 @@
       ],
       "media": [],
       "verified": true,
-      "highlight": true
+      "highlight": true,
+      "note_ko": "500 자유형에서 한 번에 17초를 줄였다!! 마지막 25m 팔이 안 올라갔지만 시계를 보고 소리질렀다.",
+      "note_en": "Dropped 17 seconds in the 500 free in one race!! My arms were done in the last 25m — then I saw the clock and screamed."
     },
     {
       "id": "2026-05-02-jia-ditch",

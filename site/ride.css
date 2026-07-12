@@ -45,6 +45,14 @@
 .st-clip.has-cap .clip-tag,.st-clip.has-cap .clip-head{position:relative;z-index:1}
 .st-clip.has-cap .clip-tag{color:#ffd7cf}
 
+/* 손글씨 쪽지 — 라이드에서 그날의 기록을 스티커처럼 */
+.st-note{font-family:'Nanum Pen Script','Caveat',cursive;margin-top:.7rem;background:linear-gradient(#12324a,#0c2536);
+  border:1px solid #1d5f80;border-left:4px solid var(--aqua);border-radius:10px;padding:.55rem .85rem;transform:rotate(-1deg)}
+body[data-lang="en"] .st-note{font-family:'Caveat','Nanum Pen Script',cursive}
+.st-note-date{font-size:1rem;color:var(--aqua2)}
+.st-note p{font-size:1.35rem;line-height:1.4;color:#eef8ff;margin:.1rem 0}
+.st-note-sign{display:block;text-align:right;font-size:1.05rem;color:#bfe6ff;opacity:.9}
+
 /* 게이트(출발/연도/종점) */
 .gate-inner{text-align:center;border-style:dashed}
 .gate-inner h2{font-size:clamp(1.3rem,3.5vw,1.9rem);margin:.3rem 0}

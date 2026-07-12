@@ -54,9 +54,15 @@ b{font-variant-numeric:tabular-nums}
 .stat span{color:var(--ink2);font-size:.82rem;letter-spacing:.05em}
 
 /* ---- ticker ---- */
-.ticker{overflow:hidden;border-block:1px solid #0e3247;background:#04141fb0;padding:.55rem 0;margin:1.5rem 0}
-.tick-track{display:inline-flex;gap:2.2rem;white-space:nowrap;animation:tick 38s linear infinite;color:var(--ink2);font-size:.95rem;padding-left:100vw}
+.ticker{position:relative;overflow:hidden;border-block:1px solid #0e3247;background:#04141fb0;padding:.55rem 0;margin:1.5rem 0}
+.tick-track{display:inline-flex;gap:2.2rem;white-space:nowrap;animation:tick 38s linear infinite;color:var(--ink2);font-size:.95rem;padding-left:100vw;will-change:transform}
+/* 마우스를 올리면 멈춰서 읽을 수 있게 */
+.ticker:hover .tick-track,.ticker:focus-within .tick-track{animation-play-state:paused}
+.tick-track a{color:var(--ink2);text-decoration:none;transition:color .15s}
+.tick-track a:hover,.tick-track a:focus{color:var(--aqua);text-decoration:underline}
 .tick-dot{color:var(--aqua)}
+.tick-hint{position:absolute;top:50%;right:.6rem;transform:translateY(-50%);z-index:2;font-size:.7rem;color:var(--ink2);background:#04141fe0;border:1px solid #0e3247;border-radius:999px;padding:.1rem .5rem;pointer-events:none;opacity:.65}
+.ticker:hover .tick-hint{opacity:0}
 @keyframes tick{to{transform:translateX(-50%)}}
 
 /* ---- sections ---- */
@@ -94,10 +100,36 @@ main{max-width:1060px;margin:0 auto;padding:0 1.25rem 4rem}
 /* ---- timeline (year page) ---- */
 .tl{position:relative;padding-top:1.5rem}
 .tl::before{content:"";position:absolute;left:18px;top:0;bottom:0;width:2px;background:linear-gradient(var(--aqua),transparent 96%);opacity:.35}
-.ev{position:relative;margin:0 0 1.4rem 48px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.25rem 1.4rem}
-.ev::before{content:"";position:absolute;left:-37px;top:1.55rem;width:12px;height:12px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua)}
-.ev.hl{border-color:#2b7ea1;box-shadow:0 0 0 1px #38e1ff33,0 12px 46px -22px #38e1ff66}
+.ev{position:relative;margin:0 0 1.4rem 48px;perspective:1800px}
+.ev::before{content:"";position:absolute;left:-37px;top:1.55rem;width:12px;height:12px;border-radius:50%;background:var(--aqua);box-shadow:0 0 12px var(--aqua);z-index:3}
 .ev.hl::before{background:var(--gold);box-shadow:0 0 14px var(--gold)}
+/* ---- 카드 뒤집기 (앞:기록 / 뒤:사진·손글씨) ---- */
+.ev-card{position:relative;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.75,.2,1)}
+.ev-card.flipped{transform:rotateY(180deg)}
+.ev-face{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.25rem 1.4rem;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.ev-front{position:relative}
+.ev.hl .ev-front{border-color:#2b7ea1;box-shadow:0 0 0 1px #38e1ff33,0 12px 46px -22px #38e1ff66}
+.ev-back{position:absolute;inset:0;transform:rotateY(180deg);display:flex;flex-direction:column;gap:.7rem;overflow:auto;background:linear-gradient(160deg,#0b2637,#071a26)}
+.flip-to-back,.flip-back{margin-top:.9rem;font:inherit;font-size:.86rem;font-weight:700;color:var(--aqua2);background:#062234;border:1px solid #17506e;border-radius:999px;padding:.35rem .85rem;cursor:pointer;transition:background .15s,border-color .15s}
+.flip-to-back:hover,.flip-back:hover{background:#0a3350;border-color:var(--aqua)}
+.flip-back{align-self:flex-start;margin-top:0}
+/* 사진 — 폴라로이드 느낌 */
+.pf-strip{display:flex;flex-wrap:wrap;gap:.7rem;align-items:flex-start}
+.pf-strip.empty{opacity:.75}
+.pf{display:block;width:132px;height:99px;border-radius:6px;background:#0a1a26 center/cover no-repeat;border:4px solid #f6f7f2;box-shadow:0 8px 20px -8px #000b;transform:rotate(-2deg);transition:transform .2s}
+.pf:nth-child(even){transform:rotate(2deg)}
+.pf:hover{transform:rotate(0) scale(1.04)}
+.pf-vid video{width:100%;height:100%;object-fit:cover;display:block}
+.pf-empty{display:flex;align-items:center;justify-content:center;color:#7fa8c0;font-size:.85rem;background:repeating-linear-gradient(45deg,#0a1f2e,#0a1f2e 8px,#0c2333 8px,#0c2333 16px);transform:rotate(-2deg)}
+.pf-clip{position:relative}
+.pf-clip .pf-tag{position:absolute;left:2px;bottom:2px;font-size:.6rem;font-weight:800;color:#fff;background:#9a2b1ecc;padding:.05rem .3rem;border-radius:4px}
+.pf-hint{font-size:.78rem}
+/* 손글씨 메모 */
+.hand{font-family:'Nanum Pen Script','Caveat',cursive;background:linear-gradient(#0d2c40,#0b2536);border:1px solid #17506e;border-radius:12px;padding:.7rem 1rem;position:relative}
+body[data-lang="en"] .hand{font-family:'Caveat','Nanum Pen Script',cursive}
+.hand-date{font-size:1.05rem;color:var(--aqua2)}
+.hand-note{font-size:1.5rem;line-height:1.45;color:#eef8ff;margin:.15rem 0}
+.hand-sign{display:block;text-align:right;font-size:1.15rem;color:#bfe6ff;opacity:.9}
 .ev-head{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:.5rem;font-size:.85rem}
 .ev-date{font-weight:800;color:var(--aqua2);letter-spacing:.03em}
 .ev-ath{color:var(--ink2)}
