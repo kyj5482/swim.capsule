@@ -501,11 +501,26 @@ function ridePage(lang) {
   // 정거장: 연도 게이트 + 이벤트
   const stations = [];
   let lastYear = null, idx = 0;
+  // 쇼츠 썸네일은 첫 게이트(시작 화면) 안에 — '안전바' 메시지와 함께 한 화면에 보이도록
+  const shortsStrip = shorts.length ? `
+    <div class="gate-shorts">
+      ${shorts.map(s => `<figure class="short-card">
+        <a class="short-play" href="${rel}assets/shorts/${esc(s.id)}.mp4"
+          data-video="${rel}assets/shorts/${esc(s.id)}.mp4"
+          data-poster="${rel}assets/shorts/${esc(s.id)}.jpg"
+          style="background-image:url('${rel}assets/shorts/${esc(s.id)}.jpg')"
+          aria-label="${esc(t(lang, s.title_ko + ' 재생', 'Play ' + s.title_en))}">
+          <span class="short-play-ico" aria-hidden="true">▶</span>
+        </a>
+        <figcaption>${esc(t(lang, s.title_ko, s.title_en))}</figcaption>
+      </figure>`).join('\n')}
+    </div>` : '';
   stations.push(`<div class="st gate" data-i="${idx++}" data-year="${rideYears[0]}">
   <div class="st-inner gate-inner">
     <p class="kicker">SWIM CAPSULE RIDE</p>
     <h2>${t(lang, '안전바를 내려주세요', 'Lower the safety bar')}</h2>
-    <p>${t(lang, '지금부터 2022년의 물속으로 입수합니다. 스크롤하면 앞으로 나아갑니다.', 'We are about to dive into 2022. Scroll to move forward.')}</p>
+    <p>${t(lang, '스크롤하면 2022년의 물속으로 나아갑니다.', 'Scroll to dive into 2022.')}</p>
+    ${shortsStrip}
     <p class="gate-hint">▼ ${t(lang, '스크롤', 'Scroll')}</p>
   </div>
 </div>`);
@@ -532,30 +547,8 @@ function ridePage(lang) {
   const body = `
 ${nav(lang, rel, `${rel}${lang === 'ko' ? 'en/' : ''}ride/`, 'ride')}
 <header class="hero yhero ride-hero" id="top">
-  <p class="kicker reveal">${t(lang, '스페셜 — 1인칭 시점', 'Special — first-person POV')}</p>
   <h1 class="reveal"><span class="grad">${t(lang, '캡슐 라이드', 'The Capsule Ride')}</span></h1>
-  <p class="sub reveal">${t(lang,
-    '롤러코스터의 맨 앞자리에서 시간을 통과하듯 — 스크롤할수록 기록 사이를 헤엄쳐 나아갑니다.',
-    'Like the front seat of a rollercoaster through time — the further you scroll, the deeper you swim between the records.')}</p>
 </header>
-${shorts.length ? `<section class="sec shorts-sec">
-  <h2 class="reveal">🎬 ${t(lang, '라이드 쇼츠', 'Ride Shorts')}</h2>
-  <p class="dim reveal">${t(lang,
-    '대회가 열린 지역을 1인칭 워터코스터로 여행하는 AI 쇼츠 — 썸네일을 누르면 재생됩니다.',
-    'AI shorts touring each season’s meet locations as a first-person water coaster — tap a thumbnail to play.')}</p>
-  <div class="shorts-strip">
-    ${shorts.map(s => `<figure class="short-card reveal">
-      <a class="short-play" href="${rel}assets/shorts/${esc(s.id)}.mp4"
-        data-video="${rel}assets/shorts/${esc(s.id)}.mp4"
-        data-poster="${rel}assets/shorts/${esc(s.id)}.jpg"
-        style="background-image:url('${rel}assets/shorts/${esc(s.id)}.jpg')"
-        aria-label="${esc(t(lang, s.title_ko + ' 재생', 'Play ' + s.title_en))}">
-        <span class="short-play-ico" aria-hidden="true">▶</span>
-      </a>
-      <figcaption><b>${esc(t(lang, s.title_ko, s.title_en))}</b><span>${esc(t(lang, s.desc_ko, s.desc_en))}</span></figcaption>
-    </figure>`).join('\n')}
-  </div>
-</section>` : ''}
 <div class="ride" id="ride" data-total="${total}" data-years="${yearsAttr}">
   <div class="ride-cam">
     <div class="lane-lines" aria-hidden="true"></div>

@@ -147,34 +147,30 @@ body[data-lang="en"] .st-note{font-family:'Caveat','Nanum Pen Script',cursive}
   .ride-3d .lane-lines,.ride-3d .ride-hud{display:none}
 }
 
-/* ---- 라이드 쇼츠 (시작 화면 썸네일 스트립) ----
-   인트로(히어로+쇼츠)가 100svh 안에 들어가야 다음 스크롤에서
-   '안전바를 내려주세요' 게이트가 잘리지 않고 한 화면에 나온다. */
-.ride-hero{padding-top:clamp(1.2rem,4vh,2.6rem);padding-bottom:.6rem}
-.ride-hero .sub{margin-bottom:0}
-.shorts-sec{max-width:720px;margin:0 auto;padding:0 1.25rem .9rem;text-align:center}
-.shorts-sec h2{font-size:clamp(1rem,2.4vw,1.2rem);margin:.2rem 0 0}
-.shorts-sec>p{font-size:.85rem;margin:.3rem 0 0}
-.shorts-strip{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:.8rem}
-.short-card{margin:0;width:170px;flex:none}
-.short-play{position:relative;display:block;width:100%;aspect-ratio:9/16;border-radius:18px;
+/* ---- 라이드 쇼츠 ----
+   썸네일은 첫 게이트('안전바') 카드 안에 함께 — 시작 화면 한 장에 모두 보인다.
+   탭하면 body 레벨 모달에서 크게 재생 (video는 모달에만 존재). */
+.ride-hero{padding-top:clamp(1rem,3vh,2rem);padding-bottom:.4rem}
+.ride-hero h1{font-size:clamp(1.6rem,4.5vw,2.4rem);margin:0}
+.gate-shorts{display:flex;gap:.8rem;justify-content:center;margin:.9rem 0 .3rem}
+.gate-shorts .short-card{margin:0;width:clamp(96px,15vh,150px);flex:none}
+.short-play{position:relative;display:block;width:100%;aspect-ratio:9/16;border-radius:12px;
   border:1px solid var(--line);background:#03101c center/cover no-repeat;
-  box-shadow:0 16px 44px -20px #38e1ff55;cursor:pointer;transition:transform .3s,box-shadow .3s}
-.short-play:hover{transform:translateY(-4px);box-shadow:0 22px 54px -20px #38e1ff88;text-decoration:none}
+  box-shadow:0 12px 30px -14px #38e1ff55;cursor:pointer;transition:transform .3s,box-shadow .3s}
+.short-play:hover{transform:translateY(-3px);box-shadow:0 16px 40px -14px #38e1ff88;text-decoration:none}
 .short-play-ico{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  background:#03101cd9;border:1px solid #38e1ff88;color:#eaffff;font-size:1.15rem;padding-left:4px}
-.short-card video{width:100%;aspect-ratio:9/16;height:auto;display:block;border-radius:18px;
-  border:1px solid var(--line);background:#03101c;object-fit:contain;
-  box-shadow:0 16px 44px -20px #38e1ff55}
-/* 전체화면(데스크탑 가로 화면)에서는 세로를 가득 채우고 좌우는 여백 */
-.short-card video:fullscreen,.short-card video:-webkit-full-screen{object-fit:contain;background:#000}
-/* 모바일: 세로 나열 대신 좌우 스와이프 스트립 (라이드 스크롤과 분리) */
-@media (max-width:560px){
-  .shorts-strip{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;overscroll-behavior-x:contain;
-    scroll-snap-type:x mandatory;padding:.25rem .35rem .6rem;-webkit-overflow-scrolling:touch}
-  .short-card{width:42vw;max-width:170px;scroll-snap-align:center}
-}
+  width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:#03101cd9;border:1px solid #38e1ff88;color:#eaffff;font-size:.9rem;padding-left:3px}
+.gate-shorts figcaption{margin-top:.4rem;font-size:.72rem;font-weight:700;color:var(--ink2);line-height:1.3}
+/* 재생 모달 — 세로가 화면을 가득 채우는 플레이어 */
+.shorts-modal{position:fixed;inset:0;z-index:60;background:#000e;display:flex;
+  align-items:center;justify-content:center}
+.shorts-modal video{height:min(92svh,92vh);aspect-ratio:9/16;width:auto;max-width:94vw;
+  object-fit:contain;background:#000;border-radius:10px}
+.shorts-modal video:fullscreen,.shorts-modal video:-webkit-full-screen{object-fit:contain;background:#000}
+.shorts-modal-close{position:absolute;top:max(.8rem,env(safe-area-inset-top));right:1rem;
+  width:44px;height:44px;border-radius:50%;background:#0009;border:1px solid #ffffff44;
+  color:#fff;font-size:1.2rem;cursor:pointer}
 .short-card figcaption{margin-top:.55rem;display:flex;flex-direction:column;gap:.15rem}
 .short-card figcaption b{font-size:.9rem}
 .short-card figcaption span{color:var(--ink2);font-size:.8rem;line-height:1.4}

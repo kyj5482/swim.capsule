@@ -2,44 +2,50 @@
    스크롤 위치 → 카메라 전진(translateZ). 정거장은 3D 공간에 고정 배치되고
    카메라가 그 사이를 통과한다. reduced-motion / no-JS 환경은 일반 목록 폴백. */
 
-/* 라이드 쇼츠: <video>를 상시 두지 않고 탭한 순간에만 생성, 벗어나면 해제.
-   iOS 사파리에서 비디오 디코더 + 3D 라이드가 겹치면 메모리 크래시
-   ("a problem repeatedly occurred")가 나므로 동시에 1개만 유지한다.
-   JS 없으면 포스터가 mp4 링크로 동작(폴백). */
+/* 라이드 쇼츠: 게이트 안의 썸네일을 탭하면 전체 모달로 크게 재생.
+   <video>는 모달에만 존재(동시 1개) — iOS 메모리 크래시 방지.
+   닫으면 src 반납. JS 없으면 포스터가 mp4 링크로 동작(폴백). */
 (function () {
   'use strict';
-  var strip = document.querySelector('.shorts-strip');
-  if (!strip) return;
-  var active = null; // {video, btn}
-  function release() {
-    if (!active) return;
-    active.video.pause();
-    active.video.removeAttribute('src');
-    active.video.load(); // 디코더/버퍼 즉시 반납
-    active.video.parentNode.replaceChild(active.btn, active.video);
-    active = null;
+  var wrap = document.querySelector('.gate-shorts');
+  if (!wrap) return;
+  var modal = null;
+  function close() {
+    if (!modal) return;
+    var v = modal.querySelector('video');
+    if (v) { v.pause(); v.removeAttribute('src'); v.load(); }
+    modal.remove();
+    modal = null;
+    document.documentElement.style.overflow = '';
   }
-  strip.addEventListener('click', function (e) {
+  wrap.addEventListener('click', function (e) {
     var btn = e.target.closest ? e.target.closest('.short-play') : null;
     if (!btn) return;
     e.preventDefault();
-    release();
+    close();
+    modal = document.createElement('div');
+    modal.className = 'shorts-modal';
+    var x = document.createElement('button');
+    x.className = 'shorts-modal-close';
+    x.setAttribute('aria-label', '닫기');
+    x.textContent = '✕';
     var v = document.createElement('video');
     v.controls = true;
     v.autoplay = true;
     v.playsInline = true;
     v.setAttribute('playsinline', '');
-    v.preload = 'auto';
     if (btn.getAttribute('data-poster')) v.poster = btn.getAttribute('data-poster');
     v.src = btn.getAttribute('data-video');
-    btn.parentNode.replaceChild(v, btn);
-    active = { video: v, btn: btn };
-    v.addEventListener('ended', release);
+    modal.appendChild(v);
+    modal.appendChild(x);
+    modal.addEventListener('click', function (ev) {
+      if (ev.target === modal || ev.target === x) close();
+    });
+    v.addEventListener('ended', close);
+    document.body.appendChild(modal);
+    document.documentElement.style.overflow = 'hidden'; // 재생 중 라이드 스크롤 잠금
   });
-  // 쇼츠 영역을 지나 라이드 주행에 들어가면 영상 해제
-  window.addEventListener('scroll', function () {
-    if (active && strip.getBoundingClientRect().bottom < -80) release();
-  }, { passive: true });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 })();
 
 (function () {
