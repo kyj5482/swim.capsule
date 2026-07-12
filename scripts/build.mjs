@@ -531,13 +531,12 @@ function ridePage(lang) {
 
   const body = `
 ${nav(lang, rel, `${rel}${lang === 'ko' ? 'en/' : ''}ride/`, 'ride')}
-<header class="hero yhero" id="top">
+<header class="hero yhero ride-hero" id="top">
   <p class="kicker reveal">${t(lang, '스페셜 — 1인칭 시점', 'Special — first-person POV')}</p>
   <h1 class="reveal"><span class="grad">${t(lang, '캡슐 라이드', 'The Capsule Ride')}</span></h1>
   <p class="sub reveal">${t(lang,
-    '롤러코스터의 맨 앞자리에서 시간을 통과하듯 — 스크롤할수록 기록 사이를 헤엄쳐 나아갑니다. 구간마다 뉴스, 영상, 기록이 큐레이션되어 기다립니다.',
-    'Like the front seat of a rollercoaster through time — the further you scroll, the deeper you swim between the records. Every stretch curates its news, videos and times.')}</p>
-  <p class="dim reveal">${t(lang, 'JS·모션 축소 환경에서는 정거장이 일반 목록으로 표시됩니다.', 'Without JS (or with reduced motion) the stations render as a plain list.')}</p>
+    '롤러코스터의 맨 앞자리에서 시간을 통과하듯 — 스크롤할수록 기록 사이를 헤엄쳐 나아갑니다.',
+    'Like the front seat of a rollercoaster through time — the further you scroll, the deeper you swim between the records.')}</p>
 </header>
 ${shorts.length ? `<section class="sec shorts-sec">
   <h2 class="reveal">🎬 ${t(lang, '라이드 쇼츠', 'Ride Shorts')}</h2>
