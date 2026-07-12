@@ -115,6 +115,10 @@ ffmpeg -y -ss <t> -i media/shorts/<슬러그>.mp4 -frames:v 1 /tmp/check.jpg
 
 ## 8. AI 실사 생성 (v1부터 — Higgsfield MCP + Seedance 2.0)
 
+> **MCP 호출·검증 절차는 반드시 [MCP-GUIDE.md](MCP-GUIDE.md)를 따를 것** —
+> 크레딧 잔액/단가, 호출 순서, 프레임 검증 체크리스트, 확정된 설계 결정이 정리되어 있다.
+> (어느 모델이 수행해도 동일 결과가 나오도록 작성됨. 현재 잔액 16크레딧 = 신규 생성 불가.)
+
 Higgsfield MCP 서버가 연결된 세션에서는 `seedance_2_0`으로 실사 클립을 생성한다:
 
 1. **크레딧 확인 필수**: `balance` 조회 → `generate_video`에 `get_cost:true`로 비용 선확인.
