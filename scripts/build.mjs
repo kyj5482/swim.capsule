@@ -18,6 +18,13 @@ const timeline = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/timeline.json'
   .slice()
   .sort((a, b) => a.date.localeCompare(b.date));
 
+// 라이드 쇼츠 매니페스트 (media/shorts/ — .claude/skills/ride-shorts 스킬이 생성/갱신)
+const SHORTS_DIR = path.join(ROOT, 'media/shorts');
+const shorts = fs.existsSync(path.join(SHORTS_DIR, 'shorts.json'))
+  ? JSON.parse(fs.readFileSync(path.join(SHORTS_DIR, 'shorts.json'), 'utf8'))
+    .filter(s => fs.existsSync(path.join(SHORTS_DIR, s.id + '.mp4')))
+  : [];
+
 const years = [...new Set(timeline.map(e => e.year))].sort();
 const byYear = Object.fromEntries(years.map(y => [y, timeline.filter(e => e.year === y)]));
 const athleteById = Object.fromEntries(athletes.map(a => [a.id, a]));
@@ -532,6 +539,21 @@ ${nav(lang, rel, `${rel}${lang === 'ko' ? 'en/' : ''}ride/`, 'ride')}
     'Like the front seat of a rollercoaster through time — the further you scroll, the deeper you swim between the records. Every stretch curates its news, videos and times.')}</p>
   <p class="dim reveal">${t(lang, 'JS·모션 축소 환경에서는 정거장이 일반 목록으로 표시됩니다.', 'Without JS (or with reduced motion) the stations render as a plain list.')}</p>
 </header>
+${shorts.length ? `<section class="sec shorts-sec">
+  <h2 class="reveal">🎬 ${t(lang, '라이드 쇼츠', 'Ride Shorts')}</h2>
+  <p class="dim reveal">${t(lang,
+    '대회가 열린 지역을 1인칭 워터코스터로 여행하는 AI 쇼츠 — 썸네일을 누르면 재생됩니다.',
+    'AI shorts touring each season’s meet locations as a first-person water coaster — tap a thumbnail to play.')}</p>
+  <div class="shorts-strip">
+    ${shorts.map(s => `<figure class="short-card reveal">
+      <video controls playsinline preload="none" width="270" height="480"
+        poster="${rel}assets/shorts/${esc(s.id)}.jpg">
+        <source src="${rel}assets/shorts/${esc(s.id)}.mp4" type="video/mp4">
+      </video>
+      <figcaption><b>${esc(t(lang, s.title_ko, s.title_en))}</b><span>${esc(t(lang, s.desc_ko, s.desc_en))}</span></figcaption>
+    </figure>`).join('\n')}
+  </div>
+</section>` : ''}
 <div class="ride" id="ride" data-total="${total}" data-years="${yearsAttr}">
   <div class="ride-cam">
     <div class="lane-lines" aria-hidden="true"></div>
@@ -572,6 +594,13 @@ fs.copyFileSync(path.join(ROOT, 'site/app.js'), path.join(DIST, 'assets/app.js')
 fs.copyFileSync(path.join(ROOT, 'site/ride.css'), path.join(DIST, 'assets/ride.css'));
 fs.copyFileSync(path.join(ROOT, 'site/ride.js'), path.join(DIST, 'assets/ride.js'));
 fs.cpSync(path.join(ROOT, 'capsules'), path.join(DIST, 'archive'), { recursive: true });
+if (shorts.length) {
+  fs.mkdirSync(path.join(DIST, 'assets/shorts'), { recursive: true });
+  for (const s of shorts) for (const ext of ['.mp4', '.jpg']) {
+    const f = path.join(SHORTS_DIR, s.id + ext);
+    if (fs.existsSync(f)) fs.copyFileSync(f, path.join(DIST, 'assets/shorts', s.id + ext));
+  }
+}
 fs.writeFileSync(path.join(DIST, '.nojekyll'), '');
 
 const pages = [];

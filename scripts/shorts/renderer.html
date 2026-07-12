@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>SWIM CAPSULE — ride shorts renderer</title>
+<style>html,body{margin:0;background:#111}canvas{width:270px;height:480px}</style>
+</head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script>
+/* SWIM CAPSULE ride-shorts 절차적 렌더러 (v0)
+   CONCEPT.md의 시각 문법 구현: 실사 배경 + 물길/쌍레일 + 보트 POV + 자막 오버레이.
+   render.mjs가 initScene(config) 후 renderFrame(i)를 프레임 단위로 호출한다.
+   모든 애니메이션은 t(초)만의 결정적 함수 — 같은 입력이면 같은 프레임. */
+'use strict';
+const cv = document.getElementById('c');
+const ctx = cv.getContext('2d');
+const W = 1080, H = 1920;
+
+let CFG = null, BG = null;
+
+function lerp(a, b, k) { return a + (b - a) * k; }
+function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
+// 결정적 의사난수 (프레임·인덱스 시드)
+function rnd(seed) {
+  let x = Math.sin(seed * 127.1 + 311.7) * 43758.5453;
+  return x - Math.floor(x);
+}
+
+window.initScene = async function (config) {
+  CFG = config;
+  BG = new Image();
+  BG.src = config.scene.bgUrl;
+  await BG.decode();
+  await document.fonts.ready;
+  return { w: BG.naturalWidth, h: BG.naturalHeight };
+};
+
+/* ---------- 트랙 기하: u∈(0..1] 화면 파라미터 (0=소실점, 1=카메라 앞) ---------- */
+function trackGeom(t) {
+  const s = CFG.scene;
+  const hy = (s.horizonY || 0.435) * H;            // 소실점 높이
+  const steer = Math.sin(t * 0.9 + 0.6) * 0.7;     // 완만한 스티어링 (-1..1)
+  const vpx = (s.vpx || 0.63) * W + steer * 46;    // 소실점 x
+  return { hy, vpx, steer };
+}
+function rowY(u, g) { return g.hy + (H - g.hy) * Math.pow(u, 1.65); }
+function rowHW(u) { return 22 + 438 * Math.pow(u, 1.65); }          // 물길 반폭
+function rowCX(u, g) { return W * 0.5 + (g.vpx - W * 0.5) * Math.pow(1 - u, 1.35); }
+
+/* ---------- 배경 실사 사진: 전진 줌 + 스웨이 ---------- */
+function drawBackground(t, g) {
+  const s = CFG.scene;
+  const T = CFG.duration;
+  const zoom = lerp(1.03, 1.16, t / T);            // 전진감
+  const iw = BG.naturalWidth, ih = BG.naturalHeight;
+  // 9:16 세로 슬라이스 (사진 세로를 전부 쓰는 최대 크롭)
+  let sh = ih / zoom, sw = sh * (W / H);
+  const fx = clamp((s.focusX || 0.54) * iw + g.steer * -30, sw / 2, iw - sw / 2);
+  const fy = clamp(ih * 0.5, sh / 2, ih - sh / 2);
+  ctx.drawImage(BG, fx - sw / 2, fy - sh / 2, sw, sh, 0, 0, W, H);
+  // 하단(물길이 덮일 영역)을 살짝 어둡게 → 합성 경계 완화
+  const gr = ctx.createLinearGradient(0, g.hy - 60, 0, H);
+  gr.addColorStop(0, 'rgba(0,20,40,0)');
+  gr.addColorStop(1, 'rgba(0,25,45,.34)');
+  ctx.fillStyle = gr;
+  ctx.fillRect(0, g.hy - 60, W, H - g.hy + 60);
+}
+
+/* ---------- 물길 + 콘크리트 연석 + 쌍레일 + 흐르는 물결 ---------- */
+function drawChannel(t, g) {
+  const N = 64;
+  // 연석(양옆 콘크리트 턱)
+  for (const side of [-1, 1]) {
+    ctx.beginPath();
+    for (let i = 0; i <= N; i++) {
+      const u = 0.02 + (i / N) * 0.98;
+      const x = rowCX(u, g) + side * rowHW(u) * 1.0;
+      (i ? ctx.lineTo : ctx.moveTo).call(ctx, x, rowY(u, g));
+    }
+    for (let i = N; i >= 0; i--) {
+      const u = 0.02 + (i / N) * 0.98;
+      const x = rowCX(u, g) + side * rowHW(u) * 1.22;
+      ctx.lineTo(x, rowY(u, g));
+    }
+    ctx.closePath();
+    const cg = ctx.createLinearGradient(0, g.hy, 0, H);
+    cg.addColorStop(0, '#b9c0c4'); cg.addColorStop(1, '#d8dde0');
+    ctx.fillStyle = cg;
+    ctx.fill();
+    // 연석 안쪽 그림자선
+    ctx.strokeStyle = 'rgba(40,55,65,.5)'; ctx.lineWidth = 3; ctx.stroke();
+  }
+  // 물 본체
+  ctx.beginPath();
+  for (let i = 0; i <= N; i++) {
+    const u = 0.02 + (i / N) * 0.98;
+    (i ? ctx.lineTo : ctx.moveTo).call(ctx, rowCX(u, g) - rowHW(u), rowY(u, g));
+  }
+  for (let i = N; i >= 0; i--) {
+    const u = 0.02 + (i / N) * 0.98;
+    ctx.lineTo(rowCX(u, g) + rowHW(u), rowY(u, g));
+  }
+  ctx.closePath();
+  const wg = ctx.createLinearGradient(0, g.hy, 0, H);
+  wg.addColorStop(0, '#79c6da');   // 먼 곳: 하늘 반사
+  wg.addColorStop(0.35, '#3597ba');
+  wg.addColorStop(1, '#0f6392');   // 가까운 곳: 깊은 풀 블루
+  ctx.fillStyle = wg;
+  ctx.fill();
+  ctx.save();
+  ctx.clip(); // 이후 물결·레일은 물 안에만
+
+  // 흐르는 물결 밴드 (원근: 위상 ∝ 1/u, 시간이 지나면 카메라 쪽으로)
+  for (let k = 0; k < 26; k++) {
+    const phase = (k / 26 + t * 0.55) % 1;
+    const u = 0.06 + 0.94 * Math.pow(phase, 1.35);
+    const y = rowY(u, g), hw = rowHW(u), cx = rowCX(u, g);
+    ctx.globalAlpha = 0.10 + 0.16 * u;
+    ctx.fillStyle = '#eafcff';
+    const bandH = 2 + 9 * u;
+    for (let seg = 0; seg < 5; seg++) {
+      const r1 = rnd(k * 17 + seg * 7 + 3), r2 = rnd(k * 29 + seg * 11 + 5);
+      const sx = cx - hw + r1 * hw * 2 * 0.9;
+      const swd = (0.12 + r2 * 0.2) * hw;
+      ctx.beginPath();
+      ctx.ellipse(sx, y + Math.sin(seg * 2.1 + k) * bandH, swd, bandH * 0.5, 0, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+  ctx.globalAlpha = 1;
+
+  // 물속 쌍레일 (잠긴 금속 레일 + 침목 느낌의 가로 티)
+  for (const lane of [-0.30, 0.30]) {
+    ctx.beginPath();
+    for (let i = 0; i <= N; i++) {
+      const u = 0.03 + (i / N) * 0.97;
+      const x = rowCX(u, g) + lane * rowHW(u) * 2;
+      (i ? ctx.lineTo : ctx.moveTo).call(ctx, x, rowY(u, g));
+    }
+    ctx.strokeStyle = 'rgba(30,42,48,.78)';
+    ctx.lineWidth = 13; ctx.lineCap = 'round';
+    ctx.stroke();
+    ctx.strokeStyle = 'rgba(190,225,235,.55)'; // 수면 아래 하이라이트
+    ctx.lineWidth = 3.5;
+    ctx.stroke();
+  }
+  // 침목(가로 연결대) — 원근 간격, 전진 스크롤
+  for (let k = 0; k < 14; k++) {
+    const phase = (k / 14 + t * 0.55) % 1;
+    const u = 0.06 + 0.94 * Math.pow(phase, 1.35);
+    const y = rowY(u, g), hw = rowHW(u), cx = rowCX(u, g);
+    ctx.globalAlpha = 0.5 * u + 0.15;
+    ctx.strokeStyle = 'rgba(35,48,55,.8)';
+    ctx.lineWidth = 3 + 8 * u;
+    ctx.beginPath();
+    ctx.moveTo(cx - hw * 0.66, y);
+    ctx.lineTo(cx + hw * 0.66, y);
+    ctx.stroke();
+  }
+  ctx.globalAlpha = 1;
+  ctx.restore();
+}
+
+/* ---------- 전시 패널: 좌측 연석 위 액자가 다가와 스쳐감 ---------- */
+function drawPanel(t, g) {
+  const p = CFG.scene.panel;
+  if (!p) return;
+  const T = CFG.duration;
+  const u = lerp(0.22, 1.06, t / T);   // 접근 → 통과
+  if (u <= 0.05 || u >= 1.04) return;
+  const uc = Math.min(u, 1);
+  const y = rowY(uc, g), hw = rowHW(uc);
+  const x = rowCX(uc, g) - hw * 1.34;  // 왼쪽 연석 바로 옆 (화면 밖 잘림 방지)
+  const sc = 0.14 + 1.1 * Math.pow(uc, 1.65);
+  const pw = 330 * sc, ph = 250 * sc;
+  ctx.save();
+  ctx.translate(x, y - ph * 0.92);
+  // 지지대
+  ctx.fillStyle = '#5b6770';
+  ctx.fillRect(-4 * sc, ph * 0.55, 8 * sc, ph * 0.45);
+  // 액자 (흰 매트 + 진회색 프레임)
+  ctx.shadowColor = 'rgba(0,0,0,.4)'; ctx.shadowBlur = 18 * sc;
+  ctx.fillStyle = '#2b3238';
+  ctx.fillRect(-pw / 2, -ph / 2, pw, ph);
+  ctx.shadowBlur = 0;
+  ctx.fillStyle = '#f6f4ee';
+  ctx.fillRect(-pw / 2 + 8 * sc, -ph / 2 + 8 * sc, pw - 16 * sc, ph - 16 * sc);
+  // 내용: 헤더 컬러바 + 기록 텍스트
+  ctx.fillStyle = '#0f5f8f';
+  ctx.fillRect(-pw / 2 + 8 * sc, -ph / 2 + 8 * sc, pw - 16 * sc, 40 * sc);
+  ctx.fillStyle = '#fff';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.font = `700 ${Math.round(24 * sc)}px "Apple SD Gothic Neo", sans-serif`;
+  ctx.fillText(p.header || 'RECORD', 0, -ph / 2 + 28 * sc);
+  ctx.fillStyle = '#1c2430';
+  ctx.font = `800 ${Math.round(30 * sc)}px "Apple SD Gothic Neo", sans-serif`;
+  ctx.fillText(p.title || '', 0, -6 * sc, pw - 34 * sc);
+  ctx.fillStyle = '#4a5666';
+  ctx.font = `500 ${Math.round(22 * sc)}px "Apple SD Gothic Neo", sans-serif`;
+  ctx.fillText(p.sub || '', 0, 34 * sc, pw - 34 * sc);
+  // 메달 뱃지
+  if (p.medal) {
+    ctx.font = `${Math.round(40 * sc)}px "Apple Color Emoji", sans-serif`;
+    ctx.fillText(p.medal, 0, 82 * sc);
+  }
+  ctx.restore();
+}
+
+/* ---------- 뱃머리 물보라 ---------- */
+function drawSplash(t, g, frame) {
+  const baseY = 1560;
+  for (const side of [-1, 1]) {
+    const bx = 540 + side * 330;
+    for (let k = 0; k < 26; k++) {
+      const r1 = rnd(frame * 3 + k * 13 + side * 99);
+      const r2 = rnd(frame * 7 + k * 31 + side * 55);
+      const r3 = rnd(frame * 11 + k * 47 + side * 21);
+      const px = bx + side * r1 * 190;
+      const py = baseY - r2 * 200 + r1 * 120;
+      const sz = 3 + r3 * 13;
+      ctx.globalAlpha = 0.25 + r2 * 0.5;
+      ctx.fillStyle = '#f2fbff';
+      ctx.beginPath();
+      ctx.ellipse(px, py, sz, sz * 0.7, side * 0.5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+  ctx.globalAlpha = 1;
+}
+
+/* ---------- 보트 뱃머리 + 핸들바 + 두 손 + 명판 ---------- */
+function drawBoat(t, g) {
+  const bounce = Math.sin(t * Math.PI * 2 * 2.1) * 5 + Math.sin(t * 5.3) * 2.5;
+  ctx.save();
+  ctx.translate(g.steer * 10, bounce);
+  ctx.rotate(g.steer * 0.012);
+
+  // 헐(선체) — 흰 FRP, 위가 밝고 옆이 어두운 광택
+  const hull = ctx.createLinearGradient(0, 1430, 0, H);
+  hull.addColorStop(0, '#ffffff');
+  hull.addColorStop(0.45, '#e9e7e0');
+  hull.addColorStop(1, '#c9c6bd');
+  ctx.beginPath();
+  ctx.moveTo(-40, H + 40);
+  ctx.bezierCurveTo(60, 1620, 300, 1462, 540, 1450);
+  ctx.bezierCurveTo(780, 1462, 1020, 1620, 1120, H + 40);
+  ctx.closePath();
+  ctx.fillStyle = hull;
+  ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 26; ctx.shadowOffsetY = -8;
+  ctx.fill();
+  ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
+
+  // 데크 상판(안쪽 살짝 어두운 면)
+  const deck = ctx.createLinearGradient(0, 1500, 0, 1860);
+  deck.addColorStop(0, '#f7f5ef');
+  deck.addColorStop(1, '#d4d1c8');
+  ctx.beginPath();
+  ctx.moveTo(110, H + 20);
+  ctx.bezierCurveTo(180, 1660, 350, 1520, 540, 1512);
+  ctx.bezierCurveTo(730, 1520, 900, 1660, 970, H + 20);
+  ctx.closePath();
+  ctx.fillStyle = deck;
+  ctx.fill();
+  // 중앙 리지 라인 + 크롬 힌지
+  ctx.strokeStyle = 'rgba(120,116,105,.45)'; ctx.lineWidth = 3;
+  ctx.beginPath(); ctx.moveTo(540, 1512); ctx.lineTo(540, 1650); ctx.stroke();
+  ctx.beginPath(); ctx.arc(540, 1585, 13, 0, Math.PI * 2);
+  const chrome = ctx.createRadialGradient(536, 1580, 2, 540, 1585, 14);
+  chrome.addColorStop(0, '#fff'); chrome.addColorStop(0.6, '#aeb6ba'); chrome.addColorStop(1, '#5d666b');
+  ctx.fillStyle = chrome; ctx.fill();
+
+  // 명판
+  const plaque = CFG.scene.plaque || 'SWIM CAPSULE RIDE';
+  ctx.save();
+  ctx.translate(540, 1712);
+  ctx.fillStyle = '#8a7a55';
+  ctx.strokeStyle = '#6d5f40'; ctx.lineWidth = 3;
+  roundRect(-170, -30, 340, 60, 10); ctx.fill(); ctx.stroke();
+  ctx.fillStyle = '#f4ecd7';
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.font = '700 25px "Apple SD Gothic Neo", sans-serif';
+  ctx.fillText(plaque, 0, -1, 320);
+  ctx.restore();
+
+  // 핸들바 (검은 패딩 U바)
+  ctx.lineCap = 'round';
+  ctx.strokeStyle = '#15171a';
+  ctx.lineWidth = 52;
+  ctx.beginPath();
+  ctx.moveTo(240, 1868);
+  ctx.quadraticCurveTo(540, 1758, 840, 1868);
+  ctx.stroke();
+  ctx.strokeStyle = 'rgba(255,255,255,.14)'; // 패딩 하이라이트
+  ctx.lineWidth = 14;
+  ctx.beginPath();
+  ctx.moveTo(250, 1856);
+  ctx.quadraticCurveTo(540, 1748, 830, 1856);
+  ctx.stroke();
+
+  // 두 손 (주먹 그립 — 단순화된 형태)
+  for (const side of [-1, 1]) {
+    const hx = 540 + side * 218, hy = 1806 - 12;
+    ctx.save();
+    ctx.translate(hx, hy);
+    ctx.rotate(side * 0.22);
+    const skin = ctx.createLinearGradient(0, -46, 0, 60);
+    skin.addColorStop(0, '#e8b98f');
+    skin.addColorStop(1, '#c9955f');
+    ctx.fillStyle = skin;
+    roundRect(-52, -44, 104, 96, 34); ctx.fill();
+    // 손가락 마디
+    ctx.fillStyle = 'rgba(120,70,30,.25)';
+    for (let f = -1.5; f <= 1.5; f++) {
+      ctx.beginPath();
+      ctx.ellipse(f * 24, -34, 10, 14, 0, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.restore();
+  }
+  ctx.restore();
+}
+
+function roundRect(x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+/* ---------- 오버레이: 지역 배지 · 구간 자막 · 워터마크 ---------- */
+function drawOverlays(t) {
+  const s = CFG.scene;
+  ctx.textBaseline = 'middle';
+  // 지역 배지 (좌상단)
+  ctx.textAlign = 'left';
+  ctx.shadowColor = 'rgba(0,0,0,.65)'; ctx.shadowBlur = 10;
+  ctx.fillStyle = '#fff';
+  ctx.font = '700 40px "Apple SD Gothic Neo", sans-serif';
+  ctx.fillText('📍 ' + (s.badge || ''), 46, 96);
+  ctx.font = '500 30px "Apple SD Gothic Neo", sans-serif';
+  ctx.fillStyle = 'rgba(255,255,255,.88)';
+  ctx.fillText('ⓒ SWIM CAPSULE AI', 52, 148);
+  // 구간 자막 (진입 1초 후 페이드인)
+  const a = clamp((t - (s.titleIn ?? 0.8)) / 0.5, 0, 1);
+  if (a > 0 && s.title_ko) {
+    ctx.globalAlpha = a;
+    ctx.textAlign = 'center';
+    ctx.shadowColor = 'rgba(0,0,0,.8)'; ctx.shadowBlur = 16;
+    ctx.fillStyle = '#fff';
+    ctx.font = '900 82px "Apple SD Gothic Neo", sans-serif';
+    ctx.fillText(s.title_ko, 540, 1128 + (1 - a) * 24);
+    ctx.fillStyle = '#ffd400';
+    ctx.font = 'italic 800 54px "Avenir Next", "Apple SD Gothic Neo", sans-serif';
+    ctx.fillText(s.title_en || '', 540, 1206 + (1 - a) * 24);
+    ctx.globalAlpha = 1;
+  }
+  // 워터마크 (우하단)
+  ctx.textAlign = 'right';
+  ctx.fillStyle = 'rgba(255,255,255,.75)';
+  ctx.font = '600 32px "Avenir Next", sans-serif';
+  ctx.fillText('swim.capsule', W - 40, H - 52);
+  ctx.shadowBlur = 0;
+}
+
+/* ---------- 프레임 렌더 ---------- */
+window.renderFrame = function (frame) {
+  const t = frame / CFG.fps;
+  const g = trackGeom(t);
+  ctx.clearRect(0, 0, W, H);
+
+  // 월드(배경+물길+패널+물보라)에 뱅킹 롤 적용 — 보트/UI는 카메라 고정
+  ctx.save();
+  ctx.translate(W / 2, H / 2);
+  ctx.rotate(g.steer * 0.02);
+  ctx.scale(1.04, 1.04); // 롤 시 가장자리 노출 방지 여유
+  ctx.translate(-W / 2, -H / 2);
+  drawBackground(t, g);
+  drawChannel(t, g);
+  drawPanel(t, g);
+  drawSplash(t, g, frame);
+  ctx.restore();
+
+  drawBoat(t, g);
+  drawOverlays(t);
+
+  // 비네트 (쇼츠 특유의 시선 집중)
+  const vg = ctx.createRadialGradient(540, 900, 620, 540, 960, 1400);
+  vg.addColorStop(0, 'rgba(0,0,0,0)');
+  vg.addColorStop(1, 'rgba(0,10,20,.30)');
+  ctx.fillStyle = vg;
+  ctx.fillRect(0, 0, W, H);
+
+  return cv.toDataURL('image/png');
+};
+</script>
+</body>
+</html>

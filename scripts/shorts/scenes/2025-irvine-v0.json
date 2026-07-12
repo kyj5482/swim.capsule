@@ -1,0 +1,24 @@
+{
+  "$note": "v0 — 3초 컨셉 테스트: 2025 어바인 Woollett Aquatics Center (데이터 최다 연도/지역)",
+  "out": "media/shorts/2025-irvine-v0",
+  "fps": 30,
+  "duration": 3,
+  "posterT": 2.0,
+  "scene": {
+    "bg": "media/shorts/assets/woollett-irvine.jpg",
+    "focusX": 0.54,
+    "horizonY": 0.435,
+    "vpx": 0.63,
+    "badge": "어바인, Irvine CA",
+    "plaque": "SWIM CAPSULE RIDE · 2025",
+    "title_ko": "울렛 아쿠아틱스 센터",
+    "title_en": "Woollett Aquatics Center",
+    "titleIn": 0.8,
+    "panel": {
+      "header": "2025 RECORD",
+      "title": "평영 50m 3위 — 김재이",
+      "sub": "June Age Group Champs (LCM)",
+      "medal": "🥉"
+    }
+  }
+}

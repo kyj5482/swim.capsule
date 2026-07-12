@@ -146,3 +146,16 @@ body[data-lang="en"] .st-note{font-family:'Caveat','Nanum Pen Script',cursive}
   .ride-3d .st{position:static;opacity:1;transform:none!important;pointer-events:auto;width:auto;margin:1.3rem 0}
   .ride-3d .lane-lines,.ride-3d .ride-hud{display:none}
 }
+
+/* ---- 라이드 쇼츠 (시작 화면 썸네일 스트립) ---- */
+.shorts-sec{max-width:720px;margin:0 auto;padding:0 1.25rem 1.5rem;text-align:center}
+.shorts-sec h2{font-size:clamp(1.1rem,2.6vw,1.35rem)}
+.shorts-strip{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+.short-card{margin:0;width:236px;flex:none}
+.short-card video{width:100%;aspect-ratio:9/16;height:auto;display:block;border-radius:18px;
+  border:1px solid var(--line);background:#03101c;object-fit:cover;
+  box-shadow:0 16px 44px -20px #38e1ff55;cursor:pointer;transition:transform .3s,box-shadow .3s}
+.short-card video:hover{transform:translateY(-4px);box-shadow:0 22px 54px -20px #38e1ff88}
+.short-card figcaption{margin-top:.55rem;display:flex;flex-direction:column;gap:.15rem}
+.short-card figcaption b{font-size:.9rem}
+.short-card figcaption span{color:var(--ink2);font-size:.8rem;line-height:1.4}
