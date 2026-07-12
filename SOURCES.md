@@ -28,9 +28,12 @@
 | 현대일보 (대통령배 금메달) | hyundaiilbo.com/news/articleView.html?idxno=547739 | capsules/2023/2023-jaei-presidents-cup-42/ |
 | 이뉴스투데이 (제53회 대표 선발) | enewstoday.co.kr/news/articleView.html?idxno=2114897 | capsules/2024/2024-jia-jrsports-53-selection/ |
 
-## 3. 한국 — 대한수영연맹 / 유튜브 (조사 진행 중)
+## 3. 한국 — 대한수영연맹 (전문체육 전국대회 전체 이력)
 
-- 대한수영연맹 공식 기록: korswim.co.kr (생활체육 부문 접영 50m 한국신기록 등 세부 확인 필요)
+- **시스템:** `result.sports.or.kr/SW` — 통합검색(`INF500_1.do`)에서 선수명 검색 → 해당 선수 행의 "기록확인" 버튼 → 그 선수의 **전체 대회참가이력**(날짜·종목·예선/결승·기록·순위)이 한 페이지에 나옴. 대회 하나하나 찾아다닐 필요 없음.
+- **주의:** 이 경로는 검색 세션에 종속돼 고정 URL이 없다 — 원본이 사라질 경우를 대비해 전체 표를 로컬에 백업.
+- **로컬 백업:** [`capsules/kr-korswim-results/record.md`](capsules/kr-korswim-results/record.md) — 김재이(2022~2024)·김지아(2024) 전체 대회참가이력, 대회별 정확한 기록·순위 포함.
+- **신기록현황**(`korswim.co.kr/page/14`): 생활체육 부문 현재 기록 보유자만 표시(과거 이력 없음) — 김지아의 2023 접영 한국신기록 주장은 이 페이지로 사후 확정 불가(경신 가능성).
 - 대회 중계 영상: 대한수영연맹 유튜브 채널 — 경기 시작 초(`&t=` 링크)만 기록, 다운로드하지 않음
 - 상세 backlog: [`data/scrape-state.json`](data/scrape-state.json) 의 `search_backlog`
 
@@ -54,4 +57,4 @@
 - 수집 상태·미해결 과제: [`data/scrape-state.json`](data/scrape-state.json)
 
 ---
-*최종 갱신: 2026-07-11. 새 대회 수집 시 이 표에 출처와 로컬 백업 경로를 함께 추가할 것.*
+*최종 갱신: 2026-07-12. 새 대회 수집 시 이 표에 출처와 로컬 백업 경로를 함께 추가할 것.*

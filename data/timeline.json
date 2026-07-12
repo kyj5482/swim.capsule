@@ -2,6 +2,53 @@
   "$schema_note": "각 event는 하나의 캡슐 항목. verified=true는 원문 출처(기사/공식기록)로 교차 확인됨. sources[].status: captured(원본 보관 완료) | pending(원본 캡처 대기) | snippet(검색 스니펫만 확보). media는 사용자가 사진/영상을 추가하는 슬롯.",
   "events": [
     {
+      "id": "2022-jaei-debut",
+      "year": 2022,
+      "date": "2022-05-15",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "milestone",
+      "title_ko": "김재이, 선수 데뷔 — 제18회 꿈나무 전국수영대회",
+      "title_en": "Jaei's competitive debut — 18th Kkumnamu National Swimming Meet",
+      "location_ko": "제18회 꿈나무 전국수영대회 (김천)",
+      "location_en": "18th Kkumnamu National Swimming Meet, Gimcheon",
+      "results": [
+        {
+          "event_ko": "자유형 50m",
+          "event_en": "50m Freestyle",
+          "place": 32,
+          "medal": "",
+          "time": "40.49",
+          "round": "결승/final"
+        },
+        {
+          "event_ko": "평영 50m",
+          "event_en": "50m Breaststroke",
+          "place": 10,
+          "medal": "",
+          "time": "48.44",
+          "round": "결승/final"
+        }
+      ],
+      "story_ko": "초등학교 3학년, 청계초 소속으로 대한수영연맹 공식 전국대회에 처음 출전. 자유형 50m 32위·평영 50m 10위로 순위는 낮았지만, 이 대회가 이후 2년간 이어질 평영 기록 단축 스토리의 출발점이 된다.",
+      "story_en": "In 3rd grade, representing Cheonggye Elementary, Jaei made her first appearance at a KSF-sanctioned national meet — 32nd in the 50m free, 10th in the 50m breast. Modest finishes, but the starting line for two years of breaststroke improvement.",
+      "sources": [
+        {
+          "kind": "official",
+          "publisher": "대한수영연맹",
+          "url": "https://result.sports.or.kr/SW/INF503.do",
+          "title": "대한수영연맹 대회참가이력 — 김재이",
+          "note": "통합검색으로 조회. 원본 표는 capsules/kr-korswim-results/record.md 참조",
+          "archived": "capsules/kr-korswim-results/",
+          "status": "captured"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
       "id": "2022-jia-lifesports-festival",
       "year": 2022,
       "date": "2022-06-01",
@@ -46,18 +93,18 @@
       "verified": true
     },
     {
-      "id": "2022-jaei-debut",
+      "id": "2022-jaei-51-trials",
       "year": 2022,
       "date": "2022-06-10",
-      "date_precision": "month",
+      "date_precision": "day",
       "athletes": [
         "jaei"
       ],
-      "type": "milestone",
-      "title_ko": "김재이, 선수 생활 시작 — 전국대회 평영 결승 진출",
-      "title_en": "Jaei begins competitive career — national finals in breaststroke",
-      "location_ko": "경기도 과천 → 전국",
-      "location_en": "Gwacheon, Gyeonggi → nationwide",
+      "type": "competition",
+      "title_ko": "제51회 소년체전 경기도 선발전 — 첫 선발전 도전",
+      "title_en": "51st Festival Gyeonggi trials — first selection attempt",
+      "location_ko": "제51회 전국소년체육대회 경기도대표 최종선발전",
+      "location_en": "Gyeonggi trials, 51st National Youth Sports Festival",
       "results": [
         {
           "event_ko": "배영 50m",
@@ -76,14 +123,14 @@
           "round": "예선/heats"
         }
       ],
-      "story_ko": "초등학교 3학년, 청계초·과천시 청소년수련관 소속으로 선수 등록. 첫 도전인 제51회 전국소년체전 경기도 선발전(2022)에서 배영 50m 44.63(10위)·평영 50m 50.63(9위)을 기록했다. 순위는 뒤쪽이었지만 이 기록이 이후 2년간의 폭발적 성장의 출발점이 된다.",
-      "story_en": "In 3rd grade, Jaei registered with Cheonggye Elementary and the Gwacheon Youth Training Center. At her first meet — the 2022 Gyeonggi trials for the 51st National Youth Sports Festival — she swam 44.63 (10th) in the 50m back and 50.63 (9th) in the 50m breast. Modest placings, but the baseline from which two years of dramatic improvement began.",
+      "story_ko": "데뷔 시즌 첫 도전인 경기도 선발전에서 배영 50m 10위(44.63)·평영 50m 9위(50.63)로 본선 진출에는 실패했다. 그러나 이 50.63이 1년 반 뒤 38초대까지 줄어드는 긴 여정의 시작점이었다.",
+      "story_en": "Jaei's first Gyeonggi selection trial — 10th in the 50m back (44.63), 9th in the 50m breast (50.63), not enough to advance. That 50.63 would fall to the 38-second range within a year and a half.",
       "sources": [
         {
           "kind": "official",
           "publisher": "경기도수영연맹",
           "url": "http://www.gswimming.com/32/45",
-          "title": "제51회 전국소년체육대회 경기도대표 최종선발전 경기결과",
+          "title": "제51회 소년체전 경기도 선발전 경기결과",
           "note": "원본 xlsx 보관",
           "archived": "capsules/kr-gyeonggi-results/",
           "status": "captured"
@@ -93,32 +140,189 @@
       "verified": true
     },
     {
-      "id": "2022-jaei-butterfly-bronze",
+      "id": "2022-jaei-kyobo-cup",
       "year": 2022,
-      "date": "2022-10-01",
-      "date_precision": "year",
+      "date": "2022-08-01",
+      "date_precision": "day",
       "athletes": [
         "jaei"
       ],
       "type": "competition",
-      "title_ko": "전국대회 접영 3위 입상",
-      "title_en": "3rd place in butterfly at a national meet",
-      "location_ko": "대회명 확인 중",
-      "location_en": "Meet name to be confirmed",
+      "title_ko": "2022 교보생명컵 꿈나무체육대회 — 두 종목 출전",
+      "title_en": "2022 Kyobo Life Cup — two-event outing",
+      "location_ko": "2022 교보생명컵 꿈나무체육대회 (김천)",
+      "location_en": "2022 Kyobo Life Cup Youth Sports Festival, Gimcheon",
       "results": [
         {
-          "event_ko": "접영",
-          "event_en": "Butterfly",
-          "place": 3,
-          "medal": "bronze",
-          "time": ""
+          "event_ko": "평영 50m",
+          "event_en": "50m Breaststroke",
+          "place": 7,
+          "medal": "",
+          "time": "44.92",
+          "round": "결승/final"
+        },
+        {
+          "event_ko": "접영 50m",
+          "event_en": "50m Butterfly",
+          "place": 15,
+          "medal": "",
+          "time": "39.57",
+          "round": "예선/heats"
         }
       ],
-      "story_ko": "평영을 주종목으로 하던 김재이가 접영에서 전국대회 3위에 오르며 다관왕 스트로크의 가능성을 보여준 경기. 정확한 대회명·일자·기록은 대한수영연맹 기록 캡처로 보완 예정.",
-      "story_en": "Primarily a breaststroker, Jaei took 3rd in butterfly at a national meet — an early sign of her multi-stroke range. Exact meet name, date and time to be confirmed from KSF records.",
-      "sources": [],
+      "story_ko": "대통령배를 2주 앞두고 평영·접영 두 종목에 출전. 평영 50m 7위(44.92)로 결승까지는 올랐지만 아직 상위권은 아니었다 — 2주 뒤 대통령배 접영 동메달의 전조였다.",
+      "story_en": "Two weeks before the President's Cup, Jaei raced both breaststroke and butterfly. 7th in the 50m breast final (44.92) — not yet top-tier, but a preview of the butterfly bronze that followed.",
+      "sources": [
+        {
+          "kind": "official",
+          "publisher": "대한수영연맹",
+          "url": "https://result.sports.or.kr/SW/INF503.do",
+          "title": "대한수영연맹 대회참가이력 — 김재이",
+          "archived": "capsules/kr-korswim-results/",
+          "status": "captured"
+        }
+      ],
       "media": [],
-      "verified": false
+      "verified": true
+    },
+    {
+      "id": "2022-jaei-butterfly-bronze",
+      "year": 2022,
+      "date": "2022-08-15",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "제41회 대통령배 전국수영대회 — 접영 50m 동메달",
+      "title_en": "41st President's Cup — bronze in the 50m butterfly",
+      "location_ko": "제41회 대통령배 전국수영대회 (전주)",
+      "location_en": "41st President's Cup National Swimming Championships, Jeonju",
+      "results": [
+        {
+          "event_ko": "접영 50m",
+          "event_en": "50m Butterfly",
+          "place": 3,
+          "medal": "bronze",
+          "time": "36.72",
+          "round": "결승/final"
+        },
+        {
+          "event_ko": "평영 50m",
+          "event_en": "50m Breaststroke",
+          "place": 8,
+          "medal": "",
+          "time": "43.52",
+          "round": "결승/final"
+        }
+      ],
+      "story_ko": "평영을 주종목으로 하던 김재이가 데뷔 시즌 최고 권위 대회인 대통령배에서 접영 50m 3위(36.72)에 오르며 다관왕 스트로크의 가능성을 처음 보여줬다. 대한수영연맹 공식 기록으로 대회명·정확한 기록이 확정됨.",
+      "story_en": "Primarily a breaststroker, Jaei took 3rd in the 50m butterfly (36.72) at the President's Cup — Korea's premier championship — in her debut season, an early sign of multi-stroke range. Confirmed via official KSF records.",
+      "sources": [
+        {
+          "kind": "official",
+          "publisher": "대한수영연맹",
+          "url": "https://result.sports.or.kr/SW/INF503.do",
+          "title": "대한수영연맹 대회참가이력 — 김재이",
+          "note": "제41회 대통령배 2022.08.15 접영50M 결승 3위 36.72",
+          "archived": "capsules/kr-korswim-results/",
+          "status": "captured"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
+      "id": "2022-jaei-hoejangbae",
+      "year": 2022,
+      "date": "2022-09-17",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "제71회 회장배 전국수영대회 — 새 종목 도전",
+      "title_en": "71st Chairman's Cup — trying new events",
+      "location_ko": "제71회 회장배 전국수영대회",
+      "location_en": "71st Chairman's Cup National Swimming Championships",
+      "results": [
+        {
+          "event_ko": "자유형 50m",
+          "event_en": "50m Freestyle",
+          "place": 45,
+          "medal": "",
+          "time": "35.49",
+          "round": "예선/heats"
+        },
+        {
+          "event_ko": "배영 50m",
+          "event_en": "50m Backstroke",
+          "place": 19,
+          "medal": "",
+          "time": "41.35",
+          "round": "예선/heats"
+        }
+      ],
+      "story_ko": "주종목인 평영을 잠시 쉬고 자유형·배영에 도전한 대회. 둘 다 예선 탈락했지만, 여러 종목을 실험하며 자신의 강점을 찾아가던 시기의 기록.",
+      "story_en": "A meet spent experimenting outside her main stroke — freestyle and backstroke, both ending in the heats. Part of the process of finding her range.",
+      "sources": [
+        {
+          "kind": "official",
+          "publisher": "대한수영연맹",
+          "url": "https://result.sports.or.kr/SW/INF503.do",
+          "title": "대한수영연맹 대회참가이력 — 김재이",
+          "archived": "capsules/kr-korswim-results/",
+          "status": "captured"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
+      "id": "2022-jaei-mbc-cup",
+      "year": 2022,
+      "date": "2022-10-23",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "2022 MBC배 전국수영대회 — 시즌 마무리, 평영 6위",
+      "title_en": "2022 MBC Cup — closing the season, 6th in breaststroke",
+      "location_ko": "2022 MBC배 전국수영대회 (대전)",
+      "location_en": "2022 MBC Cup National Swimming Championships, Daejeon",
+      "results": [
+        {
+          "event_ko": "평영 50m",
+          "event_en": "50m Breaststroke",
+          "place": 6,
+          "medal": "",
+          "time": "40.43",
+          "round": "결승/final"
+        },
+        {
+          "event_ko": "평영 100m",
+          "event_en": "100m Breaststroke",
+          "place": 8,
+          "medal": "",
+          "time": "1:30.32",
+          "round": "결승/final"
+        }
+      ],
+      "story_ko": "데뷔 시즌 마지막 전국대회. 평영 50m를 40초대까지 끌어올리며(40.43, 6위) 시즌 초 48초대에서 8초 가까이 단축한 채로 한 해를 마쳤다.",
+      "story_en": "The final national meet of her debut season. Jaei closed the year with a 50m breaststroke of 40.43 (6th) — nearly 8 seconds faster than where she started in May.",
+      "sources": [
+        {
+          "kind": "official",
+          "publisher": "대한수영연맹",
+          "url": "https://result.sports.or.kr/SW/INF503.do",
+          "title": "대한수영연맹 대회참가이력 — 김재이",
+          "archived": "capsules/kr-korswim-results/",
+          "status": "captured"
+        }
+      ],
+      "media": [],
+      "verified": true
     },
     {
       "id": "2022-jia-debut-youth-champ",
@@ -160,10 +364,57 @@
       "verified": true
     },
     {
+      "id": "2023-jaei-donga",
+      "year": 2023,
+      "date": "2023-05-04",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "highlight": true,
+      "title_ko": "제95회 동아수영대회 — 평영 50m·100m 동반 우승",
+      "title_en": "95th Dong-A Swimming Meet — double gold in breaststroke",
+      "location_ko": "제95회 동아수영대회 (김천)",
+      "location_en": "95th Dong-A Swimming Meet, Gimcheon",
+      "results": [
+        {
+          "event_ko": "평영 50m",
+          "event_en": "50m Breaststroke",
+          "place": 1,
+          "medal": "gold",
+          "time": "40.61",
+          "round": "결승/final"
+        },
+        {
+          "event_ko": "평영 100m",
+          "event_en": "100m Breaststroke",
+          "place": 1,
+          "medal": "gold",
+          "time": "1:25.92",
+          "round": "결승/final"
+        }
+      ],
+      "story_ko": "4학년 시즌 개막전에서 평영 50m·100m을 모두 석권하며 2관왕에 올랐다. 소년체전 선발전을 앞두고 물오른 상태를 확인시켜준 대회.",
+      "story_en": "Season-opening meet as a 4th grader: gold in both the 50m and 100m breaststroke. A statement of form heading into the national trials.",
+      "sources": [
+        {
+          "kind": "official",
+          "publisher": "대한수영연맹",
+          "url": "https://result.sports.or.kr/SW/INF503.do",
+          "title": "대한수영연맹 대회참가이력 — 김재이",
+          "archived": "capsules/kr-korswim-results/",
+          "status": "captured"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
       "id": "2023-jaei-jrsports-52",
       "year": 2023,
       "date": "2023-05-27",
-      "date_precision": "month",
+      "date_precision": "day",
       "athletes": [
         "jaei"
       ],
@@ -178,18 +429,20 @@
           "event_en": "50m Breaststroke",
           "place": 3,
           "medal": "bronze",
-          "time": ""
+          "time": "39.17",
+          "round": "결승/final"
         },
         {
           "event_ko": "평영 100m",
           "event_en": "100m Breaststroke",
           "place": 3,
           "medal": "bronze",
-          "time": ""
+          "time": "1:25.39",
+          "round": "결승/final"
         }
       ],
-      "story_ko": "4학년에 경기도 대표로 출전한 전국소년체전에서 평영 50m와 100m 모두 동메달. 초등부 전국 최정상급 평영 선수로 올라선 대회였다.",
-      "story_en": "Competing for Team Gyeonggi as a 4th grader, Jaei won bronze in both the 50m and 100m breaststroke — establishing herself among Korea's top elementary breaststrokers.",
+      "story_ko": "4학년에 경기도 대표로 출전한 전국소년체전 본선에서 평영 50m(39.17)와 100m(1:25.39) 모두 동메달. 초등부 전국 최정상급 평영 선수로 올라선 대회였다. 정확한 기록은 대한수영연맹 공식 기록으로 확정.",
+      "story_en": "Competing for Team Gyeonggi as a 4th grader at the national finals, Jaei won bronze in both the 50m (39.17) and 100m (1:25.39) breaststroke — establishing herself among Korea's top elementary breaststrokers. Exact times confirmed via official KSF records.",
       "sources": [
         {
           "kind": "news",
@@ -206,6 +459,15 @@
           "title": "제52회 소년체전 경기도 선발전 경기결과",
           "note": "선발전 평영 50m 결승 1위 40.90 — 소년체전 본선 출전권 획득",
           "archived": "capsules/kr-gyeonggi-results/",
+          "status": "captured"
+        },
+        {
+          "kind": "official",
+          "publisher": "대한수영연맹",
+          "url": "https://result.sports.or.kr/SW/INF503.do",
+          "title": "대한수영연맹 대회참가이력 — 김재이",
+          "note": "평영50m 결승 3위 39.17, 100m 결승 3위 1:25.39",
+          "archived": "capsules/kr-korswim-results/",
           "status": "captured"
         }
       ],
@@ -366,8 +628,8 @@
     {
       "id": "2023-jaei-kyobo-cup",
       "year": 2023,
-      "date": "2023-08-01",
-      "date_precision": "month",
+      "date": "2023-07-31",
+      "date_precision": "day",
       "athletes": [
         "jaei"
       ],
@@ -382,11 +644,20 @@
           "event_en": "100m Breaststroke",
           "place": 2,
           "medal": "silver",
-          "time": ""
+          "time": "1:24.16",
+          "round": "결승/final"
+        },
+        {
+          "event_ko": "평영 50m",
+          "event_en": "50m Breaststroke",
+          "place": 4,
+          "medal": "",
+          "time": "39.67",
+          "round": "결승/final"
         }
       ],
-      "story_ko": "대통령배 직전에 열린 교보생명컵에서 평영 100m 2위. 여름 시즌 상승세를 그대로 대통령배로 이어갔다.",
-      "story_en": "Runner-up in the 100m breaststroke at the Kyobo Life Cup held just before the President's Cup — momentum she carried straight into the next meet.",
+      "story_ko": "대통령배 직전에 열린 교보생명컵에서 평영 100m 2위(1:24.16), 50m는 4위(39.67). 여름 시즌 상승세를 그대로 대통령배로 이어갔다.",
+      "story_en": "Runner-up in the 100m breaststroke (1:24.16) at the Kyobo Life Cup held just before the President's Cup, with a 4th in the 50m (39.67) — momentum carried straight into the next meet.",
       "sources": [
         {
           "kind": "news",
@@ -394,6 +665,14 @@
           "url": "http://www.hyundaiilbo.com/news/articleView.html?idxno=547739",
           "note": "대통령배 기사 내 언급",
           "archived": "capsules/2023/2023-jaei-presidents-cup-42/",
+          "status": "captured"
+        },
+        {
+          "kind": "official",
+          "publisher": "대한수영연맹",
+          "url": "https://result.sports.or.kr/SW/INF503.do",
+          "title": "대한수영연맹 대회참가이력 — 김재이",
+          "archived": "capsules/kr-korswim-results/",
           "status": "captured"
         }
       ],
@@ -420,14 +699,16 @@
           "event_en": "50m Breaststroke",
           "place": 1,
           "medal": "gold",
-          "time": ""
+          "time": "38.68",
+          "round": "결승/final"
         },
         {
           "event_ko": "평영 100m",
           "event_en": "100m Breaststroke",
           "place": 2,
           "medal": "silver",
-          "time": ""
+          "time": "1:23.62",
+          "round": "결승/final"
         }
       ],
       "story_ko": "과천도시공사 청소년수련관 마스터반 소속 김재이(청계초 4)가 대통령배 전국수영대회에서 평영 50m 정상에 올랐다. 평영 100m 은메달까지 더해 언론에 보도된 시즌 하이라이트.",
@@ -439,6 +720,15 @@
           "url": "http://www.hyundaiilbo.com/news/articleView.html?idxno=547739",
           "title": "과천시 청소년 수영선수 김재이, 대통령배 금메달",
           "archived": "capsules/2023/2023-jaei-presidents-cup-42/",
+          "status": "captured"
+        },
+        {
+          "kind": "official",
+          "publisher": "대한수영연맹",
+          "url": "https://result.sports.or.kr/SW/INF503.do",
+          "title": "대한수영연맹 대회참가이력 — 김재이",
+          "note": "평영50m 결승 1위 38.68, 100m 결승 2위 1:23.62",
+          "archived": "capsules/kr-korswim-results/",
           "status": "captured"
         }
       ],
@@ -474,9 +764,102 @@
       "verified": false
     },
     {
+      "id": "2023-jaei-hoejangbae",
+      "year": 2023,
+      "date": "2023-09-09",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "highlight": true,
+      "title_ko": "제72회 회장배 전국수영대회 — 평영 50m·100m 동반 우승",
+      "title_en": "72nd Chairman's Cup — double gold in breaststroke",
+      "location_ko": "제72회 회장배 전국수영대회 (목포)",
+      "location_en": "72nd Chairman's Cup National Swimming Championships, Mokpo",
+      "results": [
+        {
+          "event_ko": "평영 50m",
+          "event_en": "50m Breaststroke",
+          "place": 1,
+          "medal": "gold",
+          "time": "38.50",
+          "round": "결승/final"
+        },
+        {
+          "event_ko": "평영 100m",
+          "event_en": "100m Breaststroke",
+          "place": 1,
+          "medal": "gold",
+          "time": "1:24.13",
+          "round": "결승/final"
+        }
+      ],
+      "story_ko": "대통령배 우승의 여세를 몰아 회장배에서도 평영 50m·100m을 모두 석권했다. 한 달 사이 두 개의 전국대회에서 연속 2관왕 — 2023 시즌 최고 절정기.",
+      "story_en": "Riding the momentum from the President's Cup, Jaei swept both breaststroke events again at the Chairman's Cup — back-to-back doubles at two national meets within a month, the peak of her 2023 season.",
+      "sources": [
+        {
+          "kind": "official",
+          "publisher": "대한수영연맹",
+          "url": "https://result.sports.or.kr/SW/INF503.do",
+          "title": "대한수영연맹 대회참가이력 — 김재이",
+          "archived": "capsules/kr-korswim-results/",
+          "status": "captured"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
+      "id": "2023-jaei-mbc-cup",
+      "year": 2023,
+      "date": "2023-10-30",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "2023 MBC배 전국수영대회 — 시즌 마무리, 평영 100m 우승",
+      "title_en": "2023 MBC Cup — closing the season with 100m breaststroke gold",
+      "location_ko": "2023 MBC배 전국수영대회 (대전)",
+      "location_en": "2023 MBC Cup National Swimming Championships, Daejeon",
+      "results": [
+        {
+          "event_ko": "평영 100m",
+          "event_en": "100m Breaststroke",
+          "place": 1,
+          "medal": "gold",
+          "time": "1:24.31",
+          "round": "결승/final"
+        },
+        {
+          "event_ko": "평영 50m",
+          "event_en": "50m Breaststroke",
+          "place": 2,
+          "medal": "silver",
+          "time": "38.47",
+          "round": "결승/final"
+        }
+      ],
+      "story_ko": "2023 시즌 마지막 전국대회에서도 100m 우승·50m 준우승. 동아수영대회 2관왕(5월)으로 시작해 대통령배·회장배 우승을 거쳐 MBC배까지, 한 해 내내 시상대를 지킨 시즌이었다.",
+      "story_en": "Closed out the 2023 national season with another 100m gold and a 50m silver — a year that began with the Dong-A double in May and ran through President's Cup and Chairman's Cup gold, podiuming at every national meet along the way.",
+      "sources": [
+        {
+          "kind": "official",
+          "publisher": "대한수영연맹",
+          "url": "https://result.sports.or.kr/SW/INF503.do",
+          "title": "대한수영연맹 대회참가이력 — 김재이",
+          "archived": "capsules/kr-korswim-results/",
+          "status": "captured"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
       "id": "2023-jaei-podium-streak",
       "year": 2023,
-      "date": "2023-11-01",
+      "date": "2023-10-31",
       "date_precision": "year",
       "athletes": [
         "jaei"
@@ -487,11 +870,21 @@
       "location_ko": "전국",
       "location_en": "Nationwide, Korea",
       "results": [],
-      "story_ko": "대통령배 우승 이후 시즌이 끝날 때까지 출전한 모든 전국대회에서 1위 또는 2위를 지켰다. 대회별 상세 기록은 대한수영연맹 기록 캡처로 채워나갈 예정.",
-      "story_en": "From the President's Cup victory to season's end, Jaei finished 1st or 2nd at every national meet she entered. Meet-by-meet details will be filled in from KSF archives.",
-      "sources": [],
+      "story_ko": "대통령배 우승(8월) 이후 회장배(9월) 2관왕, MBC배(10월) 우승까지 — 시즌 끝까지 출전한 모든 전국대회에서 1~2위를 지켰다. 대회별 상세 기록은 대한수영연맹 공식 기록(capsules/kr-korswim-results/)으로 전부 확인됨.",
+      "story_en": "From the President's Cup victory in August through a Chairman's Cup double in September to an MBC Cup win in October, Jaei finished 1st or 2nd at every national meet through season's end. Full meet-by-meet detail confirmed via official KSF records.",
+      "sources": [
+        {
+          "kind": "official",
+          "publisher": "대한수영연맹",
+          "url": "https://result.sports.or.kr/SW/INF503.do",
+          "title": "대한수영연맹 대회참가이력 — 김재이",
+          "note": "2023 전체 시즌 기록",
+          "archived": "capsules/kr-korswim-results/",
+          "status": "captured"
+        }
+      ],
       "media": [],
-      "verified": false
+      "verified": true
     },
     {
       "id": "2024-jia-jrsports-53-selection",
@@ -573,46 +966,83 @@
       "verified": true
     },
     {
+      "id": "2024-jaei-jrsports-53-finals",
+      "year": 2024,
+      "date": "2024-05-25",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "제53회 전국소년체육대회(본선) — 개인 최고기록 경신",
+      "title_en": "53rd National Youth Sports Festival (finals) — a personal best, just short of the final",
+      "location_ko": "제53회 전국소년체육대회 (부산)",
+      "location_en": "53rd National Youth Sports Festival, Busan",
+      "results": [
+        {
+          "event_ko": "평영 100m",
+          "event_en": "100m Breaststroke",
+          "place": 9,
+          "medal": "",
+          "time": "1:19.22",
+          "round": "예선/heats"
+        }
+      ],
+      "story_ko": "경기도 선발전을 통과해 오른 전국 본선에서 예선 9위(1:19.22)로 결승(8명) 진출에는 아깝게 실패했다. 하지만 1:19.22는 2023년 최고기록(1:23.62)보다 4초 이상 빠른 개인 최고기록 — 순위보다 기록의 성장이 뚜렷했던 대회.",
+      "story_en": "Having advanced through the Gyeonggi trials to the national finals, Jaei placed 9th in the prelims (1:19.22) — agonizingly one spot outside the championship final. But 1:19.22 was a personal best by more than 4 seconds over her 2023 mark, growth that outran the ranking.",
+      "sources": [
+        {
+          "kind": "official",
+          "publisher": "대한수영연맹",
+          "url": "https://result.sports.or.kr/SW/INF503.do",
+          "title": "대한수영연맹 대회참가이력 — 김재이",
+          "archived": "capsules/kr-korswim-results/",
+          "status": "captured"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
       "id": "2024-jia-jrsports-53",
       "year": 2024,
-      "date": "2024-05-01",
-      "date_precision": "month",
+      "date": "2024-05-26",
+      "date_precision": "day",
       "athletes": [
         "jia"
       ],
       "type": "competition",
-      "title_ko": "제53회 전국소년체육대회 — 접영 결승 진출",
-      "title_en": "53rd National Youth Sports Festival — butterfly finalist",
+      "title_ko": "제53회 전국소년체육대회(본선) — 접영 100m 결승 8위",
+      "title_en": "53rd National Youth Sports Festival (finals) — 8th in the 100m butterfly",
       "location_ko": "제53회 전국소년체육대회 (경기도 대표)",
       "location_en": "53rd National Youth Sports Festival (Team Gyeonggi)",
       "results": [
         {
-          "event_ko": "접영 50m",
-          "event_en": "50m Butterfly",
-          "place": 2,
-          "medal": "silver",
-          "time": "35.67",
+          "event_ko": "접영 100m",
+          "event_en": "100m Butterfly",
+          "place": 8,
+          "medal": "",
+          "time": "1:24.17",
           "round": "결승/final"
         },
         {
-          "event_ko": "자유형 50m",
-          "event_en": "50m Freestyle",
-          "place": 7,
+          "event_ko": "접영 50m",
+          "event_en": "50m Butterfly",
+          "place": 10,
           "medal": "",
-          "time": "35.26",
-          "round": "결승/final"
+          "time": "36.49",
+          "round": "예선/heats"
         }
       ],
-      "story_ko": "경기도 대표 선발전(제53회, 2024.4)에서 주종목 접영 50m 결승 2위(35.67)로 본선 출전권을 얻었고, 자유형 50m도 결승(35.26)에 올랐다. 학년은 4학년(유년부).",
-      "story_en": "At the Gyeonggi trials for the 53rd Festival (Apr 2024), Jia took 2nd in the 50m butterfly final (35.67), her signature event, earning her spot, and also reached the 50m freestyle final (35.26). Competing as a 4th grader.",
+      "story_ko": "경기도 대표로 출전한 전국소년체전 본선에서 주종목 접영으로 100m 결승까지 진출해 8위(1:24.17). 50m는 예선 10위(36.49)로 결승 진출에는 실패했다. 경기도 선발전보다 한 단계 높은 전국 무대에서의 첫 결승 경험.",
+      "story_en": "Representing Gyeonggi at the national finals, Jia reached the 100m butterfly final and placed 8th (1:24.17); the 50m ended in the heats, 10th (36.49). Her first taste of a national-level final, a step up from the provincial trials.",
       "sources": [
         {
           "kind": "official",
-          "publisher": "경기도수영연맹",
-          "url": "http://www.gswimming.com/32/58",
-          "title": "제53회 소년체전 경기도 선발전 경기결과",
-          "note": "접영50m 결승 2위 35.67, 자유형50m 결승 7위 35.26 — 원본 xlsx 보관",
-          "archived": "capsules/kr-gyeonggi-results/",
+          "publisher": "대한수영연맹",
+          "url": "https://result.sports.or.kr/SW/INF503.do",
+          "title": "대한수영연맹 대회참가이력 — 김지아",
+          "archived": "capsules/kr-korswim-results/",
           "status": "captured"
         }
       ],
