@@ -83,12 +83,22 @@ const frames = Math.round(total * cast.fps);
 }
 
 /* 4. 오디오: 스타트 신호(비프)·아나운서(say) 생성 */
-const audioInputs = [];   // {file, at(전역 초), vol}
+const audioInputs = [];   // {file, at(전역 초), vol, fx}
 const globalAt = a => (a.at ?? 0) + segStart[a.seg ?? 0];
 for (const [i, vo] of (cast.vo || []).entries()) {
-  const aiff = path.join(tmp, `vo${i}.aiff`);
-  run('say', ['-v', vo.voice || 'Yuna', '-r', String(vo.rate || 200), '-o', aiff, vo.text]);
-  audioInputs.push({ file: aiff, at: globalAt(vo), vol: vo.vol ?? 1.6 });
+  let f;
+  if ((vo.engine || 'edge') === 'edge') {
+    // edge-tts (MS 뉴럴 보이스, 무료 CLI): pip3 install --user edge-tts
+    f = path.join(tmp, `vo${i}.mp3`);
+    const args = ['-m', 'edge_tts', '--voice', vo.voice || 'ko-KR-InJoonNeural',
+      '--text', vo.text, '--write-media', f];
+    if (vo.rate) args.push(`--rate=${vo.rate}`);
+    run('python3', args);
+  } else {
+    f = path.join(tmp, `vo${i}.aiff`);   // 폴백: macOS say
+    run('say', ['-v', vo.voice || 'Yuna', '-r', String(vo.rate || 200), '-o', f, vo.text]);
+  }
+  audioInputs.push({ file: f, at: globalAt(vo), vol: vo.vol ?? 1.6, fx: vo.fx });
 }
 for (const [i, sx] of (cast.sfx || []).entries()) {
   const wav = path.join(tmp, `sfx${i}.wav`);
@@ -102,8 +112,10 @@ for (const [i, sx] of (cast.sfx || []).entries()) {
 const out = path.resolve(ROOT, cast.out);
 fs.mkdirSync(path.dirname(out), { recursive: true });
 const aArgs = audioInputs.flatMap(a => ['-i', a.file]);
-const mixIns = audioInputs.map((a, i) =>
-  `[${i + 2}:a]aresample=48000,volume=${a.vol},adelay=${Math.round(a.at * 1000)}|${Math.round(a.at * 1000)}[m${i}]`).join(';');
+const mixIns = audioInputs.map((a, i) => {
+  const pa = a.fx === 'pa' ? ',aecho=0.8:0.7:60|120:0.25|0.15' : '';  // 경기장 PA 스피커 잔향
+  return `[${i + 2}:a]aresample=48000,volume=${a.vol}${pa},adelay=${Math.round(a.at * 1000)}|${Math.round(a.at * 1000)}[m${i}]`;
+}).join(';');
 const mix = audioInputs.length
   ? `;${mixIns};[1:a]volume=0.85[amb];[amb]${audioInputs.map((_, i) => `[m${i}]`).join('')}amix=inputs=${audioInputs.length + 1}:normalize=0[aout]`
   : ';[1:a]anull[aout]';
@@ -114,6 +126,7 @@ run('ffmpeg', ['-y',
   '-map', '[vout]', '-map', '[aout]',
   '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '19', '-preset', 'slow',
   '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart',
+  '-t', total.toFixed(2),   // 오디오 꼬리가 영상보다 길어지지 않게 클램프
   out + '.mp4']);
 run('ffmpeg', ['-y', '-ss', String(cast.posterT ?? 2), '-i', out + '.mp4', '-frames:v', '1', '-q:v', '3', out + '.jpg']);
 fs.rmSync(tmp, { recursive: true, force: true });

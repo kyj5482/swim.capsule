@@ -99,11 +99,19 @@ ffmpeg -y -ss <t> -i media/shorts/<슬러그>.mp4 -frames:v 1 /tmp/check.jpg
    - cast JSON = 세그먼트 목록(트리밍 포함) + panels(LED 전광판/손글씨 쪽지, 전광판 위치를 따라가는 키프레임) + vo/sfx.
    - 키프레임은 템플릿마다 1회 실측(프레임 추출→좌표)하면 모든 선수에 재사용.
    - 텍스트는 timeline.json의 실제 기록만 사용(추측 금지), 손글씨는 note_ko 원문(축약 가능).
-3. **오디오** (모두 무료·로컬):
-   - 수영 스타트: `say -v Eddy -r 140 "Take your mark"`(출발 0.7초) + 980Hz 비프(출발 직전, A 템플릿은 2.5초).
-   - 아나운서: `say -v Yuna -r 210` — "레인 N번, 이름! 대회명, 종목 순위, 기록!" 형식. 장소 구간마다 1개.
+3. **오디오** (모두 무료·로컬, Higgsfield 크레딧 불사용):
+   - TTS는 **edge-tts** (MS 뉴럴 보이스, `pip3 install --user edge-tts`, compose가 `python3 -m edge_tts`로 호출).
+     `say`는 품질이 떨어져 폴백으로만 (vo에 `"engine":"say"` 지정 시).
+   - 수영 스타트: en-US-ChristopherNeural rate -12% "Take your mark"(0.7초) + 980Hz 비프(출발 직전, A 템플릿은 2.5초).
+   - 아나운서: ko-KR-InJoonNeural rate +35~38% + `"fx":"pa"`(경기장 스피커 잔향) —
+     "레인 N번 이름! 종목 순위, 기록!" 형식. **문장을 짧게** — 구간(5초)에 맞게 미리
+     `python3 -m edge_tts`로 길이를 실측하고 rate를 조정할 것.
    - 템플릿의 현장음(물소리)은 0.85 볼륨으로 유지하고 그 위에 믹스.
-4. 확인(§5) → 매니페스트(§6) → 커밋.
+4. **클립 경계 주의**: end_image로 생성해도 Seedance가 끝 프레임에 정확히 안착하지
+   않아 공간이 "되돌아가는" 점프가 생길 수 있다. 반드시 경계 앞뒤 프레임을 추출해
+   전진 방향이 유지되는지 확인하고, 어긋나면 앞 클립을 `to:`로 일찍 잘라
+   (예: 스타트 클립은 출발 직후 3.0초) 뒤 클립이 접근을 이어받게 한다.
+5. 확인(§5) → 매니페스트(§6) → 커밋.
 
 ## 8. AI 실사 생성 (v1부터 — Higgsfield MCP + Seedance 2.0)
 
