@@ -81,7 +81,29 @@ ffmpeg -y -ss <t> -i media/shorts/<슬러그>.mp4 -frames:v 1 /tmp/check.jpg
 
 - 현재 단계와 다음 목표는 CONCEPT.md §7 표 기준. 새 버전은 `-v<N+1>` 슬러그로 만들고
   확인 후 매니페스트를 교체한다 (이전 버전 파일은 삭제).
-- v3: 전체 60~90초 = 구간별 클립을 ffmpeg concat + BGM/물소리.
+- v3: 전체 60~90초 = 장소 템플릿 추가 + BGM.
+
+## 7.5 V2 워크플로 — 장소 템플릿 + 후합성 (표준, 최소 크레딧)
+
+**핵심**: 장소 영상(AI, 크레딧 소모)은 선수와 무관한 **템플릿**으로 1회만 생성하고,
+기록·손글씨·이름은 **전광판 영역에 실제 텍스트 후합성**(크레딧 0)으로 넣는다.
+선수별/연도별 확장은 cast JSON만 복사해 텍스트·음성을 바꾸면 끝.
+
+1. **템플릿** (`media/shorts/templates/tpl-*.mp4`, 720p fast로 충분):
+   - `tpl-a-start-irvine`: 스타트 게이트 정지(2.5초) → 폭발적 출발. **end_image=다음 클립 첫 프레임**으로 생성해 이음새 제거.
+   - `tpl-b-irvine`: 어바인 주행 (v1 재활용).
+   - `tpl-c-tunnel`: 관중석 아래 터널 진입. **start_image=이전 클립 끝 프레임**. 2.2초에서 트리밍+페이드아웃(터널 내부가 가장 어두운 지점).
+   - `tpl-d-lamirada`: 터널 어둠에서 라미라다로 등장. 터널 어둠끼리 만나 컷이 자연스러움.
+   - 새 장소 추가 시: 장소 실사 사진 레퍼런스 + "large dark blank LED jumbotron screen" 문구를 프롬프트에 넣어 후합성 타깃을 확보. 진입은 "starting in near-total darkness inside a tunnel"로 시작하면 어느 클립 뒤에도 붙는다.
+2. **후합성**: `node scripts/shorts/compose.mjs scripts/shorts/casts/<cast>.json`
+   - cast JSON = 세그먼트 목록(트리밍 포함) + panels(LED 전광판/손글씨 쪽지, 전광판 위치를 따라가는 키프레임) + vo/sfx.
+   - 키프레임은 템플릿마다 1회 실측(프레임 추출→좌표)하면 모든 선수에 재사용.
+   - 텍스트는 timeline.json의 실제 기록만 사용(추측 금지), 손글씨는 note_ko 원문(축약 가능).
+3. **오디오** (모두 무료·로컬):
+   - 수영 스타트: `say -v Eddy -r 140 "Take your mark"`(출발 0.7초) + 980Hz 비프(출발 직전, A 템플릿은 2.5초).
+   - 아나운서: `say -v Yuna -r 210` — "레인 N번, 이름! 대회명, 종목 순위, 기록!" 형식. 장소 구간마다 1개.
+   - 템플릿의 현장음(물소리)은 0.85 볼륨으로 유지하고 그 위에 믹스.
+4. 확인(§5) → 매니페스트(§6) → 커밋.
 
 ## 8. AI 실사 생성 (v1부터 — Higgsfield MCP + Seedance 2.0)
 

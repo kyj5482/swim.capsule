@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>SWIM CAPSULE — overlay renderer</title>
+<style>
+@font-face { font-family: 'NanumPen'; src: url('assets/NanumPenScript-Regular.ttf'); }
+html,body{margin:0;background:transparent}
+canvas{width:270px;height:480px;background:#333}
+</style>
+</head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<span style="font-family:NanumPen;position:absolute;left:-999px">폰트 프리로드</span>
+<script>
+/* 전광판/손글씨 후합성 오버레이 렌더러 (투명 RGBA 프레임 시퀀스)
+   compose.mjs가 initOverlay(config) 후 renderFrame(i)를 호출.
+   config.panels[].keys: [{t,x,y,s,a,rot?}] — 전역 초 단위 키프레임, 선형 보간.
+   (x,y)=패널 중심(1080x1920 기준), s=배율, a=불투명도. keys 범위 밖에서는 안 그림. */
+'use strict';
+const cv = document.getElementById('c');
+const ctx = cv.getContext('2d');
+const W = 1080, H = 1920;
+let CFG = null;
+
+window.initOverlay = async function (config) {
+  CFG = config;
+  await document.fonts.load('40px NanumPen');
+  await document.fonts.ready;
+  return true;
+};
+
+function trackAt(keys, t) {
+  if (t < keys[0].t || t > keys[keys.length - 1].t) return null;
+  let i = 0;
+  while (i < keys.length - 1 && keys[i + 1].t < t) i++;
+  const a = keys[i], b = keys[Math.min(i + 1, keys.length - 1)];
+  const k = b.t === a.t ? 0 : (t - a.t) / (b.t - a.t);
+  const L = (p, q) => p + (q - p) * k;
+  return { x: L(a.x, b.x), y: L(a.y, b.y), s: L(a.s ?? 1, b.s ?? 1), a: L(a.a ?? 1, b.a ?? 1), rot: L(a.rot ?? 0, b.rot ?? 0) };
+}
+
+function roundRect(x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+/* LED 전광판 패널: 검은 스크린 + 발광 텍스트 + 스캔라인 */
+function drawLed(p, tr) {
+  const w = p.w, lineH = p.lineH || 84;
+  const h = p.pad * 2 + p.lines.length * lineH;
+  ctx.save();
+  ctx.translate(tr.x, tr.y);
+  ctx.rotate((tr.rot || 0) * Math.PI / 180);
+  ctx.scale(tr.s, tr.s);
+  ctx.globalAlpha = tr.a;
+  // 스크린 본체 (LED 오프-블랙, 살짝 광택)
+  const bg = ctx.createLinearGradient(0, -h / 2, 0, h / 2);
+  bg.addColorStop(0, 'rgba(10,12,14,.96)');
+  bg.addColorStop(1, 'rgba(16,20,24,.96)');
+  ctx.fillStyle = bg;
+  roundRect(-w / 2, -h / 2, w, h, 14);
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(70,80,90,.8)'; ctx.lineWidth = 5; ctx.stroke();
+  // 텍스트 (발광)
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  p.lines.forEach((ln, i) => {
+    const y = -h / 2 + p.pad + lineH * (i + 0.5);
+    ctx.font = `${ln.weight || 800} ${ln.size || 56}px ${ln.font || '"Avenir Next", "Apple SD Gothic Neo", sans-serif'}`;
+    ctx.shadowColor = ln.color || '#ffb300';
+    ctx.shadowBlur = 26;
+    ctx.fillStyle = ln.color || '#ffb300';
+    ctx.fillText(ln.text, 0, y, w - p.pad * 1.6);
+    ctx.shadowBlur = 0;
+  });
+  // 스캔라인
+  ctx.globalAlpha = tr.a * 0.18;
+  ctx.fillStyle = '#000';
+  for (let y = -h / 2 + 3; y < h / 2; y += 7) ctx.fillRect(-w / 2 + 4, y, w - 8, 2.6);
+  ctx.restore();
+}
+
+/* 손글씨 쪽지: 종이 + 테이프 + 나눔펜 */
+function drawNote(p, tr) {
+  const w = p.w, lineH = p.lineH || 74;
+  const h = p.pad * 2 + p.lines.length * lineH + (p.date ? 54 : 0);
+  ctx.save();
+  ctx.translate(tr.x, tr.y);
+  ctx.rotate(((tr.rot ?? 0) - 2.2) * Math.PI / 180);
+  ctx.scale(tr.s, tr.s);
+  ctx.globalAlpha = tr.a;
+  ctx.shadowColor = 'rgba(0,0,0,.5)'; ctx.shadowBlur = 30; ctx.shadowOffsetY = 10;
+  const paper = ctx.createLinearGradient(0, -h / 2, 0, h / 2);
+  paper.addColorStop(0, '#fdf9ec');
+  paper.addColorStop(1, '#f3ecd7');
+  ctx.fillStyle = paper;
+  roundRect(-w / 2, -h / 2, w, h, 8);
+  ctx.fill();
+  ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
+  // 테이프
+  ctx.fillStyle = 'rgba(255,244,190,.85)';
+  ctx.save(); ctx.rotate(-0.06); ctx.fillRect(-90, -h / 2 - 26, 180, 52); ctx.restore();
+  // 본문
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillStyle = '#2b3348';
+  p.lines.forEach((ln, i) => {
+    ctx.font = `${ln.size || 58}px NanumPen, "Apple SD Gothic Neo"`;
+    ctx.fillText(ln.text, 0, -h / 2 + p.pad + lineH * (i + 0.5), w - p.pad * 1.4);
+  });
+  if (p.date) {
+    ctx.font = '44px NanumPen';
+    ctx.fillStyle = '#8a7f63';
+    ctx.textAlign = 'right';
+    ctx.fillText(p.date, w / 2 - p.pad, h / 2 - p.pad * 0.7);
+  }
+  ctx.restore();
+}
+
+window.renderFrame = function (frame) {
+  const t = frame / CFG.fps;
+  ctx.clearRect(0, 0, W, H);
+  for (const p of CFG.panels) {
+    const tr = trackAt(p.keys, t);
+    if (!tr || tr.a <= 0.01) continue;
+    p.pad = p.pad || 34;
+    if (p.type === 'note') drawNote(p, tr);
+    else drawLed(p, tr);
+  }
+  return cv.toDataURL('image/png');
+};
+</script>
+</body>
+</html>
