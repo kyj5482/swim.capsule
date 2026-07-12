@@ -241,12 +241,26 @@ function drawNote(p, tr) {
   ctx.restore();
 }
 
+// 보트 모션 궤적: 해당 시각의 [dx,dy]를 반환(선형보간). 세그먼트 밖이면 0.
+const MOTION_GAIN = 0.9;   // 1=핸들바와 완전 동기, 낮추면 살짝만 따라감
+function motionAt(m, t) {
+  if (!m || !m.track || !m.track.length) return [0, 0];
+  const lf = (t - m.t0) * m.fps;
+  if (lf < 0 || lf > m.track.length - 1) return [0, 0];
+  const i = Math.floor(lf), k = lf - i;
+  const a = m.track[i], b = m.track[Math.min(i + 1, m.track.length - 1)];
+  return [(a[0] + (b[0] - a[0]) * k) * MOTION_GAIN, (a[1] + (b[1] - a[1]) * k) * MOTION_GAIN];
+}
+
 window.renderFrame = function (frame) {
   const t = frame / CFG.fps;
   ctx.clearRect(0, 0, W, H);
   for (const p of CFG.panels) {
     const tr = trackAt(p.keys, t);
     if (!tr || tr.a <= 0.01) continue;
+    // 보트 흔들림만큼 패널을 함께 이동 → 화면에 '붙어 있는' 느낌(합성 티 제거)
+    const mo = motionAt(p.motion, t);
+    tr.x += mo[0]; tr.y += mo[1];
     p.pad = p.pad || 34;
     if (p.type === 'note') drawNote(p, tr);
     else if (p.type === 'dash') drawDash(p, tr);

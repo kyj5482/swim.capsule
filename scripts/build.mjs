@@ -534,6 +534,10 @@ ${nav(lang, rel, `${rel}${lang === 'ko' ? 'en/' : ''}ride/`, 'ride')}
 <header class="hero yhero ride-hero" id="top">
   <p class="kicker reveal">${t(lang, '스페셜 — 1인칭 시점', 'Special — first-person POV')}</p>
   <h1 class="reveal"><span class="grad">${t(lang, '캡슐 라이드', 'The Capsule Ride')}</span></h1>
+  <p class="sub reveal">${t(lang,
+    '롤러코스터 맨 앞자리처럼 — 스크롤하면 기록 사이를 헤엄쳐 나아갑니다. 구간마다 뉴스·영상·기록이 큐레이션됩니다.',
+    'Like the front seat of a rollercoaster — scroll to swim between the records. Each stretch curates its news, videos and times.')}</p>
+  <p class="dim reveal">${t(lang, '아래 쇼츠로 대회장을 먼저 둘러보세요. JS·모션 축소 환경에서는 정거장이 일반 목록으로 표시됩니다.', 'Preview the venues in the shorts below. Without JS (or reduced motion) the stations render as a plain list.')}</p>
 </header>
 ${shorts.length ? `<section class="shorts-sec" aria-label="${t(lang, '라이드 쇼츠', 'Ride Shorts')}">
   <p class="shorts-sec-label">🎬 ${t(lang, '라이드 쇼츠 — 썸네일을 누르면 재생', 'Ride Shorts — tap a thumbnail to play')}</p>

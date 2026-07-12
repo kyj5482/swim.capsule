@@ -43,10 +43,22 @@ const segStart = segs.map((_, i) => pref[i] - i * XF);
 const total = pref[segs.length] - (segs.length - 1) * XF;
 console.log(`segments: ${segs.map((s, i) => `#${i}@${segStart[i].toFixed(2)}s(${s.dur.toFixed(2)}s)`).join(' ')} → total ${total.toFixed(2)}s (xfade ${XF}s)`);
 
-const globalized = (cast.panels || []).map(p => ({
-  ...p,
-  keys: p.keys.map(k => ({ ...k, t: k.t + segStart[p.seg ?? 0] })),
-}));
+// 세그먼트별 보트 모션 궤적 로드 (track.mjs가 생성한 templates/<name>.motion.json)
+const motions = segs.map(s => {
+  const mf = s.file.replace(/\.mp4$/, '.motion.json');
+  if (!fs.existsSync(mf)) { console.warn(`⚠︎ 모션 트랙 없음: ${path.basename(mf)} (node scripts/shorts/track.mjs 먼저 실행)`); return null; }
+  return JSON.parse(fs.readFileSync(mf, 'utf8'));
+});
+const globalized = (cast.panels || []).map(p => {
+  const seg = p.seg ?? 0;
+  const m = motions[seg];
+  return {
+    ...p,
+    keys: p.keys.map(k => ({ ...k, t: k.t + segStart[seg] })),
+    // 패널을 그 세그먼트의 보트 흔들림에 동기화 (t0=세그먼트 전역 시작 시각)
+    motion: m ? { t0: segStart[seg], fps: m.fps, track: m.track } : null,
+  };
+});
 
 /* 2. 템플릿 결합 — concat 대신 xfade/acrossfade로 장면 전환을 부드럽게 (크레딧 0) */
 const inputs = segs.flatMap(s => ['-i', s.file]);

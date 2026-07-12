@@ -66,6 +66,12 @@
 3b. 장면 전환: 세그먼트 결합은 concat이 아니라 **xfade/acrossfade 크로스페이드**
     (cast의 `"xfade":0.4`). 클립 사이 점프가 디졸브로 부드러워진다. 완벽한 공간
     연속성이 필요하면 클립 재생성이 필요(크레딧) — 잔액 부족 시 크로스페이드로 대체.
+3a. **보트 모션 트래킹(합성 티 제거)**: 새 템플릿을 추가하면 반드시
+    `node scripts/shorts/track.mjs`를 먼저 실행 → 템플릿별 핸들바(POV 리그) 궤적을
+    `templates/<name>.motion.json`(시계열 [dx,dy], 풀해상 px)에 저장한다.
+    compose가 이 궤적을 세그먼트별로 읽어 LCD·쪽지를 보트 흔들림에 동기화하므로
+    화면에 '붙어서' 함께 흔들린다(정적 오버레이 느낌 제거). gain은 overlay.html의
+    MOTION_GAIN(기본 0.9). 모션 json이 없으면 compose가 경고 후 정적으로 진행.
 3. `node scripts/shorts/compose.mjs scripts/shorts/casts/<cast>.json`
 4. **합성 검증**: 오버레이 시점 프레임 3장(스타트 보드/기록 보드/손글씨) Read로 확인 +
    `volumedetect`로 VO 구간 max_volume ≥ -6dB 확인.
