@@ -2,12 +2,12 @@
    스크롤 위치 → 카메라 전진(translateZ). 정거장은 3D 공간에 고정 배치되고
    카메라가 그 사이를 통과한다. reduced-motion / no-JS 환경은 일반 목록 폴백. */
 
-/* 라이드 쇼츠: 게이트 안의 썸네일을 탭하면 전체 모달로 크게 재생.
+/* 라이드 쇼츠: 시작 화면의 썸네일을 탭하면 전체 모달로 크게 재생.
    <video>는 모달에만 존재(동시 1개) — iOS 메모리 크래시 방지.
    닫으면 src 반납. JS 없으면 포스터가 mp4 링크로 동작(폴백). */
 (function () {
   'use strict';
-  var wrap = document.querySelector('.gate-shorts');
+  var wrap = document.querySelector('.shorts-strip');
   if (!wrap) return;
   var modal = null;
   function close() {
@@ -122,6 +122,11 @@
       cur = idx;
       stations.forEach(function (st, i) {
         var d = i - idx;
+        var ad = d < 0 ? -d : d;
+        // 컬링: 현재 근처(±2)만 렌더 — 나머지는 visibility:hidden으로
+        // GPU 합성 레이어(백킹 스토어)를 해제해 iOS 빠른 스크롤 메모리 크래시 방지.
+        var vis = ad <= 2;
+        if (st._vis !== vis) { st.style.visibility = vis ? '' : 'hidden'; st._vis = vis; }
         st.classList.toggle('on', d === 0);
         st.classList.toggle('near', d === 1 || d === -1);
         st.classList.toggle('passed', d < -1);
