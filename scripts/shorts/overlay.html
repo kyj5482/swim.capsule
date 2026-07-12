@@ -107,6 +107,69 @@ function shade(hex, f) {
   return `rgb(${c(n >> 16)},${c((n >> 8) & 255)},${c(n & 255)})`;
 }
 
+/* 콘솔 LCD(dash): 라이드 뱃머리에 장착된 계기판 화면 하나 —
+   좌우 부유 광고판 대신 화면 중앙 하단에 고정되어 '라이드의 일부'로 읽힌다.
+   월드컵 전광판처럼 자발광 스크린 + 헤더 스트립. 위치 고정, tr.a로만 페이드. */
+function drawDash(p, tr) {
+  const CX = 540, CY = 1372;
+  const wB = p.w || 500, wT = wB * 0.8;      // 아래 넓고 위 좁은 원근 사다리꼴
+  const lineH = p.lineH || 64, pad = p.pad || 22, hdrH = 44;
+  const bodyLines = p.lines.length - 1;       // 0번째 줄 = 헤더 라벨
+  const h = pad * 2 + bodyLines * lineH + hdrH;
+  const topY = CY - h / 2, botY = CY + h / 2;
+  const tl = CX - wT / 2, trr = CX + wT / 2, bl = CX - wB / 2, br = CX + wB / 2;
+  const ac = p.accent || '#0b62d6';
+  ctx.save();
+  ctx.globalAlpha = tr.a;
+  // 마운트 지지대 (뱃머리로 연결)
+  ctx.fillStyle = '#171c21';
+  ctx.fillRect(CX - 74, botY - 4, 24, 96);
+  ctx.fillRect(CX + 50, botY - 4, 24, 96);
+  // 베젤
+  ctx.shadowColor = 'rgba(0,0,0,.5)'; ctx.shadowBlur = 26; ctx.shadowOffsetY = 9;
+  ctx.fillStyle = '#0d1115';
+  ctx.beginPath();
+  ctx.moveTo(tl - 11, topY - 11); ctx.lineTo(trr + 11, topY - 11);
+  ctx.lineTo(br + 13, botY + 11); ctx.lineTo(bl - 13, botY + 11); ctx.closePath();
+  ctx.fill();
+  ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
+  // 스크린 (자발광)
+  ctx.beginPath();
+  ctx.moveTo(tl, topY); ctx.lineTo(trr, topY); ctx.lineTo(br, botY); ctx.lineTo(bl, botY); ctx.closePath();
+  ctx.save(); ctx.clip();
+  const g = ctx.createLinearGradient(0, topY, 0, botY);
+  g.addColorStop(0, '#0a1a33'); g.addColorStop(1, '#040a15');
+  ctx.fillStyle = g; ctx.fillRect(0, topY, W, h);
+  ctx.fillStyle = ac; ctx.fillRect(0, topY, W, hdrH);          // 헤더 스트립
+  ctx.globalAlpha = tr.a * 0.5; ctx.shadowColor = ac; ctx.shadowBlur = 30; // 스크린 블룸
+  ctx.fillStyle = ac; ctx.fillRect(0, topY, W, 3); ctx.shadowBlur = 0;
+  ctx.globalAlpha = tr.a * 0.07; ctx.fillStyle = '#7fd0ff';    // 스캔라인
+  for (let y = topY + hdrH; y < botY; y += 6) ctx.fillRect(0, y, W, 2);
+  ctx.globalAlpha = tr.a;
+  ctx.restore();
+  // 텍스트
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  const maxW = wT * 0.88;
+  p.lines.forEach((ln, i) => {
+    const y = i === 0 ? topY + hdrH / 2 : topY + hdrH + pad + (i - 0.5) * lineH;
+    ctx.font = `${ln.weight || 800} ${ln.size || 46}px ${ln.font || '"Avenir Next", "Apple SD Gothic Neo", sans-serif'}`;
+    ctx.shadowColor = i === 0 ? 'rgba(0,0,0,.35)' : (ln.glow || 'rgba(120,210,255,.75)');
+    ctx.shadowBlur = i === 0 ? 3 : 11;
+    ctx.fillStyle = ln.color || (i === 0 ? '#ffffff' : '#eaf6ff');
+    ctx.fillText(ln.text, CX, y, maxW);
+  });
+  ctx.shadowBlur = 0;
+  // 상단 유리 반사
+  ctx.globalAlpha = tr.a * 0.12;
+  const rg = ctx.createLinearGradient(0, topY, 0, CY);
+  rg.addColorStop(0, '#fff'); rg.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.beginPath();
+  ctx.moveTo(tl, topY); ctx.lineTo(trr, topY);
+  ctx.lineTo(CX + wT * 0.28, CY); ctx.lineTo(CX - wT * 0.28, CY); ctx.closePath();
+  ctx.fillStyle = rg; ctx.fill();
+  ctx.restore();
+}
+
 /* LED 전광판 패널: 검은 스크린 + 발광 텍스트 + 스캔라인 */
 function drawLed(p, tr) {
   const w = p.w, lineH = p.lineH || 84;
@@ -186,6 +249,7 @@ window.renderFrame = function (frame) {
     if (!tr || tr.a <= 0.01) continue;
     p.pad = p.pad || 34;
     if (p.type === 'note') drawNote(p, tr);
+    else if (p.type === 'dash') drawDash(p, tr);
     else if (p.type === 'board') drawBoard(p, tr);
     else drawLed(p, tr);
   }

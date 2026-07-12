@@ -503,6 +503,7 @@ function ridePage(lang) {
   let lastYear = null, idx = 0;
   // 쇼츠 썸네일은 첫 게이트(시작 화면) 안에 — '안전바' 메시지와 함께 한 화면에 보이도록
   const shortsStrip = shorts.length ? `
+    <p class="gate-shorts-label">🎬 ${t(lang, '라이드 쇼츠 — 대회장을 1인칭으로', 'Ride Shorts — the venues in first person')}</p>
     <div class="gate-shorts">
       ${shorts.map(s => `<figure class="short-card">
         <a class="short-play" href="${rel}assets/shorts/${esc(s.id)}.mp4"
@@ -547,7 +548,11 @@ function ridePage(lang) {
   const body = `
 ${nav(lang, rel, `${rel}${lang === 'ko' ? 'en/' : ''}ride/`, 'ride')}
 <header class="hero yhero ride-hero" id="top">
+  <p class="kicker reveal">${t(lang, '스페셜 — 1인칭 시점', 'Special — first-person POV')}</p>
   <h1 class="reveal"><span class="grad">${t(lang, '캡슐 라이드', 'The Capsule Ride')}</span></h1>
+  <p class="sub reveal">${t(lang,
+    '롤러코스터 맨 앞자리에서 시간을 통과하듯 — 스크롤로 기록 사이를 헤엄쳐 나아갑니다.',
+    'Like the front seat of a rollercoaster through time — scroll to swim between the records.')}</p>
 </header>
 <div class="ride" id="ride" data-total="${total}" data-years="${yearsAttr}">
   <div class="ride-cam">

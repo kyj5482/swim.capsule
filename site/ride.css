@@ -152,7 +152,8 @@ body[data-lang="en"] .st-note{font-family:'Caveat','Nanum Pen Script',cursive}
    탭하면 body 레벨 모달에서 크게 재생 (video는 모달에만 존재). */
 .ride-hero{padding-top:clamp(1rem,3vh,2rem);padding-bottom:.4rem}
 .ride-hero h1{font-size:clamp(1.6rem,4.5vw,2.4rem);margin:0}
-.gate-shorts{display:flex;gap:.8rem;justify-content:center;margin:.9rem 0 .3rem}
+.gate-shorts-label{margin:.7rem 0 0;font-size:.82rem;font-weight:800;color:var(--aqua2)}
+.gate-shorts{display:flex;gap:.8rem;justify-content:center;margin:.5rem 0 .3rem}
 .gate-shorts .short-card{margin:0;width:clamp(96px,15vh,150px);flex:none}
 .short-play{position:relative;display:block;width:100%;aspect-ratio:9/16;border-radius:12px;
   border:1px solid var(--line);background:#03101c center/cover no-repeat;

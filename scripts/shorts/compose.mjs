@@ -35,31 +35,38 @@ const segs = cast.segments.map(s => {
   if (s.to) dur = Math.min(dur, s.to);   // 세그먼트 트리밍 (예: 터널 어두운 지점까지)
   return { file: f, dur, to: s.to, fadeOut: s.fadeOut };
 });
-const segStart = [];
-let acc = 0;
-for (const s of segs) { segStart.push(acc); acc += s.dur; }
-const total = acc;
-console.log(`segments: ${segs.map((s, i) => `#${i}@${segStart[i].toFixed(2)}s(${s.dur.toFixed(2)}s)`).join(' ')} → total ${total.toFixed(2)}s`);
+// 크로스페이드로 세그먼트가 XF초씩 겹친다 → 전역 타임라인이 그만큼 당겨짐
+const XF = cast.xfade ?? 0.4;
+const pref = [0];
+for (const s of segs) pref.push(pref[pref.length - 1] + s.dur);
+const segStart = segs.map((_, i) => pref[i] - i * XF);
+const total = pref[segs.length] - (segs.length - 1) * XF;
+console.log(`segments: ${segs.map((s, i) => `#${i}@${segStart[i].toFixed(2)}s(${s.dur.toFixed(2)}s)`).join(' ')} → total ${total.toFixed(2)}s (xfade ${XF}s)`);
 
 const globalized = (cast.panels || []).map(p => ({
   ...p,
   keys: p.keys.map(k => ({ ...k, t: k.t + segStart[p.seg ?? 0] })),
 }));
 
-/* 2. 템플릿 concat (1080x1920/30fps 통일, 원본 현장음 유지) */
+/* 2. 템플릿 결합 — concat 대신 xfade/acrossfade로 장면 전환을 부드럽게 (크레딧 0) */
 const inputs = segs.flatMap(s => ['-i', s.file]);
-const fc = segs.map((s, i) => {
+const perSeg = segs.map((s, i) => {
   const vt = s.to ? `trim=end=${s.to},setpts=PTS-STARTPTS,` : '';
-  const vf = s.fadeOut ? `,fade=t=out:st=${(s.dur - s.fadeOut).toFixed(2)}:d=${s.fadeOut}` : '';
   const at = s.to ? `atrim=end=${s.to},asetpts=PTS-STARTPTS,` : '';
-  const af = s.fadeOut ? `,afade=t=out:st=${(s.dur - s.fadeOut).toFixed(2)}:d=${s.fadeOut}` : '';
-  return `[${i}:v]${vt}scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=${cast.fps},setsar=1${vf}[v${i}];` +
-    `[${i}:a]${at}aresample=48000,pan=stereo|c0=c0|c1=c0${af}[a${i}]`;
-}).join(';') + ';' +
-  segs.map((_, i) => `[v${i}][a${i}]`).join('') + `concat=n=${segs.length}:v=1:a=1[bv][ba]`;
-run('ffmpeg', ['-y', ...inputs, '-filter_complex', fc, '-map', '[bv]', '-map', '[ba]',
+  return `[${i}:v]${vt}scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=${cast.fps},setsar=1[v${i}];` +
+    `[${i}:a]${at}aresample=48000,pan=stereo|c0=c0|c1=c0[a${i}]`;
+}).join(';');
+let vchain = '', vprev = '[v0]', achain = '', aprev = '[a0]';
+for (let i = 1; i < segs.length; i++) {
+  const vout = i === segs.length - 1 ? '[bv]' : `[vx${i}]`;
+  const aout = i === segs.length - 1 ? '[ba]' : `[ax${i}]`;
+  vchain += `;${vprev}[v${i}]xfade=transition=fade:duration=${XF}:offset=${segStart[i].toFixed(3)}${vout}`;
+  achain += `;${aprev}[a${i}]acrossfade=d=${XF}${aout}`;
+  vprev = vout; aprev = aout;
+}
+run('ffmpeg', ['-y', ...inputs, '-filter_complex', perSeg + vchain + achain, '-map', '[bv]', '-map', '[ba]',
   '-c:v', 'libx264', '-crf', '18', '-preset', 'fast', '-c:a', 'aac', path.join(tmp, 'base.mp4')]);
-console.log('base concat ✓');
+console.log('base xfade ✓');
 
 /* 3. 오버레이 프레임 렌더 (투명 PNG 시퀀스) */
 const frames = Math.round(total * cast.fps);
@@ -116,8 +123,14 @@ const mixIns = audioInputs.map((a, i) => {
   const pa = a.fx === 'pa' ? ',aecho=0.6:0.45:40:0.16' : '';  // 경기장 PA 스피커 잔향
   return `[${i + 2}:a]aresample=48000,volume=${a.vol}${pa},adelay=${Math.round(a.at * 1000)}|${Math.round(a.at * 1000)}[m${i}]`;
 }).join(';');
+// 음성이 나올 때만 배경음이 부드럽게 줄었다 돌아오는 동적 덕킹(사이드체인 컴프레션)
 const mix = audioInputs.length
-  ? `;${mixIns};[1:a]volume=0.55[amb];[amb]${audioInputs.map((_, i) => `[m${i}]`).join('')}amix=inputs=${audioInputs.length + 1}:normalize=0,alimiter=limit=0.95[aout]`
+  ? `;${mixIns}` +
+    `;${audioInputs.map((_, i) => `[m${i}]`).join('')}amix=inputs=${audioInputs.length}:normalize=0[vraw]` +
+    `;[vraw]apad=whole_dur=${total.toFixed(3)}[vpad];[vpad]asplit=2[vkey][vmix]` +
+    `;[1:a]volume=1.0[amb]` +
+    `;[amb][vkey]sidechaincompress=threshold=0.04:ratio=8:attack=12:release=350[ambd]` +
+    `;[ambd][vmix]amix=inputs=2:normalize=0,alimiter=limit=0.95[aout]`
   : ';[1:a]anull[aout]';
 run('ffmpeg', ['-y',
   '-framerate', String(cast.fps), '-i', path.join(tmp, 'ov', '%05d.png'),
