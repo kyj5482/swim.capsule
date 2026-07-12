@@ -546,10 +546,13 @@ ${shorts.length ? `<section class="sec shorts-sec">
     'AI shorts touring each season’s meet locations as a first-person water coaster — tap a thumbnail to play.')}</p>
   <div class="shorts-strip">
     ${shorts.map(s => `<figure class="short-card reveal">
-      <video controls playsinline preload="none" width="270" height="480"
-        poster="${rel}assets/shorts/${esc(s.id)}.jpg">
-        <source src="${rel}assets/shorts/${esc(s.id)}.mp4" type="video/mp4">
-      </video>
+      <a class="short-play" href="${rel}assets/shorts/${esc(s.id)}.mp4"
+        data-video="${rel}assets/shorts/${esc(s.id)}.mp4"
+        data-poster="${rel}assets/shorts/${esc(s.id)}.jpg"
+        style="background-image:url('${rel}assets/shorts/${esc(s.id)}.jpg')"
+        aria-label="${esc(t(lang, s.title_ko + ' 재생', 'Play ' + s.title_en))}">
+        <span class="short-play-ico" aria-hidden="true">▶</span>
+      </a>
       <figcaption><b>${esc(t(lang, s.title_ko, s.title_en))}</b><span>${esc(t(lang, s.desc_ko, s.desc_en))}</span></figcaption>
     </figure>`).join('\n')}
   </div>

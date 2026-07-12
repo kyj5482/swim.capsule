@@ -1,6 +1,47 @@
 /* SWIM CAPSULE — Capsule Ride: 1인칭 POV 스크롤 라이드
    스크롤 위치 → 카메라 전진(translateZ). 정거장은 3D 공간에 고정 배치되고
    카메라가 그 사이를 통과한다. reduced-motion / no-JS 환경은 일반 목록 폴백. */
+
+/* 라이드 쇼츠: <video>를 상시 두지 않고 탭한 순간에만 생성, 벗어나면 해제.
+   iOS 사파리에서 비디오 디코더 + 3D 라이드가 겹치면 메모리 크래시
+   ("a problem repeatedly occurred")가 나므로 동시에 1개만 유지한다.
+   JS 없으면 포스터가 mp4 링크로 동작(폴백). */
+(function () {
+  'use strict';
+  var strip = document.querySelector('.shorts-strip');
+  if (!strip) return;
+  var active = null; // {video, btn}
+  function release() {
+    if (!active) return;
+    active.video.pause();
+    active.video.removeAttribute('src');
+    active.video.load(); // 디코더/버퍼 즉시 반납
+    active.video.parentNode.replaceChild(active.btn, active.video);
+    active = null;
+  }
+  strip.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('.short-play') : null;
+    if (!btn) return;
+    e.preventDefault();
+    release();
+    var v = document.createElement('video');
+    v.controls = true;
+    v.autoplay = true;
+    v.playsInline = true;
+    v.setAttribute('playsinline', '');
+    v.preload = 'auto';
+    if (btn.getAttribute('data-poster')) v.poster = btn.getAttribute('data-poster');
+    v.src = btn.getAttribute('data-video');
+    btn.parentNode.replaceChild(v, btn);
+    active = { video: v, btn: btn };
+    v.addEventListener('ended', release);
+  });
+  // 쇼츠 영역을 지나 라이드 주행에 들어가면 영상 해제
+  window.addEventListener('scroll', function () {
+    if (active && strip.getBoundingClientRect().bottom < -80) release();
+  }, { passive: true });
+})();
+
 (function () {
   'use strict';
   var ride = document.querySelector('.ride');

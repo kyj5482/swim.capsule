@@ -124,8 +124,8 @@ run('ffmpeg', ['-y',
   '-i', path.join(tmp, 'base.mp4'), ...aArgs,
   '-filter_complex', `[1:v][0:v]overlay=0:0:format=auto[vout]${mix}`,
   '-map', '[vout]', '-map', '[aout]',
-  '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '19', '-preset', 'slow',
-  '-c:a', 'aac', '-b:a', '160k', '-movflags', '+faststart',
+  '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '23', '-preset', 'slow',   // 모바일 재생 메모리/전송량 고려
+  '-c:a', 'aac', '-b:a', '128k', '-movflags', '+faststart',
   '-t', total.toFixed(2),   // 오디오 꼬리가 영상보다 길어지지 않게 클램프
   out + '.mp4']);
 run('ffmpeg', ['-y', '-ss', String(cast.posterT ?? 2), '-i', out + '.mp4', '-frames:v', '1', '-q:v', '3', out + '.jpg']);

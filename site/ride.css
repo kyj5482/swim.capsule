@@ -152,10 +152,22 @@ body[data-lang="en"] .st-note{font-family:'Caveat','Nanum Pen Script',cursive}
 .shorts-sec h2{font-size:clamp(1.1rem,2.6vw,1.35rem)}
 .shorts-strip{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
 .short-card{margin:0;width:236px;flex:none}
+.short-play{position:relative;display:block;width:100%;aspect-ratio:9/16;border-radius:18px;
+  border:1px solid var(--line);background:#03101c center/cover no-repeat;
+  box-shadow:0 16px 44px -20px #38e1ff55;cursor:pointer;transition:transform .3s,box-shadow .3s}
+.short-play:hover{transform:translateY(-4px);box-shadow:0 22px 54px -20px #38e1ff88;text-decoration:none}
+.short-play-ico{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:#03101cd9;border:1px solid #38e1ff88;color:#eaffff;font-size:1.15rem;padding-left:4px}
 .short-card video{width:100%;aspect-ratio:9/16;height:auto;display:block;border-radius:18px;
   border:1px solid var(--line);background:#03101c;object-fit:cover;
-  box-shadow:0 16px 44px -20px #38e1ff55;cursor:pointer;transition:transform .3s,box-shadow .3s}
-.short-card video:hover{transform:translateY(-4px);box-shadow:0 22px 54px -20px #38e1ff88}
+  box-shadow:0 16px 44px -20px #38e1ff55}
+/* 모바일: 세로 나열 대신 좌우 스와이프 스트립 (라이드 스크롤과 분리) */
+@media (max-width:560px){
+  .shorts-strip{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;padding:.25rem .35rem .8rem;-webkit-overflow-scrolling:touch}
+  .short-card{width:64vw;max-width:236px;scroll-snap-align:center}
+}
 .short-card figcaption{margin-top:.55rem;display:flex;flex-direction:column;gap:.15rem}
 .short-card figcaption b{font-size:.9rem}
 .short-card figcaption span{color:var(--ink2);font-size:.8rem;line-height:1.4}
