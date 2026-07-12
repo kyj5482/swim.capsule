@@ -117,7 +117,7 @@ const mixIns = audioInputs.map((a, i) => {
   return `[${i + 2}:a]aresample=48000,volume=${a.vol}${pa},adelay=${Math.round(a.at * 1000)}|${Math.round(a.at * 1000)}[m${i}]`;
 }).join(';');
 const mix = audioInputs.length
-  ? `;${mixIns};[1:a]volume=0.85[amb];[amb]${audioInputs.map((_, i) => `[m${i}]`).join('')}amix=inputs=${audioInputs.length + 1}:normalize=0[aout]`
+  ? `;${mixIns};[1:a]volume=0.55[amb];[amb]${audioInputs.map((_, i) => `[m${i}]`).join('')}amix=inputs=${audioInputs.length + 1}:normalize=0,alimiter=limit=0.95[aout]`
   : ';[1:a]anull[aout]';
 run('ffmpeg', ['-y',
   '-framerate', String(cast.fps), '-i', path.join(tmp, 'ov', '%05d.png'),

@@ -37,7 +37,7 @@ function trackAt(keys, t) {
   const a = keys[i], b = keys[Math.min(i + 1, keys.length - 1)];
   const k = b.t === a.t ? 0 : (t - a.t) / (b.t - a.t);
   const L = (p, q) => p + (q - p) * k;
-  return { x: L(a.x, b.x), y: L(a.y, b.y), s: L(a.s ?? 1, b.s ?? 1), a: L(a.a ?? 1, b.a ?? 1), rot: L(a.rot ?? 0, b.rot ?? 0) };
+  return { x: L(a.x, b.x), y: L(a.y, b.y), s: L(a.s ?? 1, b.s ?? 1), a: L(a.a ?? 1, b.a ?? 1), rot: L(a.rot ?? 0, b.rot ?? 0), skew: L(a.skew ?? 0, b.skew ?? 0) };
 }
 
 function roundRect(x, y, w, h, r) {
@@ -50,53 +50,61 @@ function roundRect(x, y, w, h, r) {
   ctx.closePath();
 }
 
-/* 경기장 광고판(board): 흰 바탕 + 상단 컬러 스트라이프 — 월드컵 A보드 느낌 */
+/* 경기장 광고판(board): 월드컵 피치사이드 LED 디스플레이 —
+   자발광 브랜드 컬러 배경 + 흰 볼드 텍스트, 채널 측면을 따라 기울어짐(skew) */
 function drawBoard(p, tr) {
   const w = p.w, lineH = p.lineH || 80;
-  const stripe = 14;
-  const h = p.pad * 2 + p.lines.length * lineH + stripe;
+  const h = p.pad * 2 + p.lines.length * lineH;
+  const ac = p.accent || '#0b62d6';
   ctx.save();
   ctx.translate(tr.x, tr.y);
   ctx.rotate((tr.rot || 0) * Math.PI / 180);
+  ctx.transform(1, tr.skew || 0, 0, 1, 0, 0);   // 측면 원근 기울기
   ctx.scale(tr.s, tr.s);
-  ctx.globalAlpha = tr.a * 0.97;
-  ctx.shadowColor = 'rgba(10,25,40,.45)'; ctx.shadowBlur = 22; ctx.shadowOffsetY = 8;
+  ctx.globalAlpha = tr.a;
+  // 어두운 베젤(프레임)
+  ctx.fillStyle = '#14181c';
+  roundRect(-w / 2 - 10, -h / 2 - 10, w + 20, h + 20, 10);
+  ctx.fill();
+  // 자발광 스크린 (LED 광원이 주변에 번지는 블룸)
+  ctx.shadowColor = ac; ctx.shadowBlur = 34;
   const bg = ctx.createLinearGradient(0, -h / 2, 0, h / 2);
-  bg.addColorStop(0, '#ffffff');
-  bg.addColorStop(1, '#e9eef2');
+  bg.addColorStop(0, shade(ac, 1.25));
+  bg.addColorStop(0.5, ac);
+  bg.addColorStop(1, shade(ac, 0.72));
   ctx.fillStyle = bg;
-  roundRect(-w / 2, -h / 2, w, h, 10);
+  roundRect(-w / 2, -h / 2, w, h, 7);
   ctx.fill();
-  ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
-  ctx.strokeStyle = '#c3ced6'; ctx.lineWidth = 3; ctx.stroke();
-  // 상단 스트라이프
-  ctx.fillStyle = p.accent || '#0f5f8f';
-  ctx.beginPath();
-  ctx.moveTo(-w / 2 + 10, -h / 2);
-  ctx.arcTo(w / 2, -h / 2, w / 2, -h / 2 + stripe, 10);
-  ctx.lineTo(w / 2, -h / 2 + stripe);
-  ctx.lineTo(-w / 2, -h / 2 + stripe);
-  ctx.arcTo(-w / 2, -h / 2, -w / 2 + 10, -h / 2, 10);
-  ctx.closePath();
-  ctx.fill();
-  // 텍스트 (인쇄 잉크 느낌 — 발광 없음)
+  ctx.shadowBlur = 0;
+  // 텍스트 — 흰색 볼드, 살짝 발광
   ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   p.lines.forEach((ln, i) => {
-    const y = -h / 2 + stripe + p.pad + lineH * (i + 0.5);
-    ctx.font = `${ln.weight || 800} ${ln.size || 50}px ${ln.font || '"Avenir Next", "Apple SD Gothic Neo", sans-serif'}`;
-    ctx.fillStyle = ln.color || '#12283f';
+    const y = -h / 2 + p.pad + lineH * (i + 0.5);
+    ctx.font = `${ln.weight || 900} ${ln.size || 50}px ${ln.font || '"Avenir Next", "Apple SD Gothic Neo", sans-serif'}`;
+    ctx.shadowColor = 'rgba(255,255,255,.8)'; ctx.shadowBlur = 10;
+    ctx.fillStyle = ln.color || '#ffffff';
     ctx.fillText(ln.text, 0, y, w - p.pad * 1.6);
   });
-  // 은은한 사선 광택
+  ctx.shadowBlur = 0;
+  // LED 픽셀 격자 (희미하게)
   ctx.globalAlpha = tr.a * 0.10;
-  const gl = ctx.createLinearGradient(-w / 2, -h / 2, w / 2, h / 2);
-  gl.addColorStop(0.35, 'rgba(255,255,255,0)');
-  gl.addColorStop(0.5, '#ffffff');
-  gl.addColorStop(0.65, 'rgba(255,255,255,0)');
-  ctx.fillStyle = gl;
-  roundRect(-w / 2, -h / 2, w, h, 10);
-  ctx.fill();
+  ctx.strokeStyle = '#000';
+  ctx.lineWidth = 1;
+  for (let gy = -h / 2 + 4; gy < h / 2; gy += 6) {
+    ctx.beginPath(); ctx.moveTo(-w / 2 + 2, gy); ctx.lineTo(w / 2 - 2, gy); ctx.stroke();
+  }
+  // 수면·바닥 반사광 힌트 (아래쪽으로 은은한 빛)
+  ctx.globalAlpha = tr.a * 0.22;
+  const rf = ctx.createLinearGradient(0, h / 2, 0, h / 2 + 46);
+  rf.addColorStop(0, ac); rf.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = rf;
+  ctx.fillRect(-w / 2, h / 2 + 10, w, 46);
   ctx.restore();
+}
+function shade(hex, f) {
+  const n = parseInt(hex.slice(1), 16);
+  const c = v => Math.max(0, Math.min(255, Math.round(v * f)));
+  return `rgb(${c(n >> 16)},${c((n >> 8) & 255)},${c(n & 255)})`;
 }
 
 /* LED 전광판 패널: 검은 스크린 + 발광 텍스트 + 스캔라인 */

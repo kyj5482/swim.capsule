@@ -1,5 +1,5 @@
 {
-  "$note": "V2 재이 — 템플릿 4클립 + 전광판 실제 기록 후합성 + 스타트/아나운서 오디오. 키프레임은 템플릿 프레임 실측 기반. | v2.2: 광고판 스타일+Hyunsu 보이스 | v2.1: A 3.0s 컷(공간 되돌아감 제거) + edge-tts 아나운서(PA 에코)",
+  "$note": "v2.3: 피치사이드 LED 광고판 + SunHi 중계 콜(볼륨↑) | V2 재이 — 템플릿 4클립 + 전광판 실제 기록 후합성 + 스타트/아나운서 오디오. 키프레임은 템플릿 프레임 실측 기반. | v2.2: 광고판 스타일+Hyunsu 보이스 | v2.1: A 3.0s 컷(공간 되돌아감 제거) + edge-tts 아나운서(PA 에코)",
   "out": "media/shorts/2025-jaei-v2",
   "fps": 30,
   "posterT": 5.5,
@@ -24,105 +24,116 @@
     {
       "type": "board",
       "seg": 0,
-      "w": 430,
-      "lineH": 78,
+      "w": 470,
+      "lineH": 66,
+      "pad": 26,
+      "accent": "#c9241e",
       "lines": [
         {
           "text": "KIM JAEI · 김재이",
-          "size": 44,
-          "color": "#5a7184"
+          "size": 34,
+          "color": "#ffe2de"
         },
         {
           "text": "TAKE YOUR MARK",
-          "size": 52,
-          "color": "#c9241e"
+          "size": 50
         }
       ],
       "keys": [
         {
           "t": 0.25,
-          "x": 455,
-          "y": 705,
-          "s": 0.9,
+          "x": 400,
+          "y": 735,
+          "s": 0.85,
+          "rot": -2,
+          "skew": 0.05,
           "a": 0
         },
         {
           "t": 0.6,
-          "x": 455,
-          "y": 705,
-          "s": 0.9,
+          "x": 400,
+          "y": 735,
+          "s": 0.85,
+          "rot": -2,
+          "skew": 0.05,
           "a": 1
         },
         {
           "t": 2.3,
-          "x": 452,
-          "y": 702,
-          "s": 0.92,
+          "x": 396,
+          "y": 733,
+          "s": 0.87,
+          "rot": -2,
+          "skew": 0.05,
           "a": 1
         },
         {
           "t": 2.75,
-          "x": 448,
-          "y": 700,
-          "s": 0.94,
+          "x": 390,
+          "y": 731,
+          "s": 0.9,
+          "rot": -2,
+          "skew": 0.05,
           "a": 0
         }
-      ],
-      "accent": "#0f5f8f"
+      ]
     },
     {
       "type": "board",
       "seg": 1,
-      "w": 460,
-      "lineH": 74,
+      "w": 520,
+      "lineH": 66,
+      "pad": 26,
+      "accent": "#0b62d6",
       "lines": [
         {
-          "text": "JUNE AGE GROUP CHAMPS",
-          "size": 36,
-          "color": "#5a7184"
+          "text": "JUNE AGE GROUP CHAMPS · IRVINE",
+          "size": 30,
+          "color": "#cfe4ff"
         },
         {
-          "text": "50m BREAST · 3RD PLACE",
-          "size": 46,
-          "color": "#12283f"
-        },
-        {
-          "text": "36.00",
-          "size": 62,
-          "color": "#c9241e"
+          "text": "50m BREAST 3RD · 36.00",
+          "size": 52
         }
       ],
       "keys": [
         {
           "t": 1.1,
-          "x": 760,
-          "y": 580,
-          "s": 0.62,
+          "x": 730,
+          "y": 905,
+          "s": 0.5,
+          "rot": 6,
+          "skew": -0.1,
           "a": 0
         },
         {
           "t": 1.5,
-          "x": 790,
-          "y": 590,
-          "s": 0.78,
+          "x": 755,
+          "y": 930,
+          "s": 0.64,
+          "rot": 7,
+          "skew": -0.11,
           "a": 1
         },
         {
-          "t": 2.8,
-          "x": 860,
-          "y": 620,
-          "s": 1.05,
+          "t": 2.9,
+          "x": 845,
+          "y": 1030,
+          "s": 0.98,
+          "rot": 9,
+          "skew": -0.12,
           "a": 1
         },
         {
-          "t": 3.5,
-          "x": 990,
-          "y": 665,
-          "s": 1.28,
+          "t": 3.6,
+          "x": 960,
+          "y": 1115,
+          "s": 1.22,
+          "rot": 10,
+          "skew": -0.13,
           "a": 0
         }
-      ],
-      "accent": "#0f5f8f"
+      ]
     },
     {
       "type": "note",
@@ -178,59 +189,59 @@
     {
       "type": "board",
       "seg": 3,
-      "w": 440,
-      "lineH": 70,
+      "w": 520,
+      "lineH": 66,
+      "pad": 26,
+      "accent": "#0b62d6",
       "lines": [
         {
-          "text": "SCS SPRING · LA MIRADA",
-          "size": 36,
-          "color": "#5a7184"
+          "text": "SCS SPRING CHAMPS · LA MIRADA",
+          "size": 30,
+          "color": "#cfe4ff"
         },
         {
-          "text": "100yd BREAST 1:12.62",
-          "size": 46,
-          "color": "#12283f"
-        },
-        {
-          "text": "50yd BREAST 33.18",
-          "size": 44,
-          "color": "#c9241e"
+          "text": "100yd BR 1:12.62 · 50yd 33.18",
+          "size": 46
         }
       ],
       "keys": [
         {
           "t": 1.3,
           "x": 690,
-          "y": 818,
-          "s": 0.55,
+          "y": 830,
+          "s": 0.5,
+          "rot": 5,
+          "skew": -0.1,
           "a": 0
         },
         {
           "t": 1.7,
-          "x": 745,
-          "y": 840,
-          "s": 0.75,
-          "a": 1,
-          "rot": 4
+          "x": 730,
+          "y": 860,
+          "s": 0.66,
+          "rot": 6,
+          "skew": -0.11,
+          "a": 1
         },
         {
-          "t": 2.6,
+          "t": 2.7,
+          "x": 865,
+          "y": 950,
+          "s": 1.02,
+          "rot": 8,
+          "skew": -0.12,
+          "a": 1
+        },
+        {
+          "t": 3.1,
           "x": 980,
-          "y": 940,
-          "s": 1.35,
-          "a": 1,
-          "rot": 7
-        },
-        {
-          "t": 3,
-          "x": 1130,
-          "y": 1010,
-          "s": 1.6,
-          "a": 0,
-          "rot": 9
+          "y": 1015,
+          "s": 1.2,
+          "rot": 9,
+          "skew": -0.13,
+          "a": 0
         }
-      ],
-      "accent": "#0f5f8f"
+      ]
     }
   ],
   "vo": [
@@ -241,27 +252,27 @@
       "voice": "en-US-ChristopherNeural",
       "rate": "-8%",
       "text": "Take your mark",
-      "vol": 2
+      "vol": 3
     },
     {
       "seg": 1,
-      "at": 0.3,
+      "at": 0.4,
       "engine": "edge",
-      "voice": "ko-KR-HyunsuMultilingualNeural",
-      "rate": "+12%",
-      "vol": 2.2,
+      "voice": "ko-KR-SunHiNeural",
+      "rate": "+20%",
+      "vol": 4.2,
       "fx": "pa",
-      "text": "레인 4번 김재이! 평영 50미터 3위, 36초 00!"
+      "text": "김재이! 평영 50미터 3위, 36초 00!"
     },
     {
       "seg": 3,
-      "at": 0.15,
+      "at": 0.3,
       "engine": "edge",
-      "voice": "ko-KR-HyunsuMultilingualNeural",
-      "rate": "+15%",
-      "vol": 2.2,
+      "voice": "ko-KR-SunHiNeural",
+      "rate": "+20%",
+      "vol": 4.2,
       "fx": "pa",
-      "text": "라미라다 SCS 스프링! 평영 100야드 1분 12초 62!"
+      "text": "라미라다! 평영 100야드, 1분 12초 62!"
     }
   ],
   "sfx": [
@@ -269,7 +280,7 @@
       "seg": 0,
       "at": 2.5,
       "type": "beep",
-      "vol": 1.3
+      "vol": 1.6
     }
   ]
 }
