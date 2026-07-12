@@ -75,6 +75,14 @@
         st.classList.toggle('on', d === 0);
         st.classList.toggle('near', d === 1 || d === -1);
         st.classList.toggle('passed', d < -1);
+        // 현재 정거장의 영상만 재생, 나머지는 정지
+        if (st._vids === undefined) st._vids = Array.prototype.slice.call(st.querySelectorAll('video'));
+        if (st._vids.length) {
+          st._vids.forEach(function (v) {
+            if (d === 0) { var p = v.play && v.play(); if (p && p.catch) p.catch(function () {}); }
+            else if (v.pause) v.pause();
+          });
+        }
       });
       if (yearEl) yearEl.textContent = stationYear(idx);
     }
@@ -90,29 +98,59 @@
   window.addEventListener('resize', function () { setHeight(); queue(); });
 
   // ---- 자동 주행 ----
-  var auto = null;
+  // 부동소수 위치 누적자(autoPos)를 scrollTo로 반영한다. scrollBy에 소수값을 넘기면
+  // 브라우저가 sub-pixel을 버려 데스크탑에서 거의 안 움직이던 문제를 해결.
+  var auto = null, autoPos = 0, speed = 1;
+  var speedEl = ride.querySelector('.hud-speed');
+  var speedVal = ride.querySelector('.hud-speed-val');
+  var BASE = mobile ? 440 : 580; // 1배속 기준 px/초
+  function maxScroll() { return Math.max(0, ride.offsetHeight - window.innerHeight); }
+
   function stopAuto() {
     if (auto) { cancelAnimationFrame(auto); auto = null; }
     if (autoBtn) autoBtn.textContent = autoBtn.textContent.replace('⏸', '▶');
   }
   function startAuto() {
-    var last = null, v = 0;
+    var mx = maxScroll();
+    autoPos = window.pageYOffset || window.scrollY || 0;
+    if (autoPos >= mx - 2) { autoPos = 0; window.scrollTo(0, 0); } // 끝이면 처음부터 다시
     if (autoBtn) autoBtn.textContent = autoBtn.textContent.replace('▶', '⏸');
+    var last = null;
     function stepFn(ts) {
       if (last == null) last = ts;
-      var dt = Math.min(ts - last, 50); last = ts;
-      v = Math.min(v + dt * 0.004, mobile ? 3.4 : 4.6); // 서서히 가속
-      window.scrollBy(0, v * dt * 0.16 * 4);
-      var rect = ride.getBoundingClientRect();
-      if (-rect.top >= ride.offsetHeight - window.innerHeight - 2) { stopAuto(); return; }
+      var dt = Math.min(ts - last, 60); last = ts;
+      autoPos += speed * BASE * (dt / 1000);
+      var m = maxScroll();
+      if (autoPos >= m) { window.scrollTo(0, m); queue(); stopAuto(); return; }
+      window.scrollTo(0, autoPos);
+      queue();
       auto = requestAnimationFrame(stepFn);
     }
     auto = requestAnimationFrame(stepFn);
   }
+
+  // 속도 슬라이더
+  function applySpeed() {
+    speed = parseFloat(speedEl.value) || 1;
+    if (speedVal) speedVal.textContent = speed.toFixed(1) + '×';
+  }
+  if (speedEl) { applySpeed(); speedEl.addEventListener('input', applySpeed); }
+
+  // 사용자가 직접 스크롤하면 자동 주행 정지 (단, 속도 슬라이더 조작은 예외)
+  function userInterrupt(ev) {
+    if (!auto) return;
+    if (ev.type === 'keydown') {
+      var el = ev.target;
+      if (el && (el.classList && el.classList.contains('hud-speed'))) return; // 슬라이더 키조작
+      var scrollKeys = ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' ', 'Spacebar'];
+      if (scrollKeys.indexOf(ev.key) === -1) return;
+    }
+    stopAuto();
+  }
   if (autoBtn) {
     autoBtn.addEventListener('click', function () { auto ? stopAuto() : startAuto(); });
     ['wheel', 'touchstart', 'keydown'].forEach(function (ev) {
-      window.addEventListener(ev, stopAuto, { passive: true });
+      window.addEventListener(ev, userInterrupt, { passive: true });
     });
   }
 

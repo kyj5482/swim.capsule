@@ -391,6 +391,26 @@ function rideStation(e, lang, rel, idx) {
   if (src?.archived) links.push(`<a href="${rel}archive/${esc(src.archived.replace(/^capsules\//, ''))}">🗄 ${t(lang, '보관본', 'Archive')}</a>`);
   links.push(`<a href="${rel}${lang === 'en' ? 'en/' : ''}${e.year}/#${esc(e.id)}">🔍 ${t(lang, '자세히', 'Details')}</a>`);
 
+  // 사진·영상 — capsules/**/media/ 에 파일을 넣고 e.media 에 경로를 등록하면 라이드에 함께 표시된다.
+  const vidExt = /\.(mp4|webm|mov|m4v)$/i, imgExt = /\.(jpe?g|png|webp|gif|avif)$/i;
+  const mediaItems = (e.media || []).map(m => {
+    const url = `${rel}archive/${esc(m)}`;
+    const name = esc(m.split('/').pop());
+    if (vidExt.test(m)) return `<span class="st-m st-m-vid"><video src="${url}" muted loop playsinline preload="metadata"></video><span class="st-m-badge">▶</span></span>`;
+    if (imgExt.test(m)) return `<a class="st-m st-m-img" href="${url}" target="_blank" rel="noopener" style="background-image:url('${url}')"><span class="st-m-badge">🔍</span></a>`;
+    return `<a class="st-m st-m-file" href="${url}" target="_blank" rel="noopener">📎 ${name}</a>`;
+  }).join('');
+
+  // 뉴스 클리핑 — 이 순간이 언론에 실렸다면 캡처가 살짝 삐져나오게. source에 capture(이미지 경로)가 있으면 실제 캡처를 쓴다.
+  const clips = (e.sources || []).filter(s => s.kind === 'news').map((s, i) => {
+    const cap = s.capture ? `${rel}archive/${esc(s.capture)}` : '';
+    return `<a class="st-clip${cap ? ' has-cap' : ''}" data-flip="${i % 2 ? 1 : -1}" ${cap ? `style="background-image:url('${cap}')"` : ''} href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.title || L(e, 'title', lang))}">
+      <span class="clip-tag">📰 ${esc(s.publisher || t(lang, '보도', 'Press'))}</span>
+      <span class="clip-head">${esc(s.title || L(e, 'title', lang))}</span>
+    </a>`;
+  }).join('');
+  const mediaStrip = (mediaItems || clips) ? `<div class="st-media">${mediaItems}${clips}</div>` : '';
+
   return `<article class="st ${e.highlight ? 'st-hl' : ''}" data-i="${idx}" data-year="${e.year}" id="ride-${esc(e.id)}">
   <div class="st-inner">
     <p class="st-date">${fmtDate(e, lang)} <span class="pill type">${ty.icon} ${t(lang, ty.ko, ty.en)}</span></p>
@@ -398,6 +418,7 @@ function rideStation(e, lang, rel, idx) {
     <p class="st-ath">${esc(names)} · 📍 ${esc(L(e, 'location', lang))}</p>
     ${medals ? `<p class="st-medals">${medals}</p>` : ''}
     <p class="st-story">${esc(L(e, 'story', lang))}</p>
+    ${mediaStrip}
     <p class="st-links">${links.join(' ')}</p>
   </div>
 </article>`;
@@ -463,6 +484,11 @@ ${nav(lang, rel, `${rel}${lang === 'ko' ? 'en/' : ''}ride/`, 'ride')}
       <div class="hud-bar"><span class="hud-fill"></span></div>
       <span class="hud-year"></span>
       <button type="button" class="hud-auto">▶ ${t(lang, '자동 주행', 'Auto-ride')}</button>
+      <label class="hud-speed-wrap" title="${t(lang, '주행 속도', 'Ride speed')}">
+        <span class="hud-speed-ico" aria-hidden="true">🐢</span>
+        <input type="range" class="hud-speed" min="0.3" max="2.6" step="0.1" value="1" aria-label="${t(lang, '주행 속도', 'Ride speed')}">
+        <span class="hud-speed-val">1.0×</span>
+      </label>
     </div>
   </div>
 </div>`;

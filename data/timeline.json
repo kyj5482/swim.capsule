@@ -2,57 +2,33 @@
   "$schema_note": "각 event는 하나의 캡슐 항목. verified=true는 원문 출처(기사/공식기록)로 교차 확인됨. sources[].status: captured(원본 보관 완료) | pending(원본 캡처 대기) | snippet(검색 스니펫만 확보). media는 사용자가 사진/영상을 추가하는 슬롯.",
   "events": [
     {
-      "id": "2022-jaei-debut",
-      "year": 2022,
-      "date": "2022-03-01",
-      "date_precision": "year",
-      "athletes": ["jaei"],
-      "type": "milestone",
-      "title_ko": "김재이, 선수 생활 시작 — 전국대회 평영 결승 진출",
-      "title_en": "Jaei begins competitive career — national finals in breaststroke",
-      "location_ko": "경기도 과천 → 전국",
-      "location_en": "Gwacheon, Gyeonggi → nationwide",
-      "results": [],
-      "story_ko": "초등학교 3학년, 청계초등학교와 과천시 청소년수련관 소속으로 선수 등록. 첫 해부터 주종목 평영으로 전국대회 결승 무대에 꾸준히 올랐다.",
-      "story_en": "In 3rd grade, Jaei registered as a competitive swimmer with Cheonggye Elementary and the Gwacheon Youth Training Center, reaching national-final heats in her main stroke, breaststroke, from her very first season.",
-      "sources": [],
-      "media": [],
-      "verified": false
-    },
-    {
-      "id": "2022-jaei-butterfly-bronze",
-      "year": 2022,
-      "date": "2022-10-01",
-      "date_precision": "year",
-      "athletes": ["jaei"],
-      "type": "competition",
-      "title_ko": "전국대회 접영 3위 입상",
-      "title_en": "3rd place in butterfly at a national meet",
-      "location_ko": "대회명 확인 중",
-      "location_en": "Meet name to be confirmed",
-      "results": [
-        { "event_ko": "접영", "event_en": "Butterfly", "place": 3, "medal": "bronze", "time": "" }
-      ],
-      "story_ko": "평영을 주종목으로 하던 김재이가 접영에서 전국대회 3위에 오르며 다관왕 스트로크의 가능성을 보여준 경기. 정확한 대회명·일자·기록은 대한수영연맹 기록 캡처로 보완 예정.",
-      "story_en": "Primarily a breaststroker, Jaei took 3rd in butterfly at a national meet — an early sign of her multi-stroke range. Exact meet name, date and time to be confirmed from KSF records.",
-      "sources": [],
-      "media": [],
-      "verified": false
-    },
-    {
       "id": "2022-jia-lifesports-festival",
       "year": 2022,
       "date": "2022-06-01",
       "date_precision": "year",
-      "athletes": ["jia"],
+      "athletes": [
+        "jia"
+      ],
       "type": "competition",
       "title_ko": "김지아, 전국생활체육대축전 접영 50m·평영 50m 동반 3위",
       "title_en": "Jia takes double 3rd place (50m fly & 50m breast) at the National Community Sports Festival",
       "location_ko": "전국생활체육대축전",
       "location_en": "National Community Sports Festival, Korea",
       "results": [
-        { "event_ko": "접영 50m", "event_en": "50m Butterfly", "place": 3, "medal": "bronze", "time": "" },
-        { "event_ko": "평영 50m", "event_en": "50m Breaststroke", "place": 3, "medal": "bronze", "time": "" }
+        {
+          "event_ko": "접영 50m",
+          "event_en": "50m Butterfly",
+          "place": 3,
+          "medal": "bronze",
+          "time": ""
+        },
+        {
+          "event_ko": "평영 50m",
+          "event_en": "50m Breaststroke",
+          "place": 3,
+          "medal": "bronze",
+          "time": ""
+        }
       ],
       "story_ko": "초등학교 2학년, 마스터즈·생활체육 무대에 뛰어든 첫 시즌에 전국생활체육대축전에서 접영 50m와 평영 50m 모두 3위에 오르며 두각을 나타냈다.",
       "story_en": "In her first season on the masters/community circuit as a 2nd grader, Jia announced herself with two 3rd-place finishes (50m butterfly, 50m breaststroke) at the National Community Sports Festival.",
@@ -70,19 +46,147 @@
       "verified": true
     },
     {
+      "id": "2022-jaei-debut",
+      "year": 2022,
+      "date": "2022-06-10",
+      "date_precision": "month",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "milestone",
+      "title_ko": "김재이, 선수 생활 시작 — 전국대회 평영 결승 진출",
+      "title_en": "Jaei begins competitive career — national finals in breaststroke",
+      "location_ko": "경기도 과천 → 전국",
+      "location_en": "Gwacheon, Gyeonggi → nationwide",
+      "results": [
+        {
+          "event_ko": "배영 50m",
+          "event_en": "50m Backstroke",
+          "place": 10,
+          "medal": "",
+          "time": "44.63",
+          "round": "예선/heats"
+        },
+        {
+          "event_ko": "평영 50m",
+          "event_en": "50m Breaststroke",
+          "place": 9,
+          "medal": "",
+          "time": "50.63",
+          "round": "예선/heats"
+        }
+      ],
+      "story_ko": "초등학교 3학년, 청계초·과천시 청소년수련관 소속으로 선수 등록. 첫 도전인 제51회 전국소년체전 경기도 선발전(2022)에서 배영 50m 44.63(10위)·평영 50m 50.63(9위)을 기록했다. 순위는 뒤쪽이었지만 이 기록이 이후 2년간의 폭발적 성장의 출발점이 된다.",
+      "story_en": "In 3rd grade, Jaei registered with Cheonggye Elementary and the Gwacheon Youth Training Center. At her first meet — the 2022 Gyeonggi trials for the 51st National Youth Sports Festival — she swam 44.63 (10th) in the 50m back and 50.63 (9th) in the 50m breast. Modest placings, but the baseline from which two years of dramatic improvement began.",
+      "sources": [
+        {
+          "kind": "official",
+          "publisher": "경기도수영연맹",
+          "url": "http://www.gswimming.com/32/45",
+          "title": "제51회 전국소년체육대회 경기도대표 최종선발전 경기결과",
+          "note": "원본 xlsx 보관",
+          "archived": "capsules/kr-gyeonggi-results/",
+          "status": "captured"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
+      "id": "2022-jaei-butterfly-bronze",
+      "year": 2022,
+      "date": "2022-10-01",
+      "date_precision": "year",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "전국대회 접영 3위 입상",
+      "title_en": "3rd place in butterfly at a national meet",
+      "location_ko": "대회명 확인 중",
+      "location_en": "Meet name to be confirmed",
+      "results": [
+        {
+          "event_ko": "접영",
+          "event_en": "Butterfly",
+          "place": 3,
+          "medal": "bronze",
+          "time": ""
+        }
+      ],
+      "story_ko": "평영을 주종목으로 하던 김재이가 접영에서 전국대회 3위에 오르며 다관왕 스트로크의 가능성을 보여준 경기. 정확한 대회명·일자·기록은 대한수영연맹 기록 캡처로 보완 예정.",
+      "story_en": "Primarily a breaststroker, Jaei took 3rd in butterfly at a national meet — an early sign of her multi-stroke range. Exact meet name, date and time to be confirmed from KSF records.",
+      "sources": [],
+      "media": [],
+      "verified": false
+    },
+    {
+      "id": "2022-jia-debut-youth-champ",
+      "year": 2022,
+      "date": "2022-11-23",
+      "date_precision": "month",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "김지아 데뷔전 — 2022 경기도 유소년 챔피언쉽 평영 25m 3위",
+      "title_en": "Jia's first meet — 3rd in the 25m breast, 2022 Gyeonggi Youth Championship",
+      "location_ko": "2022 경기도 유소년 챔피언쉽 수영대회",
+      "location_en": "2022 Gyeonggi Youth Championship, Korea",
+      "results": [
+        {
+          "event_ko": "평영 25m",
+          "event_en": "25m Breaststroke",
+          "place": 3,
+          "medal": "bronze",
+          "time": "38.42",
+          "round": "결승/final"
+        }
+      ],
+      "story_ko": "초등학교 2학년, 생활체육 유소년 무대에서의 첫 공식 대회. 여자초등부 2학년 평영 25m에서 38.42로 3위(동메달). 남매 기록의 가장 처음 한 줄이자 모든 성장의 출발점.",
+      "story_en": "As a 2nd grader, Jia's very first official meet on the community youth circuit — bronze in the girls' 2nd-grade 25m breaststroke (38.42). The first line in the siblings' record, and where everything began.",
+      "sources": [
+        {
+          "kind": "official",
+          "publisher": "경기도수영연맹",
+          "url": "http://www.gswimming.com/32/48",
+          "title": "2022 경기도 유소년 챔피언쉽 수영대회 경기결과",
+          "note": "원본 xlsx 보관",
+          "archived": "capsules/kr-gyeonggi-results/",
+          "status": "captured"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
       "id": "2023-jaei-jrsports-52",
       "year": 2023,
       "date": "2023-05-27",
       "date_precision": "month",
-      "athletes": ["jaei"],
+      "athletes": [
+        "jaei"
+      ],
       "type": "competition",
       "title_ko": "제52회 전국소년체육대회 — 평영 50m·100m 동메달 2개",
       "title_en": "52nd National Youth Sports Festival — two bronze medals (50m & 100m breaststroke)",
       "location_ko": "제52회 전국소년체육대회 (경기도 대표)",
       "location_en": "52nd National Youth Sports Festival (Team Gyeonggi)",
       "results": [
-        { "event_ko": "평영 50m", "event_en": "50m Breaststroke", "place": 3, "medal": "bronze", "time": "" },
-        { "event_ko": "평영 100m", "event_en": "100m Breaststroke", "place": 3, "medal": "bronze", "time": "" }
+        {
+          "event_ko": "평영 50m",
+          "event_en": "50m Breaststroke",
+          "place": 3,
+          "medal": "bronze",
+          "time": ""
+        },
+        {
+          "event_ko": "평영 100m",
+          "event_en": "100m Breaststroke",
+          "place": 3,
+          "medal": "bronze",
+          "time": ""
+        }
       ],
       "story_ko": "4학년에 경기도 대표로 출전한 전국소년체전에서 평영 50m와 100m 모두 동메달. 초등부 전국 최정상급 평영 선수로 올라선 대회였다.",
       "story_en": "Competing for Team Gyeonggi as a 4th grader, Jaei won bronze in both the 50m and 100m breaststroke — establishing herself among Korea's top elementary breaststrokers.",
@@ -94,6 +198,166 @@
           "note": "대통령배 기사 내 '지난 5월 전국소년체전 같은 종목 동메달 2개' 언급",
           "archived": "capsules/2023/2023-jaei-presidents-cup-42/",
           "status": "captured"
+        },
+        {
+          "kind": "official",
+          "publisher": "경기도수영연맹",
+          "url": "http://www.gswimming.com/32/51",
+          "title": "제52회 소년체전 경기도 선발전 경기결과",
+          "note": "선발전 평영 50m 결승 1위 40.90 — 소년체전 본선 출전권 획득",
+          "archived": "capsules/kr-gyeonggi-results/",
+          "status": "captured"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
+      "id": "2023-jaei-52-trials",
+      "year": 2023,
+      "date": "2023-05-31",
+      "date_precision": "month",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "제52회 소년체전 경기도 선발전 — 평영 50m 1위·접영 50m 3위",
+      "title_en": "52nd Festival Gyeonggi trials — 1st in 50m breast, 3rd in 50m fly",
+      "location_ko": "제52회 전국소년체육대회 경기도대표 최종선발전",
+      "location_en": "Gyeonggi trials, 52nd National Youth Sports Festival",
+      "results": [
+        {
+          "event_ko": "평영 50m",
+          "event_en": "50m Breaststroke",
+          "place": 1,
+          "medal": "gold",
+          "time": "40.90",
+          "round": "결승/final"
+        },
+        {
+          "event_ko": "접영 50m",
+          "event_en": "50m Butterfly",
+          "place": 3,
+          "medal": "bronze",
+          "time": "36.67",
+          "round": "결승/final"
+        }
+      ],
+      "story_ko": "4학년, 경기도 선발전 평영 50m 결승에서 40.90으로 1위에 오르며 소년체전 본선 출전권을 확정. 접영 50m에서도 3위(동메달)로 평영 외 종목의 경쟁력을 보였다. 1년 전 50.63이던 평영 50m를 40.90까지 끌어올린 대회.",
+      "story_en": "As a 4th grader, Jaei won the 50m breaststroke final at the Gyeonggi trials (40.90), locking her place at the National Festival, and added a 3rd in the 50m butterfly — range beyond her main stroke. Her 50m breast had dropped from 50.63 a year earlier to 40.90.",
+      "sources": [
+        {
+          "kind": "official",
+          "publisher": "경기도수영연맹",
+          "url": "http://www.gswimming.com/32/51",
+          "title": "제52회 소년체전 경기도 선발전 경기결과",
+          "note": "원본 xlsx 보관",
+          "archived": "capsules/kr-gyeonggi-results/",
+          "status": "captured"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
+      "id": "2023-jia-national-record",
+      "year": 2023,
+      "date": "2023-06-01",
+      "date_precision": "year",
+      "athletes": [
+        "jia"
+      ],
+      "type": "record",
+      "highlight": true,
+      "title_ko": "김지아, 생활체육 부문 접영 50m 한국신기록 경신",
+      "title_en": "Jia breaks the Korean national record — 50m butterfly (community division)",
+      "location_ko": "생활체육 부문 공인 대회",
+      "location_en": "Officially sanctioned community-division meet, Korea",
+      "results": [
+        {
+          "event_ko": "접영 50m",
+          "event_en": "50m Butterfly",
+          "place": 1,
+          "medal": "gold",
+          "time": "",
+          "record": "KOR (생활체육) / Korean record (community div.)"
+        }
+      ],
+      "story_ko": "초등학교 3학년의 나이로 생활체육 부문 접영 50m 한국신기록을 갈아치웠다. 남매 타임캡슐에서 가장 빛나는 순간 중 하나.",
+      "story_en": "As a 3rd grader, Jia rewrote the Korean community-division record in the 50m butterfly — one of the brightest moments in this capsule.",
+      "sources": [
+        {
+          "kind": "news",
+          "publisher": "이뉴스투데이",
+          "url": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2114897",
+          "note": "'2023년 생활체육 부문 접영 50m 한국신기록 경신' 언급. 정확한 대회·일자·기록 확인 필요.",
+          "archived": "capsules/2024/2024-jia-jrsports-53-selection/",
+          "status": "captured"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
+      "id": "2023-siblings-superintendent-cup",
+      "year": 2023,
+      "date": "2023-06-26",
+      "date_precision": "month",
+      "athletes": [
+        "jaei",
+        "jia"
+      ],
+      "type": "competition",
+      "highlight": true,
+      "title_ko": "2023 경기도교육감배 — 김지아 접영 2관왕, 김재이 개인혼영 200m 우승",
+      "title_en": "2023 Gyeonggi Superintendent's Cup — Jia's butterfly double, Jaei's 200m IM gold",
+      "location_ko": "2023 경기도교육감배 수영대회",
+      "location_en": "2023 Gyeonggi Superintendent's Cup, Korea",
+      "results": [
+        {
+          "event_ko": "김지아 접영 50m",
+          "event_en": "Jia 50m Butterfly",
+          "place": 1,
+          "medal": "gold",
+          "time": "37.57",
+          "round": "결승/final"
+        },
+        {
+          "event_ko": "김지아 접영 100m",
+          "event_en": "Jia 100m Butterfly",
+          "place": 1,
+          "medal": "gold",
+          "time": "1:26.36",
+          "round": "결승/final"
+        },
+        {
+          "event_ko": "김재이 개인혼영 200m",
+          "event_en": "Jaei 200m IM",
+          "place": 1,
+          "medal": "gold",
+          "time": "2:51.75",
+          "round": "결승/final"
+        },
+        {
+          "event_ko": "김재이 배영 50m",
+          "event_en": "Jaei 50m Backstroke",
+          "place": 2,
+          "medal": "silver",
+          "time": "38.76",
+          "round": "결승/final"
+        }
+      ],
+      "story_ko": "남매가 나란히 시상대에 오른 대회. 김지아(3학년)가 접영 50m(37.57)·100m(1:26.36) 모두 1위로 2관왕에 올랐고, 김재이(4학년)는 개인혼영 200m 1위(2:51.75)에 배영 50m 2위(38.76)를 더했다. 각자의 주종목을 넘어 다종목에서 정상급 기량을 보인 시즌 중반 대회.",
+      "story_en": "A meet where both siblings reached the podium. Jia (3rd grade) swept the butterfly — 1st in both the 50m (37.57) and 100m (1:26.36). Jaei (4th grade) won the 200m IM (2:51.75) and took silver in the 50m back (38.76). Top-level swims across multiple strokes, not just their mains.",
+      "sources": [
+        {
+          "kind": "official",
+          "publisher": "경기도수영연맹",
+          "url": "http://www.gswimming.com/32/52",
+          "title": "2023 경기도교육감배 수영대회 경기결과",
+          "note": "원본 xlsx 보관",
+          "archived": "capsules/kr-gyeonggi-results/",
+          "status": "captured"
         }
       ],
       "media": [],
@@ -104,14 +368,22 @@
       "year": 2023,
       "date": "2023-08-01",
       "date_precision": "month",
-      "athletes": ["jaei"],
+      "athletes": [
+        "jaei"
+      ],
       "type": "competition",
       "title_ko": "교보생명컵 꿈나무체육대회 — 평영 100m 2위",
       "title_en": "Kyobo Life Cup Youth Sports Festival — 2nd place, 100m breaststroke",
       "location_ko": "교보생명컵 꿈나무체육대회",
       "location_en": "Kyobo Life Cup Youth Sports Festival, Korea",
       "results": [
-        { "event_ko": "평영 100m", "event_en": "100m Breaststroke", "place": 2, "medal": "silver", "time": "" }
+        {
+          "event_ko": "평영 100m",
+          "event_en": "100m Breaststroke",
+          "place": 2,
+          "medal": "silver",
+          "time": ""
+        }
       ],
       "story_ko": "대통령배 직전에 열린 교보생명컵에서 평영 100m 2위. 여름 시즌 상승세를 그대로 대통령배로 이어갔다.",
       "story_en": "Runner-up in the 100m breaststroke at the Kyobo Life Cup held just before the President's Cup — momentum she carried straight into the next meet.",
@@ -133,7 +405,9 @@
       "year": 2023,
       "date": "2023-08-17",
       "date_precision": "day",
-      "athletes": ["jaei"],
+      "athletes": [
+        "jaei"
+      ],
       "type": "competition",
       "highlight": true,
       "title_ko": "제42회 대통령배 전국수영대회 — 평영 50m 금메달·100m 은메달",
@@ -141,8 +415,20 @@
       "location_ko": "전주완산수영장 (8.12–17)",
       "location_en": "Jeonju Wansan Aquatics Center (Aug 12–17)",
       "results": [
-        { "event_ko": "평영 50m", "event_en": "50m Breaststroke", "place": 1, "medal": "gold", "time": "" },
-        { "event_ko": "평영 100m", "event_en": "100m Breaststroke", "place": 2, "medal": "silver", "time": "" }
+        {
+          "event_ko": "평영 50m",
+          "event_en": "50m Breaststroke",
+          "place": 1,
+          "medal": "gold",
+          "time": ""
+        },
+        {
+          "event_ko": "평영 100m",
+          "event_en": "100m Breaststroke",
+          "place": 2,
+          "medal": "silver",
+          "time": ""
+        }
       ],
       "story_ko": "과천도시공사 청소년수련관 마스터반 소속 김재이(청계초 4)가 대통령배 전국수영대회에서 평영 50m 정상에 올랐다. 평영 100m 은메달까지 더해 언론에 보도된 시즌 하이라이트.",
       "story_en": "Jaei (4th grade, Gwacheon Youth Training Center master class) topped the podium in the 50m breaststroke at the President's Cup — Korea's premier national championships — adding silver in the 100m. A season highlight covered by the press.",
@@ -160,48 +446,26 @@
       "verified": true
     },
     {
-      "id": "2023-jia-national-record",
-      "year": 2023,
-      "date": "2023-06-01",
-      "date_precision": "year",
-      "athletes": ["jia"],
-      "type": "record",
-      "highlight": true,
-      "title_ko": "김지아, 생활체육 부문 접영 50m 한국신기록 경신",
-      "title_en": "Jia breaks the Korean national record — 50m butterfly (community division)",
-      "location_ko": "생활체육 부문 공인 대회",
-      "location_en": "Officially sanctioned community-division meet, Korea",
-      "results": [
-        { "event_ko": "접영 50m", "event_en": "50m Butterfly", "place": 1, "medal": "gold", "time": "", "record": "KOR (생활체육) / Korean record (community div.)" }
-      ],
-      "story_ko": "초등학교 3학년의 나이로 생활체육 부문 접영 50m 한국신기록을 갈아치웠다. 남매 타임캡슐에서 가장 빛나는 순간 중 하나.",
-      "story_en": "As a 3rd grader, Jia rewrote the Korean community-division record in the 50m butterfly — one of the brightest moments in this capsule.",
-      "sources": [
-        {
-          "kind": "news",
-          "publisher": "이뉴스투데이",
-          "url": "http://www.enewstoday.co.kr/news/articleView.html?idxno=2114897",
-          "note": "'2023년 생활체육 부문 접영 50m 한국신기록 경신' 언급. 정확한 대회·일자·기록 확인 필요.",
-          "archived": "capsules/2024/2024-jia-jrsports-53-selection/",
-          "status": "captured"
-        }
-      ],
-      "media": [],
-      "verified": true
-    },
-    {
       "id": "2023-jia-gyeonggi-lifesports",
       "year": 2023,
       "date": "2023-09-01",
       "date_precision": "year",
-      "athletes": ["jia"],
+      "athletes": [
+        "jia"
+      ],
       "type": "competition",
       "title_ko": "전국생활체육대축전 경기도 대표 선발·메달 획득",
       "title_en": "Selected for Team Gyeonggi at the National Community Sports Festival — medalist",
       "location_ko": "전국생활체육대축전",
       "location_en": "National Community Sports Festival, Korea",
       "results": [
-        { "event_ko": "종목 확인 중", "event_en": "Event TBC", "place": 0, "medal": "medal", "time": "" }
+        {
+          "event_ko": "종목 확인 중",
+          "event_en": "Event TBC",
+          "place": 0,
+          "medal": "medal",
+          "time": ""
+        }
       ],
       "story_ko": "마스터즈 무대 활약을 인정받아 경기도 대표로 선발돼 전국생활체육대축전에서 메달을 획득했다. 종목·기록은 원문 캡처로 보완 예정.",
       "story_en": "Her masters-circuit results earned her a Team Gyeonggi selection for the National Community Sports Festival, where she medaled. Event and time to be confirmed from archived sources.",
@@ -214,7 +478,9 @@
       "year": 2023,
       "date": "2023-11-01",
       "date_precision": "year",
-      "athletes": ["jaei"],
+      "athletes": [
+        "jaei"
+      ],
       "type": "milestone",
       "title_ko": "2023 시즌 전국대회 1·2위 연속 입상 행진",
       "title_en": "2023 season: an unbroken run of 1st–2nd place finishes at national meets",
@@ -232,7 +498,9 @@
       "year": 2024,
       "date": "2024-04-05",
       "date_precision": "day",
-      "athletes": ["jia"],
+      "athletes": [
+        "jia"
+      ],
       "type": "news",
       "highlight": true,
       "title_ko": "제53회 전국소년체전 경기도 수영 대표 선발 — 과천 수련관 마스터반 3명",
@@ -259,37 +527,29 @@
           "note": "경영 선발전 2024.4.4(목)–4.5(금) 안산 대부동 복지체육센터 수영장 확인 (4.6은 다이빙). 기사에 언급된 '4일부터 6일까지'는 다이빙 포함 전체 기간.",
           "archived": "capsules/2024/2024-jia-jrsports-53-selection/",
           "status": "captured"
+        },
+        {
+          "kind": "official",
+          "publisher": "경기도수영연맹",
+          "url": "http://www.gswimming.com/32/58",
+          "title": "제53회 소년체전 경기도 선발전 경기결과지",
+          "note": "선발전 실제 기록 xlsx",
+          "archived": "capsules/kr-gyeonggi-results/",
+          "status": "captured"
         }
       ],
       "media": [],
       "verified": true
     },
     {
-      "id": "2024-jia-jrsports-53",
-      "year": 2024,
-      "date": "2024-05-01",
-      "date_precision": "month",
-      "athletes": ["jia"],
-      "type": "competition",
-      "title_ko": "제53회 전국소년체육대회 — 접영 결승 진출",
-      "title_en": "53rd National Youth Sports Festival — butterfly finalist",
-      "location_ko": "제53회 전국소년체육대회 (경기도 대표)",
-      "location_en": "53rd National Youth Sports Festival (Team Gyeonggi)",
-      "results": [
-        { "event_ko": "접영", "event_en": "Butterfly", "place": 0, "medal": "finalist", "time": "" }
-      ],
-      "story_ko": "경기도 대표로 출전한 전국소년체전에서 주종목 접영으로 결승 무대까지 진출했다. 세부 종목·기록은 공식 기록 캡처로 보완 예정.",
-      "story_en": "Representing Gyeonggi at the National Youth Sports Festival, Jia swam her signature butterfly all the way to the final. Distance and time to be confirmed from official results.",
-      "sources": [],
-      "media": [],
-      "verified": false
-    },
-    {
       "id": "2024-siblings-gyeonggi",
       "year": 2024,
       "date": "2024-04-05",
       "date_precision": "day",
-      "athletes": ["jaei", "jia"],
+      "athletes": [
+        "jaei",
+        "jia"
+      ],
       "type": "milestone",
       "highlight": true,
       "title_ko": "남매 동반 경기도 대표 — 하나의 레인, 두 개의 꿈",
@@ -313,11 +573,61 @@
       "verified": true
     },
     {
+      "id": "2024-jia-jrsports-53",
+      "year": 2024,
+      "date": "2024-05-01",
+      "date_precision": "month",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "제53회 전국소년체육대회 — 접영 결승 진출",
+      "title_en": "53rd National Youth Sports Festival — butterfly finalist",
+      "location_ko": "제53회 전국소년체육대회 (경기도 대표)",
+      "location_en": "53rd National Youth Sports Festival (Team Gyeonggi)",
+      "results": [
+        {
+          "event_ko": "접영 50m",
+          "event_en": "50m Butterfly",
+          "place": 2,
+          "medal": "silver",
+          "time": "35.67",
+          "round": "결승/final"
+        },
+        {
+          "event_ko": "자유형 50m",
+          "event_en": "50m Freestyle",
+          "place": 7,
+          "medal": "",
+          "time": "35.26",
+          "round": "결승/final"
+        }
+      ],
+      "story_ko": "경기도 대표 선발전(제53회, 2024.4)에서 주종목 접영 50m 결승 2위(35.67)로 본선 출전권을 얻었고, 자유형 50m도 결승(35.26)에 올랐다. 학년은 4학년(유년부).",
+      "story_en": "At the Gyeonggi trials for the 53rd Festival (Apr 2024), Jia took 2nd in the 50m butterfly final (35.67), her signature event, earning her spot, and also reached the 50m freestyle final (35.26). Competing as a 4th grader.",
+      "sources": [
+        {
+          "kind": "official",
+          "publisher": "경기도수영연맹",
+          "url": "http://www.gswimming.com/32/58",
+          "title": "제53회 소년체전 경기도 선발전 경기결과",
+          "note": "접영50m 결승 2위 35.67, 자유형50m 결승 7위 35.26 — 원본 xlsx 보관",
+          "archived": "capsules/kr-gyeonggi-results/",
+          "status": "captured"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
       "id": "2025-us-nova-start",
       "year": 2024,
       "date": "2024-07-01",
       "date_precision": "month",
-      "athletes": ["jaei", "jia"],
+      "athletes": [
+        "jaei",
+        "jia"
+      ],
       "type": "milestone",
       "highlight": true,
       "title_ko": "미국 이주 — NOVA (Novaquatics, Irvine) 합류",
@@ -330,33 +640,199 @@
       "sources": [
         {
           "kind": "results",
-          "publisher": "USA Swimming Data Hub",
-          "url": "https://data.usaswimming.org/datahub/usas/individualsearch",
-          "note": "Member IDs: Jaei 1045380 / Jia 1045382 — 스킬 실행 시 대회별 기록 수집",
-          "archived": "",
-          "status": "pending"
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud 프로필",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        },
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud 프로필",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        },
+        {
+          "kind": "results",
+          "publisher": "SwimStandards",
+          "url": "https://swimstandards.com/swimmer/jaei-kim",
+          "title": "김재이 SwimStandards",
+          "note": "USA Swimming 공인기록 집계",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        },
+        {
+          "kind": "results",
+          "publisher": "SwimStandards",
+          "url": "https://swimstandards.com/swimmer/jia-kim-2",
+          "title": "김지아 SwimStandards",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
         }
       ],
       "media": [],
-      "verified": false
+      "verified": true
+    },
+    {
+      "id": "2024-us-nova-debut",
+      "year": 2024,
+      "date": "2024-09-21",
+      "date_precision": "day",
+      "athletes": [
+        "jaei",
+        "jia"
+      ],
+      "type": "milestone",
+      "highlight": true,
+      "title_ko": "미국 첫 대회 — NOVA Back to School Meet (어바인)",
+      "title_en": "First U.S. meet — NOVA Back to School Meet (Irvine)",
+      "location_ko": "CA NOVA Back to School Meet, 어바인",
+      "location_en": "CA NOVA Back to School Meet, Irvine, CA",
+      "results": [],
+      "story_ko": "2024년 7월 NOVA 합류 후 두 달 만인 9월 21일, 남매의 미국 첫 공식 대회. 새 환경·야드(SCY) 코스에 적응하며 자유형·접영·평영 단거리로 출발했다. 이후 어바인을 기점으로 캘리포니아·애리조나 전역의 대회에 꾸준히 출전한다.",
+      "story_en": "On September 21, 2024 — two months after joining NOVA — the siblings raced their first official U.S. meet. Adapting to a new environment and short-course yards, they opened with freestyle, butterfly and breaststroke sprints. From Irvine, a steady run of meets across California and Arizona would follow.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true
     },
     {
       "id": "2026-capsule-open",
       "year": 2026,
       "date": "2026-01-01",
       "date_precision": "year",
-      "athletes": ["jaei", "jia"],
+      "athletes": [
+        "jaei",
+        "jia"
+      ],
       "type": "milestone",
       "title_ko": "2026 — 미국 대회 시즌 기록 수집 중",
       "title_en": "2026 — collecting the US meet season",
       "location_ko": "미국 캘리포니아",
       "location_en": "California, USA",
       "results": [],
-      "story_ko": "NOVA 소속으로 참가 중인 대회들의 기록을 USA Swimming Data Hub 기반으로 수집하고 있다. 이 캡슐은 아직 봉인 중.",
-      "story_en": "Meet results with NOVA are being collected from the USA Swimming Data Hub. This capsule is still being sealed.",
-      "sources": [],
+      "story_ko": "NOVA 소속으로 참가 중인 대회 기록을 SwimCloud·SwimStandards 기반으로 계속 수집하고 있다. 상세 대회별 성적과 개인최고기록은 capsules/us-nova-results/record.md 참조. 이 캡슐은 계속 채워지는 중.",
+      "story_en": "NOVA meet results are being collected from SwimCloud and SwimStandards. Full meet-by-meet results and personal bests: capsules/us-nova-results/record.md. This capsule keeps filling.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/team/7943",
+          "title": "Irvine Novaquatics 팀",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
       "media": [],
       "verified": false
+    },
+    {
+      "id": "2026-jaei-az-winter-sweep",
+      "year": 2026,
+      "date": "2026-02-14",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "highlight": true,
+      "title_ko": "AZ PSC Winter Invitational — 평영 50/100m·접영 50m 3관왕",
+      "title_en": "AZ PSC Winter Invitational — triple gold (50/100 breast, 50 fly)",
+      "location_ko": "AZ PSC Winter Invitational, Paradise Valley, AZ",
+      "location_en": "AZ PSC Winter Invitational, Paradise Valley, AZ",
+      "results": [
+        {
+          "event_ko": "평영 50m (SCY)",
+          "event_en": "50 Y Breaststroke",
+          "place": 1,
+          "medal": "gold",
+          "time": "29.91"
+        },
+        {
+          "event_ko": "평영 100m (SCY)",
+          "event_en": "100 Y Breaststroke",
+          "place": 1,
+          "medal": "gold",
+          "time": "1:06.38"
+        },
+        {
+          "event_ko": "접영 50m (SCY)",
+          "event_en": "50 Y Butterfly",
+          "place": 1,
+          "medal": "gold",
+          "time": "26.62"
+        }
+      ],
+      "story_ko": "미국 이주 1년 반, 애리조나 원정 대회에서 평영 50m·100m와 접영 50m를 모두 석권하며 3관왕. 한국에서 다진 평영에 접영까지 미국 무대에서 정상권으로 자리 잡았음을 보여준 대회. 개인최고기록도 다수 경신.",
+      "story_en": "A year and a half after the move, Jaei swept the 50m and 100m breaststroke and the 50m butterfly at an Arizona invitational — triple gold. Proof that the breaststroke built in Korea, now joined by butterfly, had reached the top tier in the U.S., with several personal bests along the way.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
+      "id": "2026-jia-development",
+      "year": 2026,
+      "date": "2026-03-12",
+      "date_precision": "month",
+      "athletes": [
+        "jia"
+      ],
+      "type": "milestone",
+      "title_ko": "김지아, 종목 확장과 기록 급성장 — 자유형·개인혼영으로",
+      "title_en": "Jia broadens her range — freestyle and IM breakthroughs",
+      "location_ko": "미국 캘리포니아",
+      "location_en": "California, USA",
+      "results": [
+        {
+          "event_ko": "자유형 500y",
+          "event_en": "500 Y Free",
+          "place": 0,
+          "medal": "",
+          "time": "5:44.06",
+          "record": "17초 이상 단축 / −17s PB"
+        },
+        {
+          "event_ko": "개인혼영 200y",
+          "event_en": "200 Y IM",
+          "place": 0,
+          "medal": "",
+          "time": "2:28.52"
+        }
+      ],
+      "story_ko": "접영 위주였던 김지아가 미국에서 자유형 중장거리와 개인혼영으로 종목을 넓혔다. 2026년 3월 대회에서 자유형 500야드를 한 번에 17초 이상 단축하는 등, 입상이 아니어도 기록이 계단식으로 성장하는 전형적인 발전형 선수의 모습을 보였다.",
+      "story_en": "Primarily a butterflyer, Jia expanded into middle-distance freestyle and the IM in the U.S. At a March 2026 meet she took more than 17 seconds off her 500y freestyle in a single swim — the profile of a developing swimmer whose times climb in steps, podium or not.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true
     }
   ]
 }
