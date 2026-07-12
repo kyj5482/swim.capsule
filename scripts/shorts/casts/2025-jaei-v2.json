@@ -1,5 +1,5 @@
 {
-  "$note": "V2 재이 — 템플릿 4클립 + 전광판 실제 기록 후합성 + 스타트/아나운서 오디오. 키프레임은 템플릿 프레임 실측 기반. | v2.1: A 3.0s 컷(공간 되돌아감 제거) + edge-tts 아나운서(PA 에코)",
+  "$note": "V2 재이 — 템플릿 4클립 + 전광판 실제 기록 후합성 + 스타트/아나운서 오디오. 키프레임은 템플릿 프레임 실측 기반. | v2.2: 광고판 스타일+Hyunsu 보이스 | v2.1: A 3.0s 컷(공간 되돌아감 제거) + edge-tts 아나운서(PA 에코)",
   "out": "media/shorts/2025-jaei-v2",
   "fps": 30,
   "posterT": 5.5,
@@ -22,7 +22,7 @@
   ],
   "panels": [
     {
-      "type": "led",
+      "type": "board",
       "seg": 0,
       "w": 430,
       "lineH": 78,
@@ -30,12 +30,12 @@
         {
           "text": "KIM JAEI · 김재이",
           "size": 44,
-          "color": "#e8f4ff"
+          "color": "#5a7184"
         },
         {
           "text": "TAKE YOUR MARK",
           "size": 52,
-          "color": "#ffb300"
+          "color": "#c9241e"
         }
       ],
       "keys": [
@@ -67,10 +67,11 @@
           "s": 0.94,
           "a": 0
         }
-      ]
+      ],
+      "accent": "#0f5f8f"
     },
     {
-      "type": "led",
+      "type": "board",
       "seg": 1,
       "w": 460,
       "lineH": 74,
@@ -78,17 +79,17 @@
         {
           "text": "JUNE AGE GROUP CHAMPS",
           "size": 36,
-          "color": "#9fd8ff"
+          "color": "#5a7184"
         },
         {
           "text": "50m BREAST · 3RD PLACE",
           "size": 46,
-          "color": "#ffffff"
+          "color": "#12283f"
         },
         {
           "text": "36.00",
           "size": 62,
-          "color": "#ffb300"
+          "color": "#c9241e"
         }
       ],
       "keys": [
@@ -120,7 +121,8 @@
           "s": 1.28,
           "a": 0
         }
-      ]
+      ],
+      "accent": "#0f5f8f"
     },
     {
       "type": "note",
@@ -174,7 +176,7 @@
       ]
     },
     {
-      "type": "led",
+      "type": "board",
       "seg": 3,
       "w": 440,
       "lineH": 70,
@@ -182,17 +184,17 @@
         {
           "text": "SCS SPRING · LA MIRADA",
           "size": 36,
-          "color": "#9fd8ff"
+          "color": "#5a7184"
         },
         {
           "text": "100yd BREAST 1:12.62",
           "size": 46,
-          "color": "#ffffff"
+          "color": "#12283f"
         },
         {
           "text": "50yd BREAST 33.18",
           "size": 44,
-          "color": "#ffb300"
+          "color": "#c9241e"
         }
       ],
       "keys": [
@@ -227,7 +229,8 @@
           "a": 0,
           "rot": 9
         }
-      ]
+      ],
+      "accent": "#0f5f8f"
     }
   ],
   "vo": [
@@ -236,7 +239,7 @@
       "at": 0.7,
       "engine": "edge",
       "voice": "en-US-ChristopherNeural",
-      "rate": "-12%",
+      "rate": "-8%",
       "text": "Take your mark",
       "vol": 2
     },
@@ -244,8 +247,8 @@
       "seg": 1,
       "at": 0.3,
       "engine": "edge",
-      "voice": "ko-KR-InJoonNeural",
-      "rate": "+35%",
+      "voice": "ko-KR-HyunsuMultilingualNeural",
+      "rate": "+12%",
       "vol": 2.2,
       "fx": "pa",
       "text": "레인 4번 김재이! 평영 50미터 3위, 36초 00!"
@@ -254,8 +257,8 @@
       "seg": 3,
       "at": 0.15,
       "engine": "edge",
-      "voice": "ko-KR-InJoonNeural",
-      "rate": "+38%",
+      "voice": "ko-KR-HyunsuMultilingualNeural",
+      "rate": "+15%",
       "vol": 2.2,
       "fx": "pa",
       "text": "라미라다 SCS 스프링! 평영 100야드 1분 12초 62!"

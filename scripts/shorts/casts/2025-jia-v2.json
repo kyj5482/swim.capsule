@@ -1,5 +1,5 @@
 {
-  "$note": "V2 지아 — 재이와 같은 템플릿·키프레임, 텍스트/음성만 교체 (템플릿 재사용 = 추가 크레딧 0) | v2.1: A 3.0s 컷(공간 되돌아감 제거) + edge-tts 아나운서(PA 에코)",
+  "$note": "V2 지아 — 재이와 같은 템플릿·키프레임, 텍스트/음성만 교체 (템플릿 재사용 = 추가 크레딧 0) | v2.2: 광고판 스타일+Hyunsu 보이스 | v2.1: A 3.0s 컷(공간 되돌아감 제거) + edge-tts 아나운서(PA 에코)",
   "out": "media/shorts/2025-jia-v2",
   "fps": 30,
   "posterT": 5.5,
@@ -22,7 +22,7 @@
   ],
   "panels": [
     {
-      "type": "led",
+      "type": "board",
       "seg": 0,
       "w": 430,
       "lineH": 78,
@@ -30,12 +30,12 @@
         {
           "text": "KIM JIA · 김지아",
           "size": 44,
-          "color": "#e8f4ff"
+          "color": "#5a7184"
         },
         {
           "text": "TAKE YOUR MARK",
           "size": 52,
-          "color": "#ffb300"
+          "color": "#c9241e"
         }
       ],
       "keys": [
@@ -67,10 +67,11 @@
           "s": 0.94,
           "a": 0
         }
-      ]
+      ],
+      "accent": "#0f5f8f"
     },
     {
-      "type": "led",
+      "type": "board",
       "seg": 1,
       "w": 460,
       "lineH": 74,
@@ -78,17 +79,17 @@
         {
           "text": "JUNE AGE GROUP CHAMPS",
           "size": 36,
-          "color": "#9fd8ff"
+          "color": "#5a7184"
         },
         {
           "text": "100m FLY · 3RD PLACE",
           "size": 46,
-          "color": "#ffffff"
+          "color": "#12283f"
         },
         {
           "text": "1:20.95",
           "size": 62,
-          "color": "#ffb300"
+          "color": "#c9241e"
         }
       ],
       "keys": [
@@ -120,7 +121,8 @@
           "s": 1.28,
           "a": 0
         }
-      ]
+      ],
+      "accent": "#0f5f8f"
     },
     {
       "type": "note",
@@ -174,7 +176,7 @@
       ]
     },
     {
-      "type": "led",
+      "type": "board",
       "seg": 3,
       "w": 440,
       "lineH": 70,
@@ -182,17 +184,17 @@
         {
           "text": "SCS SPRING · LA MIRADA",
           "size": 36,
-          "color": "#9fd8ff"
+          "color": "#5a7184"
         },
         {
           "text": "200yd IM 2:34.51",
           "size": 46,
-          "color": "#ffffff"
+          "color": "#12283f"
         },
         {
           "text": "100yd FLY 1:11.29",
           "size": 44,
-          "color": "#ffb300"
+          "color": "#c9241e"
         }
       ],
       "keys": [
@@ -227,7 +229,8 @@
           "a": 0,
           "rot": 9
         }
-      ]
+      ],
+      "accent": "#0f5f8f"
     }
   ],
   "vo": [
@@ -236,7 +239,7 @@
       "at": 0.7,
       "engine": "edge",
       "voice": "en-US-ChristopherNeural",
-      "rate": "-12%",
+      "rate": "-8%",
       "text": "Take your mark",
       "vol": 2
     },
@@ -244,8 +247,8 @@
       "seg": 1,
       "at": 0.3,
       "engine": "edge",
-      "voice": "ko-KR-InJoonNeural",
-      "rate": "+35%",
+      "voice": "ko-KR-HyunsuMultilingualNeural",
+      "rate": "+12%",
       "vol": 2.2,
       "fx": "pa",
       "text": "레인 5번 김지아! 접영 100미터 3위, 1분 20초 95!"
@@ -254,8 +257,8 @@
       "seg": 3,
       "at": 0.15,
       "engine": "edge",
-      "voice": "ko-KR-InJoonNeural",
-      "rate": "+38%",
+      "voice": "ko-KR-HyunsuMultilingualNeural",
+      "rate": "+15%",
       "vol": 2.2,
       "fx": "pa",
       "text": "라미라다 SCS 스프링! 개인혼영 200야드 2분 34초 51!"

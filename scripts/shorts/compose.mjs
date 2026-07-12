@@ -113,7 +113,7 @@ const out = path.resolve(ROOT, cast.out);
 fs.mkdirSync(path.dirname(out), { recursive: true });
 const aArgs = audioInputs.flatMap(a => ['-i', a.file]);
 const mixIns = audioInputs.map((a, i) => {
-  const pa = a.fx === 'pa' ? ',aecho=0.8:0.7:60|120:0.25|0.15' : '';  // 경기장 PA 스피커 잔향
+  const pa = a.fx === 'pa' ? ',aecho=0.6:0.45:40:0.16' : '';  // 경기장 PA 스피커 잔향
   return `[${i + 2}:a]aresample=48000,volume=${a.vol}${pa},adelay=${Math.round(a.at * 1000)}|${Math.round(a.at * 1000)}[m${i}]`;
 }).join(';');
 const mix = audioInputs.length
