@@ -113,6 +113,7 @@ main{max-width:1060px;margin:0 auto;padding:0 1.25rem 4rem}
 .pill.ok{color:#9ff0c6;border-color:#1d6b47}
 .pill.tbc{color:#f0d29f;border-color:#6b551d}
 .pill.finalist,.pill.medal{color:var(--aqua2);border-color:#1d5f80}
+.pill.pb{color:#c8e6ff;border-color:#2a5f85;background:#0a2438;font-size:.72rem}
 
 /* result table */
 .res{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.93rem}

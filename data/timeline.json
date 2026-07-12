@@ -561,71 +561,6 @@
       "verified": true
     },
     {
-      "id": "2023-siblings-superintendent-cup",
-      "year": 2023,
-      "date": "2023-06-26",
-      "date_precision": "month",
-      "athletes": [
-        "jaei",
-        "jia"
-      ],
-      "type": "competition",
-      "highlight": true,
-      "title_ko": "2023 경기도교육감배 — 김지아 접영 2관왕, 김재이 개인혼영 200m 우승",
-      "title_en": "2023 Gyeonggi Superintendent's Cup — Jia's butterfly double, Jaei's 200m IM gold",
-      "location_ko": "2023 경기도교육감배 수영대회",
-      "location_en": "2023 Gyeonggi Superintendent's Cup, Korea",
-      "results": [
-        {
-          "event_ko": "김지아 접영 50m",
-          "event_en": "Jia 50m Butterfly",
-          "place": 1,
-          "medal": "gold",
-          "time": "37.57",
-          "round": "결승/final"
-        },
-        {
-          "event_ko": "김지아 접영 100m",
-          "event_en": "Jia 100m Butterfly",
-          "place": 1,
-          "medal": "gold",
-          "time": "1:26.36",
-          "round": "결승/final"
-        },
-        {
-          "event_ko": "김재이 개인혼영 200m",
-          "event_en": "Jaei 200m IM",
-          "place": 1,
-          "medal": "gold",
-          "time": "2:51.75",
-          "round": "결승/final"
-        },
-        {
-          "event_ko": "김재이 배영 50m",
-          "event_en": "Jaei 50m Backstroke",
-          "place": 2,
-          "medal": "silver",
-          "time": "38.76",
-          "round": "결승/final"
-        }
-      ],
-      "story_ko": "남매가 나란히 시상대에 오른 대회. 김지아(3학년)가 접영 50m(37.57)·100m(1:26.36) 모두 1위로 2관왕에 올랐고, 김재이(4학년)는 개인혼영 200m 1위(2:51.75)에 배영 50m 2위(38.76)를 더했다. 각자의 주종목을 넘어 다종목에서 정상급 기량을 보인 시즌 중반 대회.",
-      "story_en": "A meet where both siblings reached the podium. Jia (3rd grade) swept the butterfly — 1st in both the 50m (37.57) and 100m (1:26.36). Jaei (4th grade) won the 200m IM (2:51.75) and took silver in the 50m back (38.76). Top-level swims across multiple strokes, not just their mains.",
-      "sources": [
-        {
-          "kind": "official",
-          "publisher": "경기도수영연맹",
-          "url": "http://www.gswimming.com/32/52",
-          "title": "2023 경기도교육감배 수영대회 경기결과",
-          "note": "원본 xlsx 보관",
-          "archived": "capsules/kr-gyeonggi-results/",
-          "status": "captured"
-        }
-      ],
-      "media": [],
-      "verified": true
-    },
-    {
       "id": "2023-jaei-kyobo-cup",
       "year": 2023,
       "date": "2023-07-31",
@@ -1107,67 +1042,6 @@
       "verified": true
     },
     {
-      "id": "2024-us-nova-debut",
-      "year": 2024,
-      "date": "2024-09-21",
-      "date_precision": "day",
-      "athletes": [
-        "jaei",
-        "jia"
-      ],
-      "type": "milestone",
-      "highlight": true,
-      "title_ko": "미국 첫 대회 — NOVA Back to School Meet (어바인)",
-      "title_en": "First U.S. meet — NOVA Back to School Meet (Irvine)",
-      "location_ko": "CA NOVA Back to School Meet, 어바인",
-      "location_en": "CA NOVA Back to School Meet, Irvine, CA",
-      "results": [],
-      "story_ko": "2024년 7월 NOVA 합류 후 두 달 만인 9월 21일, 남매의 미국 첫 공식 대회. 새 환경·야드(SCY) 코스에 적응하며 자유형·접영·평영 단거리로 출발했다. 이후 어바인을 기점으로 캘리포니아·애리조나 전역의 대회에 꾸준히 출전한다.",
-      "story_en": "On September 21, 2024 — two months after joining NOVA — the siblings raced their first official U.S. meet. Adapting to a new environment and short-course yards, they opened with freestyle, butterfly and breaststroke sprints. From Irvine, a steady run of meets across California and Arizona would follow.",
-      "sources": [
-        {
-          "kind": "results",
-          "publisher": "SwimCloud",
-          "url": "https://www.swimcloud.com/swimmer/2897193",
-          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
-          "archived": "capsules/us-nova-results/",
-          "status": "snapshot"
-        }
-      ],
-      "media": [],
-      "verified": true
-    },
-    {
-      "id": "2026-capsule-open",
-      "year": 2026,
-      "date": "2026-01-01",
-      "date_precision": "year",
-      "athletes": [
-        "jaei",
-        "jia"
-      ],
-      "type": "milestone",
-      "title_ko": "2026 — 미국 대회 시즌 기록 수집 중",
-      "title_en": "2026 — collecting the US meet season",
-      "location_ko": "미국 캘리포니아",
-      "location_en": "California, USA",
-      "results": [],
-      "story_ko": "NOVA 소속으로 참가 중인 대회 기록을 SwimCloud·SwimStandards 기반으로 계속 수집하고 있다. 상세 대회별 성적과 개인최고기록은 capsules/us-nova-results/record.md 참조. 이 캡슐은 계속 채워지는 중.",
-      "story_en": "NOVA meet results are being collected from SwimCloud and SwimStandards. Full meet-by-meet results and personal bests: capsules/us-nova-results/record.md. This capsule keeps filling.",
-      "sources": [
-        {
-          "kind": "results",
-          "publisher": "SwimCloud",
-          "url": "https://www.swimcloud.com/team/7943",
-          "title": "Irvine Novaquatics 팀",
-          "archived": "capsules/us-nova-results/",
-          "status": "snapshot"
-        }
-      ],
-      "media": [],
-      "verified": false
-    },
-    {
       "id": "2026-jaei-az-winter-sweep",
       "year": 2026,
       "date": "2026-02-14",
@@ -1220,45 +1094,2815 @@
       "verified": true
     },
     {
-      "id": "2026-jia-development",
+      "id": "2024-09-21-jaei-back2school",
+      "year": 2024,
+      "date": "2024-09-21",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "milestone",
+      "title_ko": "미국 데뷔전 — NOVA Back to School Meet",
+      "title_en": "U.S. debut — NOVA Back to School Meet",
+      "location_ko": "CA NOVA Back to School Meet, 어바인",
+      "location_en": "CA NOVA Back to School Meet, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 30,
+          "medal": "",
+          "time": "29.38"
+        },
+        {
+          "event_ko": "평영 50yd",
+          "event_en": "50yd Breast",
+          "place": 25,
+          "medal": "",
+          "time": "34.54"
+        },
+        {
+          "event_ko": "자유형 50yd",
+          "event_en": "50yd Free",
+          "place": 50,
+          "medal": "",
+          "time": "28.33"
+        }
+      ],
+      "story_ko": "2024년 7월 NOVA 합류 후 두 달 만에 치른 미국 첫 대회. 새 야드(SCY) 코스에 적응하며 자유형·접영·평영 단거리로 출발했다. 여기서부터 매달 대회에 나서는 미국 챕터가 시작된다.",
+      "story_en": "Two months after joining NOVA in July 2024, Jaei raced her first U.S. meet — sprint free, fly and breast as she adjusted to short-course yards. The start of a monthly competition rhythm.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true,
+      "highlight": true
+    },
+    {
+      "id": "2024-10-12-jaei-oct-intra",
+      "year": 2024,
+      "date": "2024-10-12",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA 10월 인트라스쿼드 — 접영 100yd 2위",
+      "title_en": "NOVA October Intrasquad — 2nd in 100yd fly",
+      "location_ko": "CA NOVA October Intrasquad, 어바인",
+      "location_en": "CA NOVA October Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "접영 100yd",
+          "event_en": "100yd Fly",
+          "place": 2,
+          "medal": "",
+          "time": "1:08.11"
+        },
+        {
+          "event_ko": "개인혼영 200yd",
+          "event_en": "200yd IM",
+          "place": 7,
+          "medal": "",
+          "time": "2:31.07"
+        },
+        {
+          "event_ko": "배영 100yd",
+          "event_en": "100yd Back",
+          "place": 10,
+          "medal": "",
+          "time": "1:13.77"
+        }
+      ],
+      "story_ko": "클럽 내부 기록회에서 접영 100yd 2위. 미국에서의 첫 상위권 기록으로 새 환경 적응이 빠르게 진행됐음을 보여준다.",
+      "story_en": "At a club intrasquad, Jaei took 2nd in the 100yd fly — an early top finish showing quick adaptation.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2024-10-18-jaei-imx",
+      "year": 2024,
+      "date": "2024-10-18",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA IMX 대회 — 개인혼영 200yd",
+      "title_en": "NOVA IMX Meet — 200yd IM",
+      "location_ko": "CA NOVA IMX, 어바인",
+      "location_en": "CA NOVA IMX, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "평영 100yd",
+          "event_en": "100yd Breast",
+          "place": 8,
+          "medal": "",
+          "time": "1:12.46"
+        },
+        {
+          "event_ko": "개인혼영 200yd",
+          "event_en": "200yd IM",
+          "place": 22,
+          "medal": "",
+          "time": "2:26.97",
+          "pb": true
+        },
+        {
+          "event_ko": "자유형 500yd",
+          "event_en": "500yd Free",
+          "place": 34,
+          "medal": "",
+          "time": "6:06.52"
+        }
+      ],
+      "story_ko": "개인혼영·중장거리까지 종목을 넓힌 IMX 대회. 200yd 개인혼영에서 기록을 크게 단축했다.",
+      "story_en": "An IMX meet spanning IM and distance — a big drop in the 200yd IM.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2024-11-09-jaei-block-party",
+      "year": 2024,
+      "date": "2024-11-09",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "PC 블록파티 대회 — 평영 50·100yd 동반 3위",
+      "title_en": "PC Block Party — bronze in 50 & 100yd breast",
+      "location_ko": "PC QSS Block Party, 새너제이",
+      "location_en": "PC QSS Block Party, San Jose, CA",
+      "results": [
+        {
+          "event_ko": "평영 50yd",
+          "event_en": "50yd Breast",
+          "place": 3,
+          "medal": "bronze",
+          "time": "33.98"
+        },
+        {
+          "event_ko": "평영 100yd",
+          "event_en": "100yd Breast",
+          "place": 3,
+          "medal": "bronze",
+          "time": "1:14.11"
+        },
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 6,
+          "medal": "",
+          "time": "29.72"
+        }
+      ],
+      "story_ko": "샌프란시스코 원정 공인 대회. 주종목 평영 50yd·100yd에서 나란히 3위(동메달)에 오르며 미국 무대 첫 입상을 신고했다.",
+      "story_en": "A sanctioned meet up north: Jaei took bronze in both the 50yd and 100yd breaststroke — her first U.S. podiums.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "highlight": true
+    },
+    {
+      "id": "2024-11-16-jaei-novamber",
+      "year": 2024,
+      "date": "2024-11-16",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "NOVAmber 인트라스쿼드 — 접영 100yd 2위(PB)",
+      "title_en": "NOVAmber Intrasquad — 2nd in 100yd fly (PB)",
+      "location_ko": "CA NOVAmber Intrasquad, 어바인",
+      "location_en": "CA NOVAmber Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "접영 100yd",
+          "event_en": "100yd Fly",
+          "place": 2,
+          "medal": "",
+          "time": "1:07.84",
+          "pb": true
+        },
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 9,
+          "medal": "",
+          "time": "30.58"
+        },
+        {
+          "event_ko": "자유형 100yd",
+          "event_en": "100yd Free",
+          "place": 32,
+          "medal": "",
+          "time": "1:04.22"
+        }
+      ],
+      "story_ko": "접영 100yd 개인 최고기록(1:07.84)으로 2위. 평영뿐 아니라 접영에서도 꾸준히 기록을 당기는 중.",
+      "story_en": "A personal best 1:07.84 in the 100yd fly for 2nd — steady gains in butterfly alongside breaststroke.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2024-12-12-jaei-rosebowl",
+      "year": 2024,
+      "date": "2024-12-12",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "로즈볼 인비테이셔널 — 평영 50yd 개인최고",
+      "title_en": "Rose Bowl Invitational — 50yd breast PB",
+      "location_ko": "CA Rose Bowl Invitational, 몬터레이파크",
+      "location_en": "CA Rose Bowl Invitational, Monterey Park, CA",
+      "results": [
+        {
+          "event_ko": "평영 50yd",
+          "event_en": "50yd Breast",
+          "place": 5,
+          "medal": "",
+          "time": "33.64"
+        },
+        {
+          "event_ko": "평영 100yd",
+          "event_en": "100yd Breast",
+          "place": 6,
+          "medal": "",
+          "time": "1:11.22",
+          "pb": true
+        },
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 15,
+          "medal": "",
+          "time": "29.62"
+        }
+      ],
+      "story_ko": "연말 대형 인비테이셔널. 평영 100yd 개인최고(1:11.22)를 세우며 미국 첫 시즌을 상승세로 마무리했다.",
+      "story_en": "A big year-end invitational: a 100yd breast PB (1:11.22) closed her first U.S. season on a rising note.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
+      "id": "2025-01-05-jaei-nye-tt",
+      "year": 2025,
+      "date": "2025-01-05",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA 새해 기록회",
+      "title_en": "NOVA New Year Time Trials",
+      "location_ko": "CA 2025 NOVA New Year TTs, 어바인",
+      "location_en": "CA 2025 NOVA New Year TTs, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "평영 100yd",
+          "event_en": "100yd Breast",
+          "place": 5,
+          "medal": "",
+          "time": "1:12.68"
+        },
+        {
+          "event_ko": "자유형 100yd",
+          "event_en": "100yd Free",
+          "place": 17,
+          "medal": "",
+          "time": "1:01.54"
+        }
+      ],
+      "story_ko": "새해 첫 기록회로 시즌을 열었다.",
+      "story_en": "Opening the year with a New Year time trial.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-01-24-jaei-jan-intra",
+      "year": 2025,
+      "date": "2025-01-24",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA 1월 인트라스쿼드 — 평영 100yd 3위",
+      "title_en": "NOVA January Intrasquad — 3rd in 100yd breast",
+      "location_ko": "CA NOVA Jan Intrasquad, 어바인",
+      "location_en": "CA NOVA Jan Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "평영 100yd",
+          "event_en": "100yd Breast",
+          "place": 3,
+          "medal": "",
+          "time": "1:12.10"
+        },
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 7,
+          "medal": "",
+          "time": "30.81"
+        },
+        {
+          "event_ko": "배영 50yd",
+          "event_en": "50yd Back",
+          "place": 15,
+          "medal": "",
+          "time": "33.18"
+        }
+      ],
+      "story_ko": "평영 100yd 3위. 배영 등 보조 종목도 함께 실전 점검.",
+      "story_en": "3rd in the 100yd breast, with backstroke sharpened as a secondary event.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-02-22-jaei-irvine-intra",
+      "year": 2025,
+      "date": "2025-02-22",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "Irvine Novaquatics 인트라스쿼드 — 자유형 200yd 향상",
+      "title_en": "Irvine Novaquatics Intrasquad — 200yd free drop",
+      "location_ko": "Irvine Novaquatics Intrasquad, 어바인",
+      "location_en": "Irvine Novaquatics Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "자유형 200yd",
+          "event_en": "200yd Free",
+          "place": 8,
+          "medal": "",
+          "time": "2:16.45",
+          "pb": true
+        },
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 10,
+          "medal": "",
+          "time": "29.36"
+        },
+        {
+          "event_ko": "자유형 100yd",
+          "event_en": "100yd Free",
+          "place": 18,
+          "medal": "",
+          "time": "1:02.02"
+        }
+      ],
+      "story_ko": "자유형 200yd에서 2초 이상 단축하며 중거리 자유형까지 무기를 넓혔다.",
+      "story_en": "Over two seconds off the 200yd free — extending her range into middle-distance freestyle.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-03-13-jaei-scs-spring",
+      "year": 2025,
+      "date": "2025-03-13",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "SCS 봄 에이지그룹 챔피언십",
+      "title_en": "SCS Spring Age Group Championships",
+      "location_ko": "SCS Spring Age Group Champs, 라미라다",
+      "location_en": "SCS Spring Age Group Champs, La Mirada, CA",
+      "results": [
+        {
+          "event_ko": "평영 100yd",
+          "event_en": "100yd Breast",
+          "place": 19,
+          "medal": "",
+          "time": "1:12.62"
+        },
+        {
+          "event_ko": "평영 50yd",
+          "event_en": "50yd Breast",
+          "place": 20,
+          "medal": "",
+          "time": "33.18"
+        },
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 35,
+          "medal": "",
+          "time": "29.31"
+        }
+      ],
+      "story_ko": "남부 캘리포니아 지역 챔피언십에 처음 출전. 넓어진 전국 단위 경쟁 속에서 실전 경험을 쌓았다.",
+      "story_en": "Her first Southern California sectional championship — banking experience in a deeper field.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
+      "id": "2025-03-22-jaei-mar-lc-intra",
+      "year": 2025,
+      "date": "2025-03-22",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA 3월 장수영장 기록회",
+      "title_en": "NOVA March LC Intrasquad",
+      "location_ko": "CA NOVA March LC AG Intrasquad, 어바인",
+      "location_en": "CA NOVA March LC AG Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "자유형 100m",
+          "event_en": "100m Free",
+          "place": 13,
+          "medal": "",
+          "time": "1:11.56"
+        },
+        {
+          "event_ko": "배영 100m",
+          "event_en": "100m Back",
+          "place": 10,
+          "medal": "",
+          "time": "1:20.57",
+          "pb": true
+        }
+      ],
+      "story_ko": "장수영장(50m) 코스로 전환하는 시즌 초 기록회. 배영 100m 개인최고.",
+      "story_en": "A long-course tune-up as the LCM season opened — a 100m back PB.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-04-03-jaei-far-western",
+      "year": 2025,
+      "date": "2025-04-03",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "퍼시픽 파웨스턴 챔피언십 — 평영 50yd 6위",
+      "title_en": "Pacific Far Western Championships — 6th in 50yd breast",
+      "location_ko": "Pacific Far Western Champs, 플레전턴",
+      "location_en": "Pacific Far Western Champs, Pleasanton, CA",
+      "results": [
+        {
+          "event_ko": "평영 50yd",
+          "event_en": "50yd Breast",
+          "place": 6,
+          "medal": "",
+          "time": "31.57",
+          "pb": true
+        },
+        {
+          "event_ko": "평영 100yd",
+          "event_en": "100yd Breast",
+          "place": 8,
+          "medal": "",
+          "time": "1:10.25",
+          "pb": true
+        },
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 40,
+          "medal": "",
+          "time": "29.45"
+        }
+      ],
+      "story_ko": "서부 최대 규모 에이지그룹 대회 중 하나. 평영 50yd(31.57)·100yd(1:10.25) 모두 개인최고로 6위·8위. 전국구 대회에서 톱10에 든 첫 사례.",
+      "story_en": "One of the West's largest age-group meets: PBs in both the 50yd (31.57) and 100yd (1:10.25) breast for 6th and 8th — her first top-10s at a major championship.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "highlight": true
+    },
+    {
+      "id": "2025-05-17-jaei-irvine-intra2",
+      "year": 2025,
+      "date": "2025-05-17",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "Irvine Novaquatics 장수영장 인트라스쿼드",
+      "title_en": "Irvine Novaquatics LC Intrasquad",
+      "location_ko": "Irvine Novaquatics Intrasquad, 어바인",
+      "location_en": "Irvine Novaquatics Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "평영 100m",
+          "event_en": "100m Breast",
+          "place": 4,
+          "medal": "",
+          "time": "1:23.03"
+        },
+        {
+          "event_ko": "개인혼영 200m",
+          "event_en": "200m IM",
+          "place": 12,
+          "medal": "",
+          "time": "2:46.54"
+        },
+        {
+          "event_ko": "접영 50m",
+          "event_en": "50m Fly",
+          "place": 9,
+          "medal": "",
+          "time": "32.95"
+        }
+      ],
+      "story_ko": "여름 장수영장 시즌 준비 기록회.",
+      "story_en": "A long-course tune-up ahead of the summer season.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-05-23-jaei-grand-challenge",
+      "year": 2025,
+      "date": "2025-05-23",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA 스피도 그랜드 챌린지",
+      "title_en": "NOVA Speedo Grand Challenge",
+      "location_ko": "CA NOVA Speedo Grand Challenge, 어바인",
+      "location_en": "CA NOVA Speedo Grand Challenge, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "평영 50m",
+          "event_en": "50m Breast",
+          "place": 11,
+          "medal": "",
+          "time": "37.15",
+          "pb": true
+        },
+        {
+          "event_ko": "평영 100m",
+          "event_en": "100m Breast",
+          "place": 15,
+          "medal": "",
+          "time": "1:23.28"
+        },
+        {
+          "event_ko": "접영 100m",
+          "event_en": "100m Fly",
+          "place": 26,
+          "medal": "",
+          "time": "1:15.86"
+        }
+      ],
+      "story_ko": "NOVA가 주최하는 대형 초청 대회. 장수영장 평영 50m 개인최고.",
+      "story_en": "A major NOVA-hosted invitational — a 50m breast PB in long course.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
+      "id": "2025-06-12-jaei-june-ag",
+      "year": 2025,
+      "date": "2025-06-12",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "6월 에이지그룹 챔피언십 — 평영 50m 3위",
+      "title_en": "June Age Group Championships — 3rd in 50m breast",
+      "location_ko": "June Age Group Champs (LCM), 어바인",
+      "location_en": "June Age Group Champs (LCM), Irvine, CA",
+      "results": [
+        {
+          "event_ko": "평영 50m",
+          "event_en": "50m Breast",
+          "place": 3,
+          "medal": "bronze",
+          "time": "36.00",
+          "pb": true
+        },
+        {
+          "event_ko": "평영 100m",
+          "event_en": "100m Breast",
+          "place": 5,
+          "medal": "",
+          "time": "1:19.58",
+          "pb": true
+        },
+        {
+          "event_ko": "개인혼영 200m",
+          "event_en": "200m IM",
+          "place": 13,
+          "medal": "",
+          "time": "2:43.02",
+          "pb": true
+        }
+      ],
+      "story_ko": "장수영장 에이지그룹 챔피언십에서 평영 50m 3위(동메달, 36.00 개인최고). 100m·개인혼영도 모두 개인최고 — 기록과 입상이 함께 온 대회.",
+      "story_en": "Bronze in the 50m breast (36.00 PB) at the June championships, with PBs in the 100m and 200m IM too — medals and times together.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "highlight": true
+    },
+    {
+      "id": "2025-07-05-jaei-july-intra",
+      "year": 2025,
+      "date": "2025-07-05",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA 7월 인트라스쿼드",
+      "title_en": "NOVA July Intrasquad",
+      "location_ko": "CA NOVA July Intrasquad, 어바인",
+      "location_en": "CA NOVA July Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "평영 100m",
+          "event_en": "100m Breast",
+          "place": 2,
+          "medal": "",
+          "time": "1:18.85",
+          "pb": true
+        },
+        {
+          "event_ko": "접영 50m",
+          "event_en": "50m Fly",
+          "place": 4,
+          "medal": "",
+          "time": "32.33"
+        },
+        {
+          "event_ko": "자유형 200m",
+          "event_en": "200m Free",
+          "place": 10,
+          "medal": "",
+          "time": "2:31.21",
+          "pb": true
+        }
+      ],
+      "story_ko": "평영 100m 2위(개인최고). 자유형 200m도 개인최고로 종목 폭이 계속 넓어지는 중.",
+      "story_en": "2nd in the 100m breast (PB), plus a 200m free PB — her range keeps widening.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-07-17-jaei-scs-elite",
+      "year": 2025,
+      "date": "2025-07-17",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "SCS 14세 이하 엘리트 챔피언십 — 평영 100m 4위",
+      "title_en": "SCS 14&U Elite A/G Champs — 4th in 100m breast",
+      "location_ko": "SCS 14&U Elite A/G Champs, 미션비에호",
+      "location_en": "SCS 14&U Elite A/G Champs, Mission Viejo, CA",
+      "results": [
+        {
+          "event_ko": "평영 100m",
+          "event_en": "100m Breast",
+          "place": 4,
+          "medal": "",
+          "time": "1:17.66",
+          "pb": true
+        },
+        {
+          "event_ko": "개인혼영 200m",
+          "event_en": "200m IM",
+          "place": 12,
+          "medal": "",
+          "time": "2:38.15",
+          "pb": true
+        },
+        {
+          "event_ko": "평영 50m",
+          "event_en": "50m Breast",
+          "place": 9,
+          "medal": "",
+          "time": "36.46"
+        }
+      ],
+      "story_ko": "남부 캘리포니아 14세 이하 최상위 선수만 모이는 엘리트 대회에서 평영 100m 4위(1:17.66 개인최고). 결선급 무대에서 상위권에 근접했다.",
+      "story_en": "At the invite-only SCS 14&U Elite meet, Jaei placed 4th in the 100m breast (1:17.66 PB) — knocking on the podium against the region's best.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "highlight": true
+    },
+    {
+      "id": "2025-09-20-jaei-back2school",
+      "year": 2025,
+      "date": "2025-09-20",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA 백투스쿨 — 평영 50yd 5위",
+      "title_en": "NOVA Back-to-School — 5th in 50yd breast",
+      "location_ko": "CA NOVA Back-to-School Meet, 어바인",
+      "location_en": "CA NOVA Back-to-School Meet, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "평영 50yd",
+          "event_en": "50yd Breast",
+          "place": 5,
+          "medal": "",
+          "time": "30.41",
+          "pb": true
+        },
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 19,
+          "medal": "",
+          "time": "27.99"
+        },
+        {
+          "event_ko": "자유형 50yd",
+          "event_en": "50yd Free",
+          "place": 28,
+          "medal": "",
+          "time": "26.79",
+          "pb": true
+        }
+      ],
+      "story_ko": "새 시즌 개막 기록회. 평영 50yd 개인최고(30.41)로 30초 벽에 바짝 다가섰다.",
+      "story_en": "Season-opener: a 50yd breast PB (30.41) closing in on the 30-second barrier.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-10-11-jaei-oct-intra",
+      "year": 2025,
+      "date": "2025-10-11",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA 10월 인트라스쿼드",
+      "title_en": "NOVA October Intrasquad",
+      "location_ko": "CA NOVA October Intrasquad, 어바인",
+      "location_en": "CA NOVA October Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "자유형 100yd",
+          "event_en": "100yd Free",
+          "place": 11,
+          "medal": "",
+          "time": "57.79",
+          "pb": true
+        },
+        {
+          "event_ko": "배영 100yd",
+          "event_en": "100yd Back",
+          "place": 9,
+          "medal": "",
+          "time": "1:05.56",
+          "pb": true
+        }
+      ],
+      "story_ko": "자유형·배영 100yd 모두 개인최고. 주종목 외 종목의 기록도 꾸준히 성장.",
+      "story_en": "PBs in both the 100yd free and back — secondary events climbing too.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-10-17-jaei-imx-intra",
+      "year": 2025,
+      "date": "2025-10-17",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA IMX 인트라스쿼드 — 평영 100yd 3위",
+      "title_en": "NOVA IMX Intrasquad — 3rd in 100yd breast",
+      "location_ko": "CA NOVA IMX Intrasquad, 어바인",
+      "location_en": "CA NOVA IMX Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "평영 100yd",
+          "event_en": "100yd Breast",
+          "place": 3,
+          "medal": "",
+          "time": "1:05.46",
+          "pb": true
+        },
+        {
+          "event_ko": "접영 100yd",
+          "event_en": "100yd Fly",
+          "place": 3,
+          "medal": "",
+          "time": "1:00.84",
+          "pb": true
+        },
+        {
+          "event_ko": "개인혼영 200yd",
+          "event_en": "200yd IM",
+          "place": 6,
+          "medal": "",
+          "time": "2:15.28",
+          "pb": true
+        }
+      ],
+      "story_ko": "평영·접영 100yd 모두 3위이자 개인최고, 개인혼영 200yd도 개인최고. 한 대회에서 세 종목 PB를 쏟아낸 폭발적인 기록회.",
+      "story_en": "A breakout intrasquad: PBs in the 100yd breast, 100yd fly and 200yd IM all at once.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-11-15-jaei-novamber",
+      "year": 2025,
+      "date": "2025-11-15",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "NOVAmber 인트라스쿼드 — 접영 50yd 1위",
+      "title_en": "NOVAmber Intrasquad — 1st in 50yd fly",
+      "location_ko": "CA NOVAmber Intrasquad, 어바인",
+      "location_en": "CA NOVAmber Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 1,
+          "medal": "",
+          "time": "27.43",
+          "pb": true
+        },
+        {
+          "event_ko": "평영 50yd",
+          "event_en": "50yd Breast",
+          "place": 2,
+          "medal": "",
+          "time": "31.14"
+        },
+        {
+          "event_ko": "자유형 100yd",
+          "event_en": "100yd Free",
+          "place": 19,
+          "medal": "",
+          "time": "58.12"
+        }
+      ],
+      "story_ko": "접영 50yd 1위(27.43 개인최고). 평영 강자에서 접영까지 정상권으로 올라섰다.",
+      "story_en": "1st in the 50yd fly (27.43 PB) — now a front-runner in butterfly as well as breaststroke.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-12-12-jaei-scat-winter",
+      "year": 2025,
+      "date": "2025-12-12",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "SCAT 겨울 에이지그룹 인비테이셔널 — 배영 50yd 개인최고",
+      "title_en": "SCAT Winter A/G Invitational — 50yd back PB",
+      "location_ko": "CA SCAT Winter A/G Invitational, 샌클레멘테",
+      "location_en": "CA SCAT Winter A/G Invitational, San Clemente, CA",
+      "results": [
+        {
+          "event_ko": "평영 50yd",
+          "event_en": "50yd Breast",
+          "place": 4,
+          "medal": "",
+          "time": "30.39",
+          "pb": true
+        },
+        {
+          "event_ko": "평영 100yd",
+          "event_en": "100yd Breast",
+          "place": 5,
+          "medal": "",
+          "time": "1:06.04",
+          "pb": true
+        },
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 4,
+          "medal": "",
+          "time": "27.52"
+        }
+      ],
+      "story_ko": "겨울 인비테이셔널에서 평영 50yd·100yd 개인최고를 세우며 4위·5위. 배영 50yd도 개인최고(29.51). 상위권과의 간격을 계속 좁히는 중.",
+      "story_en": "Winter invitational PBs in the 50yd (30.39) and 100yd (1:06.04) breast for 4th and 5th, plus a 50yd back PB — closing on the top step.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
+      "id": "2026-01-24-jaei-swim-festival",
+      "year": 2026,
+      "date": "2026-01-24",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "SCS 스윔 페스티벌 — 평영 100yd 2위",
+      "title_en": "SCS Swim Festival — 2nd in 100yd breast",
+      "location_ko": "SCS Swim Festival, 미션비에호",
+      "location_en": "SCS Swim Festival, Mission Viejo, CA",
+      "results": [
+        {
+          "event_ko": "평영 100yd",
+          "event_en": "100yd Breast",
+          "place": 2,
+          "medal": "silver",
+          "time": "1:06.15"
+        },
+        {
+          "event_ko": "평영 50yd",
+          "event_en": "50yd Breast",
+          "place": 3,
+          "medal": "bronze",
+          "time": "30.33",
+          "pb": true
+        },
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 6,
+          "medal": "",
+          "time": "27.51"
+        }
+      ],
+      "story_ko": "새해 첫 공인 대회에서 평영 100yd 2위·50yd 3위. 평영 50yd는 개인최고(30.33). AZ 3관왕으로 이어질 상승세의 시작.",
+      "story_en": "Silver in the 100yd breast and bronze in the 50yd (30.33 PB) to open the year — momentum that would carry into the Arizona sweep.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "highlight": true
+    },
+    {
+      "id": "2026-03-12-jaei-scs-spring",
       "year": 2026,
       "date": "2026-03-12",
-      "date_precision": "month",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "SCS 봄 에이지그룹 챔피언십 — 평영 100yd 개인최고",
+      "title_en": "SCS Spring Age Group Champs — 100yd breast PB",
+      "location_ko": "SCS Spring Age Group Champs, 라미라다",
+      "location_en": "SCS Spring Age Group Champs, La Mirada, CA",
+      "results": [
+        {
+          "event_ko": "평영 100yd",
+          "event_en": "100yd Breast",
+          "place": 30,
+          "medal": "",
+          "time": "1:04.25",
+          "pb": true
+        },
+        {
+          "event_ko": "평영 200yd",
+          "event_en": "200yd Breast",
+          "place": 19,
+          "medal": "",
+          "time": "2:18.16",
+          "pb": true
+        },
+        {
+          "event_ko": "평영 50yd",
+          "event_en": "50yd Breast",
+          "place": 29,
+          "medal": "",
+          "time": "30.03",
+          "pb": true
+        }
+      ],
+      "story_ko": "평영 100yd 1:04.25 개인최고 — 1년 전 같은 대회의 1:12.62에서 8초 이상 단축했다. 순위(30위)는 전국구 경쟁의 두께를 보여줄 뿐, 기록은 계속 성장 중.",
+      "story_en": "A 100yd breast PB of 1:04.25 — more than 8 seconds faster than the 1:12.62 at this same meet a year earlier. The ranking reflects a deep field; the times keep climbing.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "highlight": true
+    },
+    {
+      "id": "2026-05-02-jaei-ditch",
+      "year": 2026,
+      "date": "2026-05-02",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA 5월 장수영장 디치미트 — 평영 100m 3위",
+      "title_en": "NOVA May LC Ditch Meet — 3rd in 100m breast",
+      "location_ko": "CA NOVA May LC Ditch Meet, 어바인",
+      "location_en": "CA NOVA May LC Ditch Meet, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "평영 100m",
+          "event_en": "100m Breast",
+          "place": 3,
+          "medal": "",
+          "time": "1:14.99"
+        },
+        {
+          "event_ko": "접영 200m",
+          "event_en": "200m Fly",
+          "place": 6,
+          "medal": "",
+          "time": "2:36.46",
+          "pb": true
+        }
+      ],
+      "story_ko": "장수영장 시즌 개막. 평영 100m 3위에 접영 200m 첫 개인최고까지 — 새 장거리 종목에도 도전.",
+      "story_en": "Long-course season opener: 3rd in the 100m breast and a first 200m fly PB — reaching into a new distance event.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2026-06-11-jaei-june-invite",
+      "year": 2026,
+      "date": "2026-06-11",
+      "date_precision": "day",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA 6월 에이지그룹 인비테이셔널 — 접영 50m 개인최고",
+      "title_en": "NOVA June AG Invite — 50m fly PB",
+      "location_ko": "CA NOVA June AG Invite, 어바인",
+      "location_en": "CA NOVA June AG Invite, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "평영 100m",
+          "event_en": "100m Breast",
+          "place": 17,
+          "medal": "",
+          "time": "1:14.62",
+          "pb": true
+        },
+        {
+          "event_ko": "접영 50m",
+          "event_en": "50m Fly",
+          "place": 19,
+          "medal": "",
+          "time": "29.39",
+          "pb": true
+        },
+        {
+          "event_ko": "평영 200m",
+          "event_en": "200m Breast",
+          "place": 17,
+          "medal": "",
+          "time": "2:46.46",
+          "pb": true
+        }
+      ],
+      "story_ko": "최신 대회(2026.6). 접영 50m 29.39, 평영 100m 1:14.62, 평영 200m 2:46.46 모두 장수영장 개인최고. 미국 두 시즌째에도 성장이 멈추지 않는다.",
+      "story_en": "Her most recent meet (Jun 2026): long-course PBs across the board — 50m fly (29.39), 100m breast (1:14.62), 200m breast (2:46.46). Still climbing in her second U.S. season.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897193",
+          "title": "김재이 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
+      "id": "2024-09-21-jia-back2school",
+      "year": 2024,
+      "date": "2024-09-21",
+      "date_precision": "day",
       "athletes": [
         "jia"
       ],
       "type": "milestone",
-      "title_ko": "김지아, 종목 확장과 기록 급성장 — 자유형·개인혼영으로",
-      "title_en": "Jia broadens her range — freestyle and IM breakthroughs",
-      "location_ko": "미국 캘리포니아",
-      "location_en": "California, USA",
+      "title_ko": "미국 데뷔전 — NOVA Back to School Meet",
+      "title_en": "U.S. debut — NOVA Back to School Meet",
+      "location_ko": "CA NOVA Back to School Meet, 어바인",
+      "location_en": "CA NOVA Back to School Meet, Irvine, CA",
       "results": [
         {
-          "event_ko": "자유형 500y",
-          "event_en": "500 Y Free",
-          "place": 0,
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 6,
           "medal": "",
-          "time": "5:44.06",
-          "record": "17초 이상 단축 / −17s PB"
+          "time": "32.93"
         },
         {
-          "event_ko": "개인혼영 200y",
-          "event_en": "200 Y IM",
-          "place": 0,
+          "event_ko": "자유형 50yd",
+          "event_en": "50yd Free",
+          "place": 12,
           "medal": "",
-          "time": "2:28.52"
+          "time": "32.42"
+        },
+        {
+          "event_ko": "평영 50yd",
+          "event_en": "50yd Breast",
+          "place": 11,
+          "medal": "",
+          "time": "41.55"
         }
       ],
-      "story_ko": "접영 위주였던 김지아가 미국에서 자유형 중장거리와 개인혼영으로 종목을 넓혔다. 2026년 3월 대회에서 자유형 500야드를 한 번에 17초 이상 단축하는 등, 입상이 아니어도 기록이 계단식으로 성장하는 전형적인 발전형 선수의 모습을 보였다.",
-      "story_en": "Primarily a butterflyer, Jia expanded into middle-distance freestyle and the IM in the U.S. At a March 2026 meet she took more than 17 seconds off her 500y freestyle in a single swim — the profile of a developing swimmer whose times climb in steps, podium or not.",
+      "story_ko": "오빠와 같은 날 치른 미국 첫 대회. 주종목 접영 50yd로 새 야드 코스에 데뷔했다. 여기서부터 지아도 매달 대회에 나서는 미국 챕터가 시작된다.",
+      "story_en": "Her first U.S. meet, the same day as her brother — debuting in her signature 50yd fly on the new short-course. The start of her own monthly rhythm.",
       "sources": [
         {
           "kind": "results",
           "publisher": "SwimCloud",
           "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
           "note": "대회 이력 백업: capsules/us-nova-results/record.md",
           "archived": "capsules/us-nova-results/",
           "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true,
+      "highlight": true
+    },
+    {
+      "id": "2024-10-12-jia-oct-intra",
+      "year": 2024,
+      "date": "2024-10-12",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA 10월 인트라스쿼드",
+      "title_en": "NOVA October Intrasquad",
+      "location_ko": "CA NOVA October Intrasquad, 어바인",
+      "location_en": "CA NOVA October Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "자유형 200yd",
+          "event_en": "200yd Free",
+          "place": 17,
+          "medal": "",
+          "time": "2:31.46"
+        },
+        {
+          "event_ko": "자유형 100yd",
+          "event_en": "100yd Free",
+          "place": 39,
+          "medal": "",
+          "time": "1:12.05"
+        },
+        {
+          "event_ko": "배영 100yd",
+          "event_en": "100yd Back",
+          "place": 25,
+          "medal": "",
+          "time": "1:27.33"
+        }
+      ],
+      "story_ko": "자유형·배영으로 종목을 넓혀가며 실전 감각을 익혔다.",
+      "story_en": "Building range and race feel across free and back.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2024-10-18-jia-imx",
+      "year": 2024,
+      "date": "2024-10-18",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA IMX 대회 — 자유형 200yd 향상",
+      "title_en": "NOVA IMX Meet — 200yd free drop",
+      "location_ko": "CA NOVA IMX, 어바인",
+      "location_en": "CA NOVA IMX, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "접영 100yd",
+          "event_en": "100yd Fly",
+          "place": 10,
+          "medal": "",
+          "time": "1:13.26"
+        },
+        {
+          "event_ko": "자유형 200yd",
+          "event_en": "200yd Free",
+          "place": 26,
+          "medal": "",
+          "time": "2:35.80",
+          "pb": true
+        },
+        {
+          "event_ko": "자유형 500yd",
+          "event_en": "500yd Free",
+          "place": 18,
+          "medal": "",
+          "time": "6:39.24"
+        }
+      ],
+      "story_ko": "중장거리 자유형까지 도전한 IMX 대회. 자유형 200yd에서 4초 이상 단축.",
+      "story_en": "An IMX meet reaching into distance free — over four seconds off the 200yd.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2024-11-09-jia-block-party",
+      "year": 2024,
+      "date": "2024-11-09",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "PC 블록파티 대회 (새너제이 원정)",
+      "title_en": "PC Block Party (San Jose)",
+      "location_ko": "PC QSS Block Party, 새너제이",
+      "location_en": "PC QSS Block Party, San Jose, CA",
+      "results": [
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 7,
+          "medal": "",
+          "time": "34.76"
+        },
+        {
+          "event_ko": "자유형 50yd",
+          "event_en": "50yd Free",
+          "place": 10,
+          "medal": "",
+          "time": "32.54"
+        },
+        {
+          "event_ko": "평영 100yd",
+          "event_en": "100yd Breast",
+          "place": 7,
+          "medal": "",
+          "time": "1:29.81"
+        }
+      ],
+      "story_ko": "오빠와 함께한 북부 캘리포니아 원정 공인 대회. 접영·자유형·평영 세 종목에서 톱10에 들었다.",
+      "story_en": "A sanctioned NorCal road trip with her brother — top-10s across fly, free and breast.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
+      "id": "2024-11-16-jia-novamber",
+      "year": 2024,
+      "date": "2024-11-16",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "NOVAmber 인트라스쿼드 — 접영 50yd 3위",
+      "title_en": "NOVAmber Intrasquad — 3rd in 50yd fly",
+      "location_ko": "CA NOVAmber Intrasquad, 어바인",
+      "location_en": "CA NOVAmber Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 3,
+          "medal": "",
+          "time": "32.25",
+          "pb": true
+        },
+        {
+          "event_ko": "자유형 50yd",
+          "event_en": "50yd Free",
+          "place": 13,
+          "medal": "",
+          "time": "31.16",
+          "pb": true
+        },
+        {
+          "event_ko": "평영 50yd",
+          "event_en": "50yd Breast",
+          "place": 8,
+          "medal": "",
+          "time": "40.32",
+          "pb": true
+        }
+      ],
+      "story_ko": "접영 50yd 3위(32.25 개인최고). 세 종목 모두 개인최고를 세운 성장의 밤.",
+      "story_en": "3rd in the 50yd fly (32.25 PB) — PBs in all three events.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2024-12-12-jia-rosebowl",
+      "year": 2024,
+      "date": "2024-12-12",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "로즈볼 인비테이셔널 — 평영 100yd 3위",
+      "title_en": "Rose Bowl Invitational — 3rd in 100yd breast",
+      "location_ko": "CA Rose Bowl Invitational, 몬터레이파크",
+      "location_en": "CA Rose Bowl Invitational, Monterey Park, CA",
+      "results": [
+        {
+          "event_ko": "평영 100yd",
+          "event_en": "100yd Breast",
+          "place": 3,
+          "medal": "bronze",
+          "time": "1:23.69",
+          "pb": true
+        },
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 5,
+          "medal": "",
+          "time": "32.71"
+        },
+        {
+          "event_ko": "개인혼영 200yd",
+          "event_en": "200yd IM",
+          "place": 6,
+          "medal": "",
+          "time": "2:44.10",
+          "pb": true
+        }
+      ],
+      "story_ko": "연말 대형 인비테이셔널에서 평영 100yd 3위(동메달, 1:23.69 개인최고). 미국 첫 시즌 첫 입상을 접영이 아닌 평영에서 신고했다.",
+      "story_en": "Bronze in the 100yd breast (1:23.69 PB) at the year-end invitational — her first U.S. podium, in breaststroke.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "highlight": true
+    },
+    {
+      "id": "2025-01-05-jia-nye-tt",
+      "year": 2025,
+      "date": "2025-01-05",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA 새해 기록회",
+      "title_en": "NOVA New Year Time Trials",
+      "location_ko": "CA 2025 NOVA New Year TTs, 어바인",
+      "location_en": "CA 2025 NOVA New Year TTs, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "자유형 100yd",
+          "event_en": "100yd Free",
+          "place": 36,
+          "medal": "",
+          "time": "1:11.14",
+          "pb": true
+        },
+        {
+          "event_ko": "배영 100yd",
+          "event_en": "100yd Back",
+          "place": 30,
+          "medal": "",
+          "time": "1:22.58",
+          "pb": true
+        }
+      ],
+      "story_ko": "새해 첫 기록회에서 자유형·배영 개인최고.",
+      "story_en": "New Year PBs in free and back.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-01-24-jia-jan-intra",
+      "year": 2025,
+      "date": "2025-01-24",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA 1월 인트라스쿼드 — 접영 50yd 1위",
+      "title_en": "NOVA January Intrasquad — 1st in 50yd fly",
+      "location_ko": "CA NOVA Jan Intrasquad, 어바인",
+      "location_en": "CA NOVA Jan Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 1,
+          "medal": "",
+          "time": "32.49"
+        },
+        {
+          "event_ko": "자유형 500yd",
+          "event_en": "500yd Free",
+          "place": 6,
+          "medal": "",
+          "time": "6:16.51",
+          "pb": true
+        },
+        {
+          "event_ko": "자유형 50yd",
+          "event_en": "50yd Free",
+          "place": 6,
+          "medal": "",
+          "time": "30.95",
+          "pb": true
+        }
+      ],
+      "story_ko": "주종목 접영 50yd 1위. 장거리 자유형 500yd에서 22초 이상 단축하며 종목 폭을 크게 넓혔다.",
+      "story_en": "1st in the 50yd fly, plus a huge 500yd free drop (over 22 seconds) — range expanding fast.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-02-22-jia-irvine-intra",
+      "year": 2025,
+      "date": "2025-02-22",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "Irvine Novaquatics 인트라스쿼드 — 개인혼영 200yd 향상",
+      "title_en": "Irvine Novaquatics Intrasquad — 200yd IM drop",
+      "location_ko": "Irvine Novaquatics Intrasquad, 어바인",
+      "location_en": "Irvine Novaquatics Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "개인혼영 200yd",
+          "event_en": "200yd IM",
+          "place": 6,
+          "medal": "",
+          "time": "2:41.07",
+          "pb": true
+        },
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 7,
+          "medal": "",
+          "time": "32.99"
+        },
+        {
+          "event_ko": "자유형 50yd",
+          "event_en": "50yd Free",
+          "place": 11,
+          "medal": "",
+          "time": "30.84",
+          "pb": true
+        }
+      ],
+      "story_ko": "개인혼영 200yd에서 3초 이상 단축. 접영 중심에서 개인혼영으로 주무기가 넓어지기 시작했다.",
+      "story_en": "Over three seconds off the 200yd IM — IM emerging alongside her butterfly.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-03-13-jia-scs-spring",
+      "year": 2025,
+      "date": "2025-03-13",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "SCS 봄 에이지그룹 챔피언십 — 개인혼영 9위",
+      "title_en": "SCS Spring Age Group Champs — 9th in 200yd IM",
+      "location_ko": "SCS Spring Age Group Champs, 라미라다",
+      "location_en": "SCS Spring Age Group Champs, La Mirada, CA",
+      "results": [
+        {
+          "event_ko": "개인혼영 200yd",
+          "event_en": "200yd IM",
+          "place": 9,
+          "medal": "",
+          "time": "2:34.51",
+          "pb": true
+        },
+        {
+          "event_ko": "접영 100yd",
+          "event_en": "100yd Fly",
+          "place": 6,
+          "medal": "",
+          "time": "1:11.29",
+          "pb": true
+        },
+        {
+          "event_ko": "평영 100yd",
+          "event_en": "100yd Breast",
+          "place": 14,
+          "medal": "",
+          "time": "1:24.81"
+        }
+      ],
+      "story_ko": "지역 챔피언십 첫 출전에서 개인혼영 200yd 9위·접영 100yd 6위, 둘 다 개인최고. 전국구 무대에서 톱10에 진입했다.",
+      "story_en": "Her first sectional championship: 9th in the 200yd IM and 6th in the 100yd fly, both PBs — into the top-10 at a major meet.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "highlight": true
+    },
+    {
+      "id": "2025-03-22-jia-mar-lc-intra",
+      "year": 2025,
+      "date": "2025-03-22",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA 3월 장수영장 기록회",
+      "title_en": "NOVA March LC Intrasquad",
+      "location_ko": "CA NOVA March LC AG Intrasquad, 어바인",
+      "location_en": "CA NOVA March LC AG Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "자유형 100m",
+          "event_en": "100m Free",
+          "place": 20,
+          "medal": "",
+          "time": "1:15.87"
+        },
+        {
+          "event_ko": "배영 100m",
+          "event_en": "100m Back",
+          "place": 22,
+          "medal": "",
+          "time": "1:32.23",
+          "pb": true
+        }
+      ],
+      "story_ko": "장수영장 시즌 준비 기록회.",
+      "story_en": "A long-course tune-up.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-04-03-jia-far-western",
+      "year": 2025,
+      "date": "2025-04-03",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "퍼시픽 파웨스턴 챔피언십 — 자유형 500yd 9위",
+      "title_en": "Pacific Far Western Championships — 9th in 500yd free",
+      "location_ko": "Pacific Far Western Champs, 플레전턴",
+      "location_en": "Pacific Far Western Champs, Pleasanton, CA",
+      "results": [
+        {
+          "event_ko": "자유형 500yd",
+          "event_en": "500yd Free",
+          "place": 9,
+          "medal": "",
+          "time": "6:05.02",
+          "pb": true
+        },
+        {
+          "event_ko": "개인혼영 200yd",
+          "event_en": "200yd IM",
+          "place": 13,
+          "medal": "",
+          "time": "2:34.72"
+        },
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 15,
+          "medal": "",
+          "time": "32.03",
+          "pb": true
+        }
+      ],
+      "story_ko": "서부 최대 규모 대회에서 장거리 자유형 500yd 9위(6:05.02, 11초 이상 단축). 접영 단거리 선수에서 장거리·개인혼영까지 아우르는 전천후로 성장.",
+      "story_en": "At the West's largest age-group meet, 9th in the 500yd free (6:05.02, over 11 seconds faster) — growing from a fly sprinter into an all-around swimmer.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "highlight": true
+    },
+    {
+      "id": "2025-05-17-jia-irvine-intra2",
+      "year": 2025,
+      "date": "2025-05-17",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "Irvine Novaquatics 장수영장 인트라스쿼드",
+      "title_en": "Irvine Novaquatics LC Intrasquad",
+      "location_ko": "Irvine Novaquatics Intrasquad, 어바인",
+      "location_en": "Irvine Novaquatics Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "개인혼영 200m",
+          "event_en": "200m IM",
+          "place": 37,
+          "medal": "",
+          "time": "2:59.26"
+        },
+        {
+          "event_ko": "자유형 200m",
+          "event_en": "200m Free",
+          "place": 28,
+          "medal": "",
+          "time": "2:40.81"
+        },
+        {
+          "event_ko": "자유형 50m",
+          "event_en": "50m Free",
+          "place": 39,
+          "medal": "",
+          "time": "34.23",
+          "pb": true
+        }
+      ],
+      "story_ko": "여름 장수영장 시즌 준비.",
+      "story_en": "Long-course preparation for summer.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-06-12-jia-june-ag",
+      "year": 2025,
+      "date": "2025-06-12",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "6월 에이지그룹 챔피언십 — 접영 100m 3위",
+      "title_en": "June Age Group Championships — 3rd in 100m fly",
+      "location_ko": "June Age Group Champs (LCM), 어바인",
+      "location_en": "June Age Group Champs (LCM), Irvine, CA",
+      "results": [
+        {
+          "event_ko": "접영 100m",
+          "event_en": "100m Fly",
+          "place": 3,
+          "medal": "bronze",
+          "time": "1:20.95",
+          "pb": true
+        },
+        {
+          "event_ko": "자유형 200m",
+          "event_en": "200m Free",
+          "place": 4,
+          "medal": "",
+          "time": "2:41.41"
+        },
+        {
+          "event_ko": "개인혼영 200m",
+          "event_en": "200m IM",
+          "place": 6,
+          "medal": "",
+          "time": "2:58.83",
+          "pb": true
+        }
+      ],
+      "story_ko": "장수영장 에이지그룹 챔피언십에서 접영 100m 3위(동메달, 1:20.95 개인최고). 자유형 200m 4위까지 더하며 기록과 입상을 함께 잡았다.",
+      "story_en": "Bronze in the 100m fly (1:20.95 PB) and 4th in the 200m free at the June championships — medals and PBs together.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "highlight": true
+    },
+    {
+      "id": "2025-07-05-jia-july-intra",
+      "year": 2025,
+      "date": "2025-07-05",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA 7월 인트라스쿼드",
+      "title_en": "NOVA July Intrasquad",
+      "location_ko": "CA NOVA July Intrasquad, 어바인",
+      "location_en": "CA NOVA July Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "개인혼영 200m",
+          "event_en": "200m IM",
+          "place": 20,
+          "medal": "",
+          "time": "2:57.11",
+          "pb": true
+        },
+        {
+          "event_ko": "자유형 50m",
+          "event_en": "50m Free",
+          "place": 25,
+          "medal": "",
+          "time": "34.17"
+        },
+        {
+          "event_ko": "자유형 200m",
+          "event_en": "200m Free",
+          "place": 15,
+          "medal": "",
+          "time": "2:44.80"
+        }
+      ],
+      "story_ko": "개인혼영 200m 개인최고로 여름 시즌을 이어갔다.",
+      "story_en": "A 200m IM PB carrying the summer season on.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-07-17-jia-scs-elite",
+      "year": 2025,
+      "date": "2025-07-17",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "SCS 14세 이하 엘리트 챔피언십 — 개인혼영 200m 6위",
+      "title_en": "SCS 14&U Elite A/G Champs — 6th in 200m IM",
+      "location_ko": "SCS 14&U Elite A/G Champs, 미션비에호",
+      "location_en": "SCS 14&U Elite A/G Champs, Mission Viejo, CA",
+      "results": [
+        {
+          "event_ko": "개인혼영 200m",
+          "event_en": "200m IM",
+          "place": 6,
+          "medal": "",
+          "time": "2:52.93",
+          "pb": true
+        },
+        {
+          "event_ko": "자유형 100m",
+          "event_en": "100m Free",
+          "place": 9,
+          "medal": "",
+          "time": "1:13.92",
+          "pb": true
+        },
+        {
+          "event_ko": "자유형 50m",
+          "event_en": "50m Free",
+          "place": 11,
+          "medal": "",
+          "time": "33.69",
+          "pb": true
+        }
+      ],
+      "story_ko": "남부 캘리포니아 14세 이하 최상위 엘리트 대회에서 개인혼영 200m 6위(2:52.93 개인최고). 자유형 100m·50m도 모두 개인최고 — 엘리트 무대에서 상위권.",
+      "story_en": "At the invite-only SCS 14&U Elite meet, 6th in the 200m IM (2:52.93 PB), with 100m and 50m free PBs — a strong showing among the region's best.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "highlight": true
+    },
+    {
+      "id": "2025-09-20-jia-back2school",
+      "year": 2025,
+      "date": "2025-09-20",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA 백투스쿨 — 자유형 50yd 2위·평영 3위",
+      "title_en": "NOVA Back-to-School — 2nd in 50yd free, 3rd in breast",
+      "location_ko": "CA NOVA Back-to-School Meet, 어바인",
+      "location_en": "CA NOVA Back-to-School Meet, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "자유형 50yd",
+          "event_en": "50yd Free",
+          "place": 2,
+          "medal": "",
+          "time": "29.84",
+          "pb": true
+        },
+        {
+          "event_ko": "평영 50yd",
+          "event_en": "50yd Breast",
+          "place": 3,
+          "medal": "",
+          "time": "38.09"
+        },
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 4,
+          "medal": "",
+          "time": "32.01"
+        }
+      ],
+      "story_ko": "새 시즌 개막전에서 자유형 50yd 2위(29.84 개인최고, 30초 벽 돌파)·평영 50yd 3위. 접영 외 종목에서도 상위권.",
+      "story_en": "Season-opener: 2nd in the 50yd free (29.84 PB, under 30 seconds) and 3rd in the 50yd breast — strong beyond her butterfly.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-10-11-jia-oct-intra",
+      "year": 2025,
+      "date": "2025-10-11",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA 10월 인트라스쿼드 — 배영 100yd 5위",
+      "title_en": "NOVA October Intrasquad — 5th in 100yd back",
+      "location_ko": "CA NOVA October Intrasquad, 어바인",
+      "location_en": "CA NOVA October Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "자유형 100yd",
+          "event_en": "100yd Free",
+          "place": 9,
+          "medal": "",
+          "time": "1:06.00",
+          "pb": true
+        },
+        {
+          "event_ko": "배영 100yd",
+          "event_en": "100yd Back",
+          "place": 5,
+          "medal": "",
+          "time": "1:15.63",
+          "pb": true
+        }
+      ],
+      "story_ko": "자유형·배영 100yd 모두 개인최고.",
+      "story_en": "PBs in both the 100yd free and back.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-10-17-jia-imx-intra",
+      "year": 2025,
+      "date": "2025-10-17",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA IMX 인트라스쿼드 — 개인혼영 200yd 4위",
+      "title_en": "NOVA IMX Intrasquad — 4th in 200yd IM",
+      "location_ko": "CA NOVA IMX Intrasquad, 어바인",
+      "location_en": "CA NOVA IMX Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "개인혼영 200yd",
+          "event_en": "200yd IM",
+          "place": 4,
+          "medal": "",
+          "time": "2:33.32",
+          "pb": true
+        },
+        {
+          "event_ko": "자유형 200yd",
+          "event_en": "200yd Free",
+          "place": 5,
+          "medal": "",
+          "time": "2:19.20",
+          "pb": true
+        },
+        {
+          "event_ko": "자유형 500yd",
+          "event_en": "500yd Free",
+          "place": 5,
+          "medal": "",
+          "time": "6:01.75",
+          "pb": true
+        }
+      ],
+      "story_ko": "개인혼영 200yd 4위, 자유형 200·500yd 5위 — 세 종목 모두 개인최고. 중장거리·개인혼영이 완전히 주무기로 자리 잡았다.",
+      "story_en": "PBs in the 200yd IM (4th), 200yd free and 500yd free (5th) — middle-distance and IM now firmly her strengths.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-11-15-jia-novamber",
+      "year": 2025,
+      "date": "2025-11-15",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "NOVAmber 인트라스쿼드",
+      "title_en": "NOVAmber Intrasquad",
+      "location_ko": "CA NOVAmber Intrasquad, 어바인",
+      "location_en": "CA NOVAmber Intrasquad, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 22,
+          "medal": "",
+          "time": "31.28",
+          "pb": true
+        },
+        {
+          "event_ko": "평영 50yd",
+          "event_en": "50yd Breast",
+          "place": 25,
+          "medal": "",
+          "time": "37.64",
+          "pb": true
+        },
+        {
+          "event_ko": "자유형 50yd",
+          "event_en": "50yd Free",
+          "place": 76,
+          "medal": "",
+          "time": "29.78",
+          "pb": true
+        }
+      ],
+      "story_ko": "단거리 세 종목 모두 개인최고. 큰 대회 사이에도 꾸준히 기록을 당겼다.",
+      "story_en": "Sprint PBs across fly, breast and free — steady gains between the bigger meets.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2025-12-12-jia-scat-winter",
+      "year": 2025,
+      "date": "2025-12-12",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "SCAT 겨울 에이지그룹 인비테이셔널 — 접영 100yd 개인최고",
+      "title_en": "SCAT Winter A/G Invitational — 100yd fly PB",
+      "location_ko": "CA SCAT Winter A/G Invitational, 샌클레멘테",
+      "location_en": "CA SCAT Winter A/G Invitational, San Clemente, CA",
+      "results": [
+        {
+          "event_ko": "자유형 500yd",
+          "event_en": "500yd Free",
+          "place": 22,
+          "medal": "",
+          "time": "6:01.19",
+          "pb": true
+        },
+        {
+          "event_ko": "개인혼영 200yd",
+          "event_en": "200yd IM",
+          "place": 27,
+          "medal": "",
+          "time": "2:34.17"
+        },
+        {
+          "event_ko": "평영 100yd",
+          "event_en": "100yd Breast",
+          "place": 35,
+          "medal": "",
+          "time": "1:21.98",
+          "pb": true
+        }
+      ],
+      "story_ko": "겨울 인비테이셔널에서 자유형 500yd·평영 100yd 개인최고. 접영 100yd도 시즌 중 1:10.88 개인최고를 세웠다.",
+      "story_en": "Winter invitational PBs in the 500yd free and 100yd breast; a 100yd fly PB (1:10.88) also came this season.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
+      "id": "2026-02-13-jia-az-winter",
+      "year": 2026,
+      "date": "2026-02-13",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "AZ PSC 겨울 인비테이셔널 — 자유형·개인혼영 대폭 향상",
+      "title_en": "AZ PSC Winter Invitational — big free & IM drops",
+      "location_ko": "AZ PSC Winter Invitational, 패러다이스밸리",
+      "location_en": "AZ PSC Winter Invitational, Paradise Valley, AZ",
+      "results": [
+        {
+          "event_ko": "자유형 200yd",
+          "event_en": "200yd Free",
+          "place": 14,
+          "medal": "",
+          "time": "2:15.20",
+          "pb": true
+        },
+        {
+          "event_ko": "자유형 100yd",
+          "event_en": "100yd Free",
+          "place": 16,
+          "medal": "",
+          "time": "1:02.78",
+          "pb": true
+        },
+        {
+          "event_ko": "개인혼영 200yd",
+          "event_en": "200yd IM",
+          "place": 9,
+          "medal": "",
+          "time": "2:34.54"
+        }
+      ],
+      "story_ko": "오빠가 3관왕에 오른 애리조나 원정 대회. 지아도 자유형 200yd(2:15.20, 4초 단축)·100yd(3초 단축) 개인최고, 개인혼영 200yd 9위. 남매가 함께 애리조나 원정을 완주했다.",
+      "story_en": "The Arizona road trip where her brother swept three golds. Jia set free PBs in the 200yd (2:15.20, −4s) and 100yd (−3s) and placed 9th in the 200yd IM — the siblings on the road together.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "highlight": true
+    },
+    {
+      "id": "2026-03-12-jia-scs-spring",
+      "year": 2026,
+      "date": "2026-03-12",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "SCS 봄 에이지그룹 챔피언십 — 자유형 500yd 17초 단축",
+      "title_en": "SCS Spring Age Group Champs — 17-second 500 free drop",
+      "location_ko": "SCS Spring Age Group Champs, 라미라다",
+      "location_en": "SCS Spring Age Group Champs, La Mirada, CA",
+      "results": [
+        {
+          "event_ko": "자유형 500yd",
+          "event_en": "500yd Free",
+          "place": 33,
+          "medal": "",
+          "time": "5:44.06",
+          "pb": true,
+          "drop": "−17.13"
+        },
+        {
+          "event_ko": "개인혼영 200yd",
+          "event_en": "200yd IM",
+          "place": 47,
+          "medal": "",
+          "time": "2:28.52",
+          "pb": true
+        },
+        {
+          "event_ko": "접영 50yd",
+          "event_en": "50yd Fly",
+          "place": 72,
+          "medal": "",
+          "time": "31.30"
+        }
+      ],
+      "story_ko": "자유형 500yd에서 한 대회 만에 17초 이상을 단축(6:01→5:44)한 폭발적 성장. 개인혼영 200yd도 5초 가까이 당겼다. 순위보다 기록의 성장 곡선이 말해주는 대회.",
+      "story_en": "A single-meet 500yd free drop of over 17 seconds (6:01→5:44), plus a near-5-second 200yd IM PB — a meet where the progression curve, not the placing, tells the story.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "highlight": true
+    },
+    {
+      "id": "2026-05-02-jia-ditch",
+      "year": 2026,
+      "date": "2026-05-02",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA 5월 장수영장 디치미트",
+      "title_en": "NOVA May LC Ditch Meet",
+      "location_ko": "CA NOVA May LC Ditch Meet, 어바인",
+      "location_en": "CA NOVA May LC Ditch Meet, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "자유형 100m",
+          "event_en": "100m Free",
+          "place": 25,
+          "medal": "",
+          "time": "1:11.16",
+          "pb": true
+        },
+        {
+          "event_ko": "접영 100m",
+          "event_en": "100m Fly",
+          "place": 16,
+          "medal": "",
+          "time": "1:22.11"
+        }
+      ],
+      "story_ko": "장수영장 시즌 개막. 자유형 100m 개인최고.",
+      "story_en": "Long-course opener — a 100m free PB.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true,
+      "minor": true
+    },
+    {
+      "id": "2026-06-11-jia-june-invite",
+      "year": 2026,
+      "date": "2026-06-11",
+      "date_precision": "day",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "title_ko": "NOVA 6월 에이지그룹 인비테이셔널 — 자유형 200m 개인최고",
+      "title_en": "NOVA June AG Invite — 200m free PB",
+      "location_ko": "CA NOVA June AG Invite, 어바인",
+      "location_en": "CA NOVA June AG Invite, Irvine, CA",
+      "results": [
+        {
+          "event_ko": "자유형 200m",
+          "event_en": "200m Free",
+          "place": 20,
+          "medal": "",
+          "time": "2:27.24",
+          "pb": true
+        },
+        {
+          "event_ko": "접영 50m",
+          "event_en": "50m Fly",
+          "place": 19,
+          "medal": "",
+          "time": "33.65",
+          "pb": true,
+          "drop": "−2.98"
+        },
+        {
+          "event_ko": "개인혼영 200m",
+          "event_en": "200m IM",
+          "place": 22,
+          "medal": "",
+          "time": "2:51.38",
+          "pb": true
+        }
+      ],
+      "story_ko": "최신 대회(2026.6). 자유형 200m 2:27.24, 접영 50m 33.65(약 3초 단축), 개인혼영 200m 2:51.38 모두 장수영장 개인최고. 미국 두 시즌째에도 전 종목에서 성장이 이어진다.",
+      "story_en": "Her most recent meet (Jun 2026): long-course PBs in the 200m free (2:27.24), 50m fly (33.65, −3s) and 200m IM (2:51.38) — growth across every event in her second U.S. season.",
+      "sources": [
+        {
+          "kind": "results",
+          "publisher": "SwimCloud",
+          "url": "https://www.swimcloud.com/swimmer/2897224",
+          "title": "김지아 SwimCloud",
+          "note": "대회 이력 백업: capsules/us-nova-results/record.md",
+          "archived": "capsules/us-nova-results/",
+          "status": "snapshot"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
+      "id": "2023-jia-superintendent-cup",
+      "year": 2023,
+      "date": "2023-06-26",
+      "date_precision": "month",
+      "athletes": [
+        "jia"
+      ],
+      "type": "competition",
+      "highlight": true,
+      "title_ko": "2023 경기도교육감배 — 접영 50m·100m 2관왕",
+      "title_en": "2023 Gyeonggi Superintendent's Cup — butterfly double gold",
+      "location_ko": "2023 경기도교육감배 수영대회",
+      "location_en": "2023 Gyeonggi Superintendent's Cup, Korea",
+      "results": [
+        {
+          "event_ko": "접영 50m",
+          "event_en": "50m Butterfly",
+          "place": 1,
+          "medal": "gold",
+          "time": "37.57",
+          "round": "결승/final"
+        },
+        {
+          "event_ko": "접영 100m",
+          "event_en": "100m Butterfly",
+          "place": 1,
+          "medal": "gold",
+          "time": "1:26.36",
+          "round": "결승/final"
+        }
+      ],
+      "story_ko": "초등 3학년 김지아가 접영 50m(37.57)·100m(1:26.36) 모두 1위로 2관왕에 올랐다. 오빠 김재이도 같은 대회 개인혼영 200m에서 우승 — 남매가 나란히 시상대에 오른 시즌 중반 대회.",
+      "story_en": "As a 3rd grader, Jia swept the butterfly — 1st in both the 50m (37.57) and 100m (1:26.36). Her brother Jaei also won the 200m IM at the same meet: both siblings on the podium together.",
+      "sources": [
+        {
+          "kind": "official",
+          "publisher": "경기도수영연맹",
+          "url": "http://www.gswimming.com/32/52",
+          "title": "2023 경기도교육감배 수영대회 경기결과",
+          "note": "원본 xlsx 보관",
+          "archived": "capsules/kr-gyeonggi-results/",
+          "status": "captured"
+        }
+      ],
+      "media": [],
+      "verified": true
+    },
+    {
+      "id": "2023-jaei-superintendent-cup",
+      "year": 2023,
+      "date": "2023-06-26",
+      "date_precision": "month",
+      "athletes": [
+        "jaei"
+      ],
+      "type": "competition",
+      "highlight": true,
+      "title_ko": "2023 경기도교육감배 — 개인혼영 200m 우승·배영 50m 2위",
+      "title_en": "2023 Gyeonggi Superintendent's Cup — 200m IM gold, 50m back silver",
+      "location_ko": "2023 경기도교육감배 수영대회",
+      "location_en": "2023 Gyeonggi Superintendent's Cup, Korea",
+      "results": [
+        {
+          "event_ko": "개인혼영 200m",
+          "event_en": "200m IM",
+          "place": 1,
+          "medal": "gold",
+          "time": "2:51.75",
+          "round": "결승/final"
+        },
+        {
+          "event_ko": "배영 50m",
+          "event_en": "50m Backstroke",
+          "place": 2,
+          "medal": "silver",
+          "time": "38.76",
+          "round": "결승/final"
+        }
+      ],
+      "story_ko": "주종목 평영을 넘어 개인혼영 200m(2:51.75)에서 우승, 배영 50m에서도 2위. 여동생 김지아도 같은 대회 접영 2관왕 — 남매가 함께 시상대에 오른 대회다.",
+      "story_en": "Beyond his main breaststroke, Jaei won the 200m IM (2:51.75) and took silver in the 50m back. His sister Jia swept the butterfly at the same meet — a shared-podium day for the siblings.",
+      "sources": [
+        {
+          "kind": "official",
+          "publisher": "경기도수영연맹",
+          "url": "http://www.gswimming.com/32/52",
+          "title": "2023 경기도교육감배 수영대회 경기결과",
+          "note": "원본 xlsx 보관",
+          "archived": "capsules/kr-gyeonggi-results/",
+          "status": "captured"
         }
       ],
       "media": [],

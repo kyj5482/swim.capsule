@@ -64,7 +64,8 @@
       "athlete": "both",
       "period": "2024-07-01~2026-07-11",
       "goal": "USA Swimming Data Hub 원천 기록 대조",
-      "progress_2026_07_11": "SwimCloud(2897193/2897224)·SwimStandards(jaei-kim/jia-kim-2)에서 대회별 성적·개인최고기록 전량 수집 완료(capsules/us-nova-results/). data.usaswimming.org 원천 대조는 로그인 세션 필요 — 선택 사항."
+      "progress_2026_07_11": "SwimCloud(2897193/2897224)·SwimStandards(jaei-kim/jia-kim-2)에서 대회별 성적·개인최고기록 전량 수집 완료(capsules/us-nova-results/). data.usaswimming.org 원천 대조는 로그인 세션 필요 — 선택 사항.",
+      "progress_2026_07_12": "완료: SwimCloud(Jaei 2897193 / Jia 2897224)·SwimStandards에서 2024.09~2026.06 전 대회 수집, timeline.json에 선수별 이벤트로 등록. 원본 HTML은 Cloudflare 차단으로 capsules/us-nova-results/record.md에 표 백업."
     },
     {
       "athlete": "both",

@@ -148,7 +148,8 @@ function resultRows(e, lang) {
 ${e.results.map(r => {
     const m = MEDAL[r.medal];
     const place = r.place > 0 ? t(lang, `${r.place}위`, ordinal(r.place)) : '';
-    return `<tr><td>${esc(t(lang, r.event_ko, r.event_en))}</td><td>${m ? `<span class="pill ${m.cls}">${m.icon} ${t(lang, m.ko, m.en)}</span>` : ''} ${place}${r.record ? ` <span class="pill rec">⚡ ${esc(r.record)}</span>` : ''}</td><td>${esc(r.time) || '<span class="dim">TBC</span>'}</td></tr>`;
+    const pb = r.pb ? ` <span class="pill pb" title="${t(lang, '개인 최고기록', 'Personal best')}">${t(lang, '개인최고', 'PB')}${r.drop ? ` ${esc(r.drop)}` : ''}</span>` : '';
+    return `<tr><td>${esc(t(lang, r.event_ko, r.event_en))}</td><td>${m ? `<span class="pill ${m.cls}">${m.icon} ${t(lang, m.ko, m.en)}</span>` : ''} ${place}${r.record ? ` <span class="pill rec">⚡ ${esc(r.record)}</span>` : ''}${pb}</td><td>${esc(r.time) || '<span class="dim">TBC</span>'}</td></tr>`;
   }).join('\n')}
 </tbody></table>`;
 }
@@ -433,10 +434,13 @@ function ridePage(lang) {
     '롤러코스터 1인칭 시점처럼 2022년부터 지금까지, 김재이·김지아의 기록 사이를 통과하는 스페셜 라이드. 구간마다 뉴스·영상·기록이 큐레이터처럼 펼쳐집니다.',
     'A first-person POV ride from 2022 to now — glide past every meet, headline and record of Jaei & Jia Kim, curated station by station.');
 
+  // 라이드는 주요 대회·마일스톤만 큐레이션 (minor=클럽 내부 기록회는 제외)
+  const rideEvents = timeline.filter(e => !e.minor);
+  const rideYears = [...new Set(rideEvents.map(e => e.year))].sort();
   // 정거장: 연도 게이트 + 이벤트
   const stations = [];
   let lastYear = null, idx = 0;
-  stations.push(`<div class="st gate" data-i="${idx++}" data-year="${years[0]}">
+  stations.push(`<div class="st gate" data-i="${idx++}" data-year="${rideYears[0]}">
   <div class="st-inner gate-inner">
     <p class="kicker">SWIM CAPSULE RIDE</p>
     <h2>${t(lang, '안전바를 내려주세요', 'Lower the safety bar')}</h2>
@@ -444,7 +448,7 @@ function ridePage(lang) {
     <p class="gate-hint">▼ ${t(lang, '스크롤', 'Scroll')}</p>
   </div>
 </div>`);
-  for (const e of timeline) {
+  for (const e of rideEvents) {
     if (e.year !== lastYear) {
       lastYear = e.year;
       stations.push(`<div class="st gate gate-year" data-i="${idx++}" data-year="${e.year}">
@@ -453,7 +457,7 @@ function ridePage(lang) {
     }
     stations.push(rideStation(e, lang, rel, idx++));
   }
-  stations.push(`<div class="st gate finale" data-i="${idx++}" data-year="${years[years.length - 1]}">
+  stations.push(`<div class="st gate finale" data-i="${idx++}" data-year="${rideYears[rideYears.length - 1]}">
   <div class="st-inner gate-inner">
     <h2>🌊 ${t(lang, '라이드 종점', 'End of the line — for now')}</h2>
     <p>${t(lang, '다음 캡슐은 아직 봉인 중입니다. 남매의 레이스는 계속됩니다.', 'The next capsule is still being sealed. The siblings are still racing.')}</p>
@@ -462,7 +466,7 @@ function ridePage(lang) {
 </div>`);
 
   const total = idx;
-  const yearsAttr = years.join(',');
+  const yearsAttr = rideYears.join(',');
 
   const body = `
 ${nav(lang, rel, `${rel}${lang === 'ko' ? 'en/' : ''}ride/`, 'ride')}
