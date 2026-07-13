@@ -110,30 +110,43 @@ function shade(hex, f) {
 /* 콘솔 LCD(dash): 라이드 뱃머리에 장착된 계기판 화면 하나 —
    좌우 부유 광고판 대신 화면 중앙 하단에 고정되어 '라이드의 일부'로 읽힌다.
    월드컵 전광판처럼 자발광 스크린 + 헤더 스트립. 위치 고정, tr.a로만 페이드. */
+/* 뱃머리 콘솔 디스플레이: 보트 앞 계기판 화면처럼 — 위치는 tr.x/tr.y(모션 동기)를
+   따르고, 스크린은 원근 사다리꼴 + 하우징 + 접지 그림자로 뱃머리에 얹힌 느낌. */
 function drawDash(p, tr) {
-  const CX = 540, CY = 1372;
-  const wB = p.w || 500, wT = wB * 0.8;      // 아래 넓고 위 좁은 원근 사다리꼴
-  const lineH = p.lineH || 64, pad = p.pad || 22, hdrH = 44;
-  const bodyLines = p.lines.length - 1;       // 0번째 줄 = 헤더 라벨
+  const CX = tr.x, CY = tr.y;                // ← 보트 모션에 따라 함께 이동 (정지 아님)
+  const wB = p.w || 500, wT = wB * 0.82;     // 아래 넓고 위 좁은 원근 사다리꼴
+  const lineH = p.lineH || 64, pad = p.pad || 22, hdrH = 46;
+  const bodyLines = p.lines.length - 1;      // 0번째 줄 = 헤더 라벨
   const h = pad * 2 + bodyLines * lineH + hdrH;
   const topY = CY - h / 2, botY = CY + h / 2;
   const tl = CX - wT / 2, trr = CX + wT / 2, bl = CX - wB / 2, br = CX + wB / 2;
   const ac = p.accent || '#0b62d6';
   ctx.save();
   ctx.globalAlpha = tr.a;
-  // 마운트 지지대 (뱃머리로 연결)
-  ctx.fillStyle = '#171c21';
-  ctx.fillRect(CX - 74, botY - 4, 24, 96);
-  ctx.fillRect(CX + 50, botY - 4, 24, 96);
-  // 베젤
-  ctx.shadowColor = 'rgba(0,0,0,.5)'; ctx.shadowBlur = 26; ctx.shadowOffsetY = 9;
+  // 접지 그림자 (뱃머리 표면에 드리우는 그림자 → 얹혀 있는 느낌)
+  ctx.globalAlpha = tr.a * 0.32;
+  ctx.fillStyle = '#000';
+  ctx.beginPath();
+  ctx.ellipse(CX, botY + 40, wB * 0.52, 30, 0, 0, Math.PI * 2);
+  ctx.filter = 'blur(10px)'; ctx.fill(); ctx.filter = 'none';
+  ctx.globalAlpha = tr.a;
+  // 콘솔 하우징 (스크린 아래 뱃머리로 이어지는 짧은 받침 — 지지대 대신 일체형)
+  const hg = ctx.createLinearGradient(0, botY, 0, botY + 78);
+  hg.addColorStop(0, '#20262c'); hg.addColorStop(1, '#0e1216');
+  ctx.fillStyle = hg;
+  ctx.beginPath();
+  ctx.moveTo(bl + 22, botY - 2); ctx.lineTo(br - 22, botY - 2);
+  ctx.lineTo(br - 4, botY + 74); ctx.lineTo(bl + 4, botY + 74); ctx.closePath();
+  ctx.fill();
+  // 베젤 (다크 프레임)
+  ctx.shadowColor = 'rgba(0,0,0,.5)'; ctx.shadowBlur = 24; ctx.shadowOffsetY = 8;
   ctx.fillStyle = '#0d1115';
   ctx.beginPath();
-  ctx.moveTo(tl - 11, topY - 11); ctx.lineTo(trr + 11, topY - 11);
-  ctx.lineTo(br + 13, botY + 11); ctx.lineTo(bl - 13, botY + 11); ctx.closePath();
+  ctx.moveTo(tl - 12, topY - 12); ctx.lineTo(trr + 12, topY - 12);
+  ctx.lineTo(br + 13, botY + 12); ctx.lineTo(bl - 13, botY + 12); ctx.closePath();
   ctx.fill();
   ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
-  // 스크린 (자발광)
+  // 스크린 (자발광) — 사다리꼴로 클립
   ctx.beginPath();
   ctx.moveTo(tl, topY); ctx.lineTo(trr, topY); ctx.lineTo(br, botY); ctx.lineTo(bl, botY); ctx.closePath();
   ctx.save(); ctx.clip();

@@ -531,18 +531,21 @@ function ridePage(lang) {
 
   const body = `
 ${nav(lang, rel, `${rel}${lang === 'ko' ? 'en/' : ''}ride/`, 'ride')}
-<header class="hero yhero ride-hero" id="top">
+<header class="hero yhero" id="top">
   <p class="kicker reveal">${t(lang, '스페셜 — 1인칭 시점', 'Special — first-person POV')}</p>
   <h1 class="reveal"><span class="grad">${t(lang, '캡슐 라이드', 'The Capsule Ride')}</span></h1>
   <p class="sub reveal">${t(lang,
-    '롤러코스터 맨 앞자리처럼 — 스크롤하면 기록 사이를 헤엄쳐 나아갑니다. 구간마다 뉴스·영상·기록이 큐레이션됩니다.',
-    'Like the front seat of a rollercoaster — scroll to swim between the records. Each stretch curates its news, videos and times.')}</p>
-  <p class="dim reveal">${t(lang, '아래 쇼츠로 대회장을 먼저 둘러보세요. JS·모션 축소 환경에서는 정거장이 일반 목록으로 표시됩니다.', 'Preview the venues in the shorts below. Without JS (or reduced motion) the stations render as a plain list.')}</p>
+    '롤러코스터의 맨 앞자리에서 시간을 통과하듯 — 스크롤할수록 기록 사이를 헤엄쳐 나아갑니다. 구간마다 뉴스, 영상, 기록이 큐레이션되어 기다립니다.',
+    'Like the front seat of a rollercoaster through time — the further you scroll, the deeper you swim between the records. Every stretch curates its news, videos and times.')}</p>
+  <p class="dim reveal">${t(lang, 'JS·모션 축소 환경에서는 정거장이 일반 목록으로 표시됩니다.', 'Without JS (or with reduced motion) the stations render as a plain list.')}</p>
 </header>
-${shorts.length ? `<section class="shorts-sec" aria-label="${t(lang, '라이드 쇼츠', 'Ride Shorts')}">
-  <p class="shorts-sec-label">🎬 ${t(lang, '라이드 쇼츠 — 썸네일을 누르면 재생', 'Ride Shorts — tap a thumbnail to play')}</p>
+${shorts.length ? `<section class="sec shorts-sec">
+  <h2 class="reveal">🎬 ${t(lang, '라이드 쇼츠', 'Ride Shorts')}</h2>
+  <p class="dim reveal">${t(lang,
+    '대회가 열린 지역을 1인칭 워터코스터로 여행하는 AI 쇼츠 — 썸네일을 누르면 재생됩니다.',
+    'AI shorts touring each season’s meet locations as a first-person water coaster — tap a thumbnail to play.')}</p>
   <div class="shorts-strip">
-    ${shorts.map(s => `<figure class="short-card">
+    ${shorts.map(s => `<figure class="short-card reveal">
       <a class="short-play" href="${rel}assets/shorts/${esc(s.id)}.mp4"
         data-video="${rel}assets/shorts/${esc(s.id)}.mp4"
         data-poster="${rel}assets/shorts/${esc(s.id)}.jpg"
@@ -550,7 +553,7 @@ ${shorts.length ? `<section class="shorts-sec" aria-label="${t(lang, '라이드 
         aria-label="${esc(t(lang, s.title_ko + ' 재생', 'Play ' + s.title_en))}">
         <span class="short-play-ico" aria-hidden="true">▶</span>
       </a>
-      <figcaption>${esc(t(lang, s.title_ko, s.title_en))}</figcaption>
+      <figcaption><b>${esc(t(lang, s.title_ko, s.title_en))}</b><span>${esc(t(lang, s.desc_ko, s.desc_en))}</span></figcaption>
     </figure>`).join('\n')}
   </div>
 </section>` : ''}
